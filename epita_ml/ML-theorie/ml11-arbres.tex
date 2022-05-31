@@ -1,0 +1,259 @@
+\documentclass[11pt]{beamer}
+\usepackage{helvet} %font
+\beamertemplatenavigationsymbolsempty
+\usetheme{JuanLesPins}
+\usefonttheme{structurebold}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{xcolor,colortbl}
+\usetikzlibrary{arrows,positioning}
+\usepackage{listings}
+
+\AtBeginSubsection[]
+{
+   \begin{frame}
+	\small \tableofcontents[currentsection]
+   \end{frame}
+}
+
+\setbeamercolor{structure}{fg=red}
+\setbeamercolor{frametitle}{bg=black,fg=white}
+\definecolor{gris}{gray}{0.6}
+\definecolor{grisclair}{gray}{0.9}
+
+\newtheorem{exercice}{Exercice}
+
+
+\newcommand{\Python}[1]{
+	{\small	\lstinputlisting[language=Python]{./#1.py}}
+}
+
+
+\title{Machine Learning XI : Arbres de Décision}
+\author{Nicolas Bourgeois}
+\date{}
+
+\begin{document}
+
+
+
+\section{En IA déterministe}
+
+\subsection{Construction de l'arbre}
+
+\begin{frame}{Arbre de décision A/B}
+
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\coordinate(1) at (0,0);
+	\coordinate(11) at (-2,-2);
+	\coordinate(12) at (0,-2);
+	\coordinate(13) at (2,-2);
+	\coordinate(111) at (-4,-4);
+	\coordinate(112) at (-2,-4);
+	\coordinate(113) at (0,-4);
+
+	\draw[-latex] (1) node[above]{start} -- (11) node[left]{A1};
+	\draw[-latex] (1) -- (12) node[below]{A2};
+	\draw[-latex] (1) -- (13) node[below]{A3};
+	\pause
+	\draw[-latex] (11) -- (111) node[below]{B1};
+	\draw[-latex] (11) -- (112) node[below]{B2};
+	\draw[-latex] (11) -- (113) node[below]{B3};
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{Principe}
+
+On cherche a optimiser la stratégie A à chaque étape, sachant que l'adversaire essaiera de trouver la pire réponse B en fonction de A.\\
+
+$$\mathcal{G} = Max_{A \in \mathcal{A}} Min_{B \in \mathcal{B}(A)} G(A,B)$$
+
+\end{frame}
+
+\begin{frame}{Matrice de paiement}
+
+\begin{tikzpicture}[xscale=1,yscale=1]
+
+	\draw (0,0) grid (5,3);
+	\draw (-0.5,0.5) node{A3};
+	\draw (-0.5,1.5) node{A2};
+	\draw (-0.5,2.5) node{A1};
+	\draw (0.5,3.5) node{B1};
+	\draw (1.5,3.5) node{B2};
+	\draw (2.5,3.5) node{B3};
+	\draw (3.5,3.5) node{B4};
+	\draw (4.5,3.5) node{B5};
+	\draw (0.5,0.5) node{+2};
+	\draw (0.5,1.5) node{-1};
+	\draw (0.5,2.5) node{+1};
+	\draw (3.5,0.5) node{+4};
+	\draw (3.5,1.5) node{-2};
+	\draw (1.5,2.5) node{0};
+	\draw (4.5,0.5) node{0};
+	\draw (4.5,1.5) node{+1};
+	\draw (2.5,2.5) node{-2};
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{Vertus et limites}
+
+\begin{itemize}
+	\item Permet de résoudre exactement des jeux simples (Nim).
+	\vspace{0.2cm}
+	\pause
+	\item Complexité en $O(a^p)$ où $a$ est l'arité et $p$ la profondeur.
+	\vspace{0.2cm}
+	\pause
+	\item Impossible de prévoir plus que quelques coups de profondeur.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\begin{exercice}
+Construisez l'arbre de décision et la matrice des paiements associés au processus de pulvérisation des sommets d'un cube par des demi-espaces. 
+\end{exercice}
+
+\end{frame}
+
+\subsection{Pruning}
+
+
+\begin{frame}{Pruning I : evaluation}
+
+On procède à des évaluations intermédiaires pour réduire la profondeur :
+\begin{itemize}
+	\item Evaluation exacte d'une situation (scoring intermédiaire d'une manche),
+	\item Evaluation approximative déterministe, basée sur des critères a priori (valeur des pièces restantes aux échecs),
+	\item Evaluation approximative par apprentissage, basée sur la statistique de victoire conditionnelle à une situation (valeur d'un plateau de go).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Pruning II : bornes}
+\begin{itemize}
+	\item On effectue des prospection en profondeur (par ex. aléatoires)
+	\item Qui nous permettent d'établir des bornes sur les paiements
+	\item Et donc de couper les sous-arbres inefficaces
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Pruning III: memoization}
+\begin{itemize}
+	\item On étudie tous les sous-arbres de faible profondeur
+	\item On stocke les résultats dans un tableau
+	\item Ces résultats deviennent les feuilles d'un arbre de plus faible profondeur
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Apprentissage (exemple)}
+
+\begin{itemize}
+	\item On effectue un grand nombre de parties $N$.
+	\pause
+	\item Un sous-ensemble de ces parties $N(X) \subset N$ passe par la situation $X$.
+	\pause
+	\item On définit le score de $X$ comme étant le pourcentage de victoires finales ($V$) parmi $N(X)$.
+	
+	$$\mathcal{G}(X) = \frac{N(V \cap X)}{N(X)} \sim P(V|X)$$
+\end{itemize}
+
+\end{frame}
+
+\section{Arbres en classification}
+
+\subsection{Arbres de décision sur des données}
+
+\begin{frame}{Principe}
+
+Chaque noeud correspond à une décision conditionnelle.\\
+
+Soit $C$ le chemin de la racine à $i$, les arêtes du noeud $i$ sont des partitions sur les valueurs possibles de :
+
+$$X_i|\bigwedge_{c_j\in C}\left( X_j=c_j \right)$$ 
+
+A chaque feuille on associe une prédiction :
+
+$$Y|\bigwedge_{c_j\in C} \left( X_j=c_j \right)$$
+
+\end{frame}
+
+\begin{frame}{Estimateur}
+
+$\tilde{f}_T(x)$ est la feuille obtenue en suivant le chemin $X_j=x_j$ à chaque noeud $j$ de l'arbre $T$.\\
+
+\vspace{0.3cm}
+
+On cherche l'arbre $T$ qui minimise le risque de l'estimateur associé $\tilde{f}_T(x)$
+
+\end{frame}
+
+\begin{frame}{exercice}
+
+Quel(s) processus de décision associer au tableau suivant ?\\
+
+\begin{center}
+\vspace{0.2cm}
+\begin{tabular}{|c|c|c|c|}
+\hline
+X1 & X2 & X3 & Y \\
+\hline
+T & F & T & T\\
+T & F & F & T\\
+T & T & F & F\\
+T & T & T & T\\
+F & T & F & T\\
+F & F & T & F\\
+F & F & T & F\\
+F & F & T & F\\
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Evaluation I}
+
+ERM : 
+
+$$ D(\tilde{f}_T) = \frac{1}{N}\sum_{i \in I} \left( LF(\tilde{f}_T(X_i),Y_i) \right)$$
+
+\end{frame}
+
+\begin{frame}{Evaluation II}
+Entropie :
+
+$$ H(E,G) = - \sum_{y \in G}p(y)\log p(y)$$
+
+avec 
+
+$$p(y) = \frac{|\{(X,Y)\in E\times G,Y=y\}|}{|E\times G|}$$
+
+\end{frame}
+
+\begin{frame}{Evaluation II}
+
+Objectif : choisir un test qui réduit au maximum l'entropie.
+
+$$\max H(E,G) - \sum \frac{|E_k\times F|}{|E\times G|}H(E_k,Y)$$
+
+Où $(E_k)$ est la partition résultant du branchement. 
+
+\end{frame}
+
+\subsection{Pruning dans un arbre aléatoire}
+
+\begin{frame}{}
+Pas au programme cette année finalement
+\end{frame}
+
+\end{document}

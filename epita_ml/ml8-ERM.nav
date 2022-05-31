@@ -1,0 +1,132 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{Outils de base}{3}{Outils de base}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Loss Function}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{Loss Function}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{1}{2}{4/4}{Loss Function}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {1}{1}{3}{5/5}{Loss Function}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{1}{4}{6/6}{Loss Function}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{1}{5}{7/7}{Loss Function}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {1}{1}{6}{8/8}{Loss Function}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{1}{7}{9/9}{Loss Function}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@subsectionpages {3}{9}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{10}{Risque empirique}}
+\headcommand {\slideentry {1}{2}{1}{10/10}{Risque empirique}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {1}{2}{2}{11/11}{Risque empirique}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {1}{2}{3}{12/12}{Risque empirique}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {1}{2}{4}{13/13}{Risque empirique}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsectionpages {10}{13}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{14}{Matrice de confusion}}
+\headcommand {\slideentry {1}{3}{1}{14/14}{Matrice de confusion}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {1}{3}{2}{15/15}{Matrice de confusion}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\slideentry {1}{3}{3}{16/16}{Matrice de confusion}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {1}{3}{4}{17/17}{Matrice de confusion}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@subsectionpages {14}{17}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{18}{Scatter Plot}}
+\headcommand {\slideentry {1}{4}{1}{18/18}{Scatter Plot}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {1}{4}{2}{19/19}{Scatter Plot}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {1}{4}{3}{20/20}{Scatter Plot}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {1}{4}{4}{21/21}{Scatter Plot}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@sectionpages {3}{21}}
+\headcommand {\beamer@subsectionpages {18}{21}}
+\headcommand {\sectionentry {2}{Risque et Consistance}{22}{Risque et Consistance}{0}}
+\headcommand {\slideentry {2}{0}{1}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {2}{0}{2}{23/23}{}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {2}{0}{3}{24/24}{}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@subsectionpages {22}{24}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{25}{Motivation}}
+\headcommand {\slideentry {2}{1}{1}{25/25}{Motivation}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\slideentry {2}{1}{2}{26/26}{Motivation}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\beamer@subsectionpages {25}{26}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{27}{Risque}}
+\headcommand {\slideentry {2}{2}{1}{27/27}{Risque}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\slideentry {2}{2}{2}{28/28}{Risque}{0}}
+\headcommand {\beamer@framepages {28}{28}}
+\headcommand {\slideentry {2}{2}{3}{29/29}{Risque}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\slideentry {2}{2}{4}{30/30}{Risque}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\beamer@subsectionpages {27}{30}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{31}{Consistance}}
+\headcommand {\slideentry {2}{3}{1}{31/31}{Consistance}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\slideentry {2}{3}{2}{32/32}{Consistance}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\slideentry {2}{3}{3}{33/33}{Consistance}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\slideentry {2}{3}{4}{34/34}{Consistance}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\beamer@sectionpages {22}{34}}
+\headcommand {\beamer@subsectionpages {31}{34}}
+\headcommand {\sectionentry {3}{Empirical Risk Minimization}{35}{Empirical Risk Minimization}{0}}
+\headcommand {\slideentry {3}{0}{1}{35/35}{}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\slideentry {3}{0}{2}{36/36}{}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {3}{0}{3}{37/37}{}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\beamer@subsectionpages {35}{37}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{38}{ERM}}
+\headcommand {\slideentry {3}{1}{1}{38/38}{ERM}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\slideentry {3}{1}{2}{39/39}{ERM}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\slideentry {3}{1}{3}{40/40}{ERM}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {3}{1}{4}{41/41}{ERM}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\beamer@subsectionpages {38}{41}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{42}{exemples}}
+\headcommand {\slideentry {3}{2}{1}{42/42}{exemples}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {3}{2}{2}{43/43}{exemples}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {3}{2}{3}{44/44}{exemples}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {3}{2}{4}{45/45}{exemples}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\beamer@subsectionpages {42}{45}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{46}{g\IeC {\'e}n\IeC {\'e}ralisation}}
+\headcommand {\slideentry {3}{3}{1}{46/46}{g\IeC {\'e}n\IeC {\'e}ralisation}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {3}{3}{2}{47/47}{g\IeC {\'e}n\IeC {\'e}ralisation}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {3}{3}{3}{48/48}{g\IeC {\'e}n\IeC {\'e}ralisation}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\slideentry {3}{3}{4}{49/49}{g\IeC {\'e}n\IeC {\'e}ralisation}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\beamer@partpages {1}{49}}
+\headcommand {\beamer@subsectionpages {46}{49}}
+\headcommand {\beamer@sectionpages {35}{49}}
+\headcommand {\beamer@documentpages {49}}
+\headcommand {\gdef \inserttotalframenumber {49}}

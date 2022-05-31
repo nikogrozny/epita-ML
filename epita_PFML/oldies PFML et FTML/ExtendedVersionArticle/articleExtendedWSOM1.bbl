@@ -1,0 +1,53 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{BGM{\etalchar{+}}10}
+
+\bibitem[BEPR12]{exactis}
+N.~Bourgeois, B.~Escoffier, V.~Th. Paschos, and J.~M. M.~v. Rooij.
+\newblock Fast algorithms for max independent set.
+\newblock {\em Algorithmica}, 62:382--415, 2012.
+
+\bibitem[BGM{\etalchar{+}}10]{qis}
+N.~Bourgeois, G.~Giannakos, I.~Milis, V.~Th. Paschos, and O.~Pottie.
+\newblock The max quasi-independent set problem.
+\newblock {\em Journal of Combinatorial Optimization}, 23:94--117, 2010.
+
+\bibitem[CFP98]{cottrell98}
+M.~Cottrell, J.-C. Fort, and G.~Pag{\`e}s.
+\newblock Theoretical aspects of the {SOM} algorithm.
+\newblock {\em Neurocomputing}, 21:119--138, 1998.
+
+\bibitem[dBCV02]{debodt02}
+E.~de~Bodt, M.~Cottrell, and M.~Verleysen.
+\newblock Statistical tools to assess the reliability of self-organizing maps.
+\newblock {\em Neural Networks}, 15, 8-9:967--978, 2002.
+
+\bibitem[Koh95]{kohonen95}
+Teuvo Kohonen.
+\newblock {\em Self-Organizing Maps}, volume~30.
+\newblock Springer Series in Information Science, Berlin, 1995.
+
+\bibitem[Lam12]{lamasse2012}
+St{\'e}phane Lamass{\'e}.
+\newblock Les trait{\'e}s d'arithm{\'e}tique m{\'e}di{\'e}vale et la
+  constitution d'une langue de sp{\'e}cialit{\'e}.
+\newblock In Jo{\"e}lle Ducos, editor, {\em Sciences et langues au Moyen
+  {\^A}ge, Actes de l'Atelier franco-allemand, Paris, 27-30 janvier 2009},
+  pages 66--104. Universit{\"a}tesverlag, Heidelberg, 2012.
+
+\bibitem[LS94]{lebartstatistique1994}
+Ludovic Lebart and Andr{\'e} Salem.
+\newblock {\em Statistique textuelle}.
+\newblock Dunod, Paris, 1994.
+
+\bibitem[MS03]{martinezcontribution2003}
+William Martinez and Andr{\'e} Salem.
+\newblock {\em Contribution {\`a} une m{\'e}thodologie de l'analyse des
+  cooccurrences lexicales multiples dans les corpus textuels}.
+\newblock Th{\`e}se doctorat, 2003.
+
+\bibitem[OK99]{oja99}
+Erkki Oja and Samuel Kaski.
+\newblock {\em Kohonen Maps}.
+\newblock Elsevier, 1999.
+
+\end{thebibliography}

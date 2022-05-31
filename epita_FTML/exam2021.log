@@ -1,0 +1,356 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.10.1)  18 JUN 2021 18:29
+entering extended mode
+**./exam2021.tex
+(exam2021.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-09-03>
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\a
+rticle.cls"
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\s
+ize10.clo"
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babe
+l\babel.sty"
+Package: babel 2020/09/01 3.48 The Babel package
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babe
+l\babel.def"
+File: babel.def 2020/09/01 3.48 Babel common definitions
+\babel@savecnt=\count176
+\U@D=\dimen135
+\l@babelnohyphens=\language83
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babe
+l\txtbabel.def")
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count177
+
+*************************************
+* Local config file bblopts.cfg used
+*
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\
+bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babe
+l-french\french.ldf"
+Language: french 2020/07/02 v3.5j French support from the babel system
+Package babel Info: \l@acadian = using hyphenrules for french
+(babel)             (\language24) on input line 91.
+Package babel Info: \l@canadien = using hyphenrules for french
+(babel)             (\language24) on input line 92.
+\FB@nonchar=\count178
+Package babel Info: Making : an active character on input line 428.
+Package babel Info: Making ; an active character on input line 429.
+Package babel Info: Making ! an active character on input line 430.
+Package babel Info: Making ? an active character on input line 431.
+\FBguill@level=\count179
+\FBold@everypar=\toks15
+\FB@Mht=\dimen136
+\mc@charclass=\count180
+\mc@charfam=\count181
+\mc@charslot=\count182
+\std@mcc=\count183
+\dec@mcc=\count184
+\c@FBcaption@count=\count185
+\listindentFB=\dimen137
+\descindentFB=\dimen138
+\labelindentFB=\dimen139
+\labelwidthFB=\dimen140
+\leftmarginFB=\dimen141
+\parindentFFN=\dimen142
+\FBfnindent=\dimen143
+))
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/carlis
+le\scalefnt.sty")
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphi
+cs\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\i
+nputenc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\f
+ontenc.sty"
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfon
+ts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmat
+h\amsmath.sty"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmat
+h\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmat
+h\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen144
+))
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmat
+h\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen145
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmat
+h\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count186
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count187
+\leftroot@=\count188
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count189
+\DOTSCASE@=\count190
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box45
+\strutbox@=\box46
+\big@size=\dimen146
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count191
+\c@MaxMatrixCols=\count192
+\dotsspace@=\muskip16
+\c@parentequation=\count193
+\dspbrk@lvl=\count194
+\tag@help=\toks21
+\row@=\count195
+\column@=\count196
+\maxfields@=\count197
+\andhelp@=\toks22
+\eqnshift@=\dimen147
+\alignsep@=\dimen148
+\tagshift@=\dimen149
+\tagwidth@=\dimen150
+\totwidth@=\dimen151
+\lineht@=\dimen152
+\@envbody=\toks23
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfon
+ts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphi
+cs\graphicx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphi
+cs\graphics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphi
+cs\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphi
+cs-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphi
+cs-def\pdftex.def"
+File: pdftex.def 2020/08/26 v1.2 Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen153
+\Gin@req@width=\dimen154
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3back
+end\l3backend-pdftex.def"
+File: l3backend-pdftex.def 2020-09-01 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count198
+\l__pdf_internal_box=\box47
+) (exam2021.aux)
+\openout1 = `exam2021.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Info: Redefining \degres on input line 15.
+LaTeX Info: Redefining \dots on input line 15.
+LaTeX Info: Redefining \up on input line 15.
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/context/base
+/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count199
+\scratchdimen=\dimen155
+\scratchbox=\box48
+\nofMPsegments=\count266
+\nofMParguments=\count267
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count268
+\MPscratchDim=\dimen156
+\MPnumerator=\count269
+\makeMPintoPDFobject=\count270
+\everyMPtoPDFconversion=\toks26
+)
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstop
+df-pkg\epstopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfon
+ts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+
+
+("C:\Users\nicolas.bourgeois\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfon
+ts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+<estimateurs.png, id=1, 195.6108pt x 137.0721pt>
+File: estimateurs.png Graphic file (type png)
+<use estimateurs.png>
+Package pdftex.def Info: estimateurs.png  used on input line 25.
+(pdftex.def)             Requested size: 195.6103pt x 137.07175pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+[1
+
+{C:/Users/nicolas.bourgeois/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} 
+<./estimateurs.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+[2] (exam2021.aux) ) 
+Here is how much of TeX's memory you used:
+ 4015 strings out of 481165
+ 55584 string characters out of 2896295
+ 310457 words of memory out of 3000000
+ 19604 multiletter control sequences out of 15000+200000
+ 545890 words of font info for 61 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 36i,6n,35p,352b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\nicolas.bourgeois\AppData\Local\MiKTeX\2.9\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\nicolas.bourgeois\AppData\
+Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\nico
+las.bourgeois\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1
+000.pk> <C:\Users\nicolas.bourgeois\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jk
+nappen/ec/dpi600\ecti1000.pk> <C:\Users\nicolas.bourgeois\AppData\Local\MiKTeX\
+2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\nicolas.bourgeois
+\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Us
+ers/nicolas.bourgeois/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb><C:/Users/nicolas.bourgeois/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/nicolas.bourgeois/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on exam2021.pdf (2 pages, 123331 bytes).
+PDF statistics:
+ 217 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

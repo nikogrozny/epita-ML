@@ -1,0 +1,10 @@
+\BOOKMARK [2][]{Outline0.1}{Motivation}{}% 1
+\BOOKMARK [2][]{Outline0.2}{Visualisation}{}% 2
+\BOOKMARK [2][]{Outline0.3}{D\351cision}{}% 3
+\BOOKMARK [3][]{Outline0.3.1.65}{Ford-Fulkerson / Edmonds}{Outline0.3}% 4
+\BOOKMARK [3][]{Outline0.3.2.77}{Construction de distances, principe et exemples}{Outline0.3}% 5
+\BOOKMARK [3][]{Outline0.3.3.83}{Construction de graphes avec seuil simple}{Outline0.3}% 6
+\BOOKMARK [3][]{Outline0.3.4.89}{MATCHING vs CLUSTERING \(cliques\)}{Outline0.3}% 7
+\BOOKMARK [3][]{Outline0.3.5.102}{La classification hi\351rarchique ascendante}{Outline0.3}% 8
+\BOOKMARK [2][]{Outline0.4}{Qualit\351 d'un mod\350le}{}% 9
+\BOOKMARK [2][]{Outline0.5}{Atelier sklearn}{}% 10

@@ -1,0 +1,4 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Mod\IeC {\`e}le Y=f(X)}{3}{0}{1}
+\beamer@sectionintoc {2}{Mod\IeC {\`e}le g\IeC {\'e}n\IeC {\'e}ratif}{9}{0}{2}
+\beamer@sectionintoc {3}{Application en Lexicom\IeC {\'e}trie}{19}{0}{3}

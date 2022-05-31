@@ -1,0 +1,81 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{lamasse2012}
+S.~Lamass{\'e}, Les trait{\'e}s d'arithm{\'e}tique m{\'e}di{\'e}vale et la
+  constitution d'une langue de sp{\'e}cialit{\'e}, in: J.~Ducos (Ed.), Sciences
+  et langues au Moyen {\^A}ge, Actes de l'Atelier franco-allemand, Paris, 27-30
+  janvier 2009, Universit{\"a}tesverlag, Heidelberg, 2012, pp. 66--104.
+
+\bibitem{beaujouanplace1988}
+G.~Beaujouan, The place of {N}icolas {C}huquet in a typology of
+  fifteenth-century french arithmetics, Clarendon Press, 1988, pp. 73--88.
+
+\bibitem{spiesserarithmetique2003}
+M.~Spiesser, Une arithmétique commerciale du XVe siècle : le Compendy de la
+  praticque des nombres de Barthélemy de Romans, De diversis artibus ; t. 70,
+  Brepols, 2003.
+
+\bibitem{benoitrecherches1985}
+P.~Benoit, Recherches sur le vocabulaire des opérations élémentaires dans
+  les arithmétiques en langue française de la fin du moyen age, Documents
+  pour l'histoire du vocabulaire scientifique 7 (1985) 77--95.
+
+\bibitem{prost1988}
+A.~Prost, Les mots, in: R.~René (Ed.), Pour une histoire politique, Seuil,
+  Paris, 1988, pp. 255--286.
+
+\bibitem{Mayaffre2005}
+D.~Mayaffre, De la lexicométrie à la logométrie, Astrolabe.
+
+\bibitem{Rastier2011}
+Rastier, La mesure et le Grain. Sémantique de corpus, champion Edition, Paris,
+  2011.
+
+\bibitem{martinezcontribution2003}
+W.~Martinez, A.~Salem, Contribution {\`a} une m{\'e}thodologie de l'analyse des
+  cooccurrences lexicales multiples dans les corpus textuels, Th{\`e}se
+  doctorat (2003).
+
+\bibitem{brunet2000}
+B.~Etienne, Qui lemmatise dilemne attise, lexicometrica (2000) 1--19.
+
+\bibitem{oja99}
+E.~Oja, S.~Kaski, Kohonen Maps, Elsevier, 1999.
+
+\bibitem{honkela}
+N.~Janasik, T.~Honkela, H.~Bruun, Text mining in qualitative research:
+  application of an unsupervised learning methode, Organizational Research
+  Methods 3~(12) (2009) 436--460.
+
+\bibitem{cottrell98}
+M.~Cottrell, J.-C. Fort, G.~Pag{\`e}s, Theoretical aspects of the {SOM}
+  algorithm, Neurocomputing 21 (1998) 119--138.
+
+\bibitem{kohonen95}
+T.~Kohonen, Self-Organizing Maps, Vol.~30, Springer Series in Information
+  Science, Berlin, 1995.
+
+\bibitem{debodt02}
+E.~de~Bodt, M.~Cottrell, M.~Verleysen, Statistical tools to assess the
+  reliability of self-organizing maps, Neural Networks 15, 8-9 (2002) 967--978.
+
+\bibitem{qis}
+N.~Bourgeois, G.~Giannakos, I.~Milis, V.~T. Paschos, O.~Pottie, The max
+  quasi-independent set problem, Journal of Combinatorial Optimization 23
+  (2010) 94--117.
+
+\bibitem{exactis}
+N.~Bourgeois, B.~Escoffier, V.~T. Paschos, J.~M. M.~v. Rooij, Fast algorithms
+  for max independent set, Algorithmica 62 (2012) 382--415.
+
+\bibitem{Der2010}
+B.~Deruelle, Enjeux politiques et sociaux de la culture chevaleresque au {XVI}e
+  siècle: les prologues de chansons de geste imprimées, Revue historique~(3)
+  (2010) 551--576.
+
+\end{thebibliography}

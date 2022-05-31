@@ -1,0 +1,7 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{En IA d\IeC {\'e}terministe}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Construction de l'arbre}{1}{0}{1}
+\beamer@subsectionintoc {1}{2}{Pruning}{10}{0}{1}
+\beamer@sectionintoc {2}{Arbres en classification}{17}{0}{2}
+\beamer@subsectionintoc {2}{1}{Arbres de d\IeC {\'e}cision sur des donn\IeC {\'e}es}{17}{0}{2}
+\beamer@subsectionintoc {2}{2}{Pruning dans un arbre al\IeC {\'e}atoire}{24}{0}{2}

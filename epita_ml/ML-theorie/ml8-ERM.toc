@@ -1,0 +1,11 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Outils de base}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Fonction de Perte}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Risque empirique}{7}{0}{1}
+\beamer@subsectionintoc {1}{3}{Matrice de confusion}{15}{0}{1}
+\beamer@subsectionintoc {1}{4}{Courbe ROC}{22}{0}{1}
+\beamer@sectionintoc {2}{Risque et Consistance}{28}{0}{2}
+\beamer@subsectionintoc {2}{1}{ERM}{28}{0}{2}
+\beamer@subsectionintoc {2}{2}{Consistance}{34}{0}{2}
+\beamer@subsectionintoc {2}{3}{Exemple d\IeC {\'e}roul\IeC {\'e} : kNN}{38}{0}{2}
+\beamer@subsectionintoc {2}{4}{D\IeC {\'e}composition approximation-estimation}{47}{0}{2}

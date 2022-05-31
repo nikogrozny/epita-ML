@@ -1,0 +1,1292 @@
+\documentclass[runningheads,a4paper]{llncs}
+\bibliographystyle{splncs03}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{vmargin}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{xcolor,colortbl}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{rotating}
+
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{0pt}%
+\setlength{\rightmargin}{0pt}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{0pt plus 1pt}%
+\addtolength{\leftmargin}{#1}%
+\addtolength{\rightmargin}{#2}%
+}\item }{\end{list}}
+
+\urldef{\mailENS}\path|nbourgeo@phare.normalesup.org|
+\urldef{\mailSAMM}\path|marie.cottrell,patrick.letremy@univ-paris1.fr|
+\urldef{\mailLAMOP}\path|benjamin.deruelle,stephane.lamasse@univ-paris1.fr|
+
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+\definecolor{gris}{gray}{0.6}
+\definecolor{grisclair}{gray}{0.9}
+\definecolor{gray0.9}{gray}{.95}
+\definecolor{gray0.8}{gray}{.85}
+\definecolor{gray0.7}{gray}{.75}
+\definecolor{gray0.6}{gray}{.7}
+\definecolor{gray0.55}{gray}{.65}
+\definecolor{gray0.5}{gray}{.6}
+\definecolor{gray0.45}{gray}{.575}
+\definecolor{gray0.4}{gray}{.55}
+\definecolor{gray0.35}{gray}{.525}
+\definecolor{gray0.3}{gray}{.5}
+
+
+\begin{document}
+
+\mainmatter  
+
+\title{ TODO - Extended version of the WSOM paper}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{TODO}
+
+\author{Nicolas Bourgeois\inst{1}
+\and Marie Cottrell\inst{1} \and Benjamin D\'eruelle\inst{2} 
+\and St\'ephane Lamass\'e\inst{2} \and Patrick Letr\'emy\inst{1}}
+
+\institute{SAMM - Universit\'e Paris 1 Panth\'eon-Sorbonne\\
+90, rue de Tolbiac, 75013 Paris, France\\
+\mailENS\\
+\mailSAMM \and
+PIREH-LAMOP - Universit\'e Paris 1 Panth\'eon-Sorbonne\\
+1, rue Victor Cousin, Paris, France\\
+\mailLAMOP
+}
+
+\maketitle
+
+
+\begin{abstract}
+TODO
+\end{abstract}
+
+\keywords{Text Analysis, Factorial Component Analysis, Kohonen Map}
+
+\section{Introduction}
+\setcounter{footnote}{0}
+
+TODO
+
+\subsection{Lexicometry in Histor, Litterature and Political Sciences: a brief state of the art}
+
+TODO
+
+\subsection{Use of Factorial Analysis}
+
+TODO
+
+\subsection{Kohonen Maps}
+
+TODO
+
+\section{Historical Context}
+
+\subsection{Text Corpus}
+
+\subsection{Vocabulary}
+
+\subsection{An example of use of Factorial Analysis}
+
+\begin{figure}[h!]
+\centering
+
+\begin{tikzpicture}[scale=0.14]
+
+\pgfmathsetmacro\fsize{87};
+\pgfmathsetmacro\xorg{20};
+\pgfmathsetmacro\yorg{20};
+\pgfmathsetmacro\xdlcorner{-11};
+\pgfmathsetmacro\ydlcorner{-23};
+\pgfmathsetmacro\stepunit{25};
+
+\coordinate (dlcorner) at (\xdlcorner,\ydlcorner);
+
+\draw[black,line width=0.4mm] (dlcorner) -- +(0,\fsize) -- +(\fsize,\fsize) -- +(\fsize,0) -- +(0,0);
+\draw[dotted,black,line width=0.4mm] (\xdlcorner+2.5,\yorg) -- (\xdlcorner+\fsize,\yorg);
+\draw[dotted,black,line width=0.4mm] (\xorg,\ydlcorner+1.8) -- (\xorg,\ydlcorner+\fsize);
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+\node at (32,\ydlcorner+1){\textbf{ Factor 1 (25.03\%)}};
+\node at (\xorg-\stepunit,\ydlcorner+1){\textbf{-1}};
+\node at (\xorg,\ydlcorner+1){\textbf{0}};
+\node at (\xorg+\stepunit,\ydlcorner+1){\textbf{1}};
+\node at (\xorg+2*\stepunit,\ydlcorner+1){\textbf{2}};
+\node[rotate=90] at (\xdlcorner+1.7,7){\textbf{ Factor 2 (17.91\%)}};
+\node at (-9.6,\yorg){\textbf{0}};
+\node at (-9.4,\yorg-\stepunit){\textbf{-1}};
+\node at (-9.6,\yorg+\stepunit){\textbf{1}};
+\end{scope}
+
+\path plot[mark=*,mark size=4mm] coordinates {(50.375,17.7) (17.55,16.5) (38.05,29.475) (36.975,14.2) (48,27.3) (3.75,40.325) (22.725,30.85) (43.425,9.675) (26.3,25.2) (11.325,34.15) (21.5,28.625) (42.35,23) (52.35,24.175) (21.1,17.45) (11.675,21.475) (13.125,30.05) (26.825,15.95) (27.525,26.425) (27.925,45.7) (61.05,45.15) (61.225,41.05) (59.175,40.275) (50.325,26.45) (45.675,23.1) (40.3,19.1) (23.9,33.1) (39.675,11.275) (5.875,39.75) (25.175,36.025) (55.55,16.05) (36.725,50.2) (44.175,15.075) (7.1,33.65) (11.575,33.15) (37.125,30.225) (37.75,40.6) (26.55,12) (41.025,18.75) (22.475,17.95) (33.275,35.625) (42.35,36.95) (48.3,13.925) (14.175,15.7) (4.475,36.775) (26.05,11.25) (49.275,12.275) (39.775,5.925) (26.175,19.975) (52.4,16.6) (50.475,26.55) (44.65,18.575) (22.65,37.05) (47.725,19.125) (31.725,24.325) (8.275,27.575) (51.9,26.275) (61.425,26.25) (-0.225,32.95) (15.65,7.825) (31.525,17.675) (39.65,10.6) (40.175,9.95) (12.55,32.85) (30.125,19.625) (33.55,9.125) (18.5,5.825) (72.575,40.525) (56.15,26.175) (16.075,10.075) (16.275,11.175) (11.45,25.375) (11.05,12.45) (17.425,-0.725) (31.725,45.35) (47.675,36.775) (43.6,24.9) (22.725,-2.05) (38.65,34.075) (8.775,38.025) (33.075,19.4) (35.6,18.525) (17.1,13) (26.175,14.275) (42.05,33.775) (7.6,28.075) (20.475,11.2) (56.075,37.15) (48.9,20.3) (-6.85,36.875) (42.925,30.3) (50.725,23.225) (34.225,43.65) (2.425,35.7) (44.425,40.975) (18.6,31.075) (26.875,22.65) (19.1,28.525) (36.9,24.075) (9.05,7.975) (37.85,15.275) (10.025,-12) (39.525,18.975) (24.725,25.025) (7.075,16.425) (9.125,26.875) (21.2,15.275) (18.775,21.075) (48.95,15.9) (45.525,38.075) (34.125,16.85) (18.625,37.225) (18.525,39.225) (37.925,43.825) (39.825,28.25) (21,24.2) (46.425,22.525) (29.2,33.425) (34.7,23.375) (56.675,33.9) (19.75,38.05) (15.025,12.525) (16.15,2.025) (1.675,31.5) (15.55,19.65) (26.7,9.8) (42.3,24.65) (6.775,28.775) (28.275,16.475) (17.075,27.075) (30.05,25.375) (27.15,19.25) (37,29.25) (2.225,38.925) (32.725,21.325) (26.1,16.425) (12.3,26) (12.25,28.525) (49.525,22.575) (41.625,31.4) (23.175,23.2) (-4.5,36.85) (8.55,-22.125) (29.75,21) (17.3,6.975) (24.075,25.05) (20.95,23.7) (20,22.65) (9.025,27.725) (-0.5,33.45) (10.575,39.95) (8.45,12.025) (7.95,17.225) (23.625,1.675) (24.65,10.575) (10.6,23.5) (5.975,16.65) (64.95,38.1) (12.5,26.675) (30.025,21.925) (31.425,15.975) (49.6,7.975) (28.925,19.1) (31.3,17.35) (12.325,36.575) (41.95,40.975) (34.275,10.525) (-2.475,35.925) (3.725,31.55) (37.525,18.9) (43.9,17.45) (11.25,36.875) (37.225,28.55) (44.075,2.925) (8.175,27.675) (49.075,29.7) (15.4,18.175) (30.45,13.325) (14,28.85) (9.725,-20.2) (21.625,27.8) (20.925,20.225) (25.575,17.625) (17.675,10.825) (18.875,30.325) (26.925,21.425) (16.45,21.375) (18.35,19.375) (29.1,31.4) (27.325,26.4) (16.3,32.35) (32.025,25.8) (34.675,31.975) (27.875,7.625) (22.45,26.55) (30.05,29.375) (29.175,30.075) (15.825,21.075) (33.125,23.275) (32.825,25.475) (25.075,6.175) (31.55,20.55) (30.75,28.375) (13.975,26.1) (24.65,21.675) (37.375,30.725) (15.15,16.9) (30.2,25.175) (24.725,17.85) (24.65,16.85) (20.2,24.2) (42.35,34.775) (16.3,15.775) (28.1,23.975) (25.925,14.425) (18.525,21.425) (31.6,12.7) (19.425,21.975)};
+
+\begin{scope}[every node/.style={font={\tiny},inner sep=1pt,fill=white}]
+\node[draw] (Kadran) at (18.95,15.075){{Kadran}};
+\node[draw] (BSG3143) at (28.55,26.925){{BSG3143}};
+\node[draw] (BNF1339) at (41.025,26.95){{BNF1339}};
+\node[draw] (Nicolas-Chuquet) at (13.675,26.7){{Nicolas Chuquet}};
+\node[draw] (BNF25) at (15.525,5.5){{BNF25}};
+\node[draw] (BNF1259) at (25.825,30.975){{BNF1259}};
+\node[draw] (Traicte-praticque) at (9.175,25.45){{Traicte praticque}};
+\node[draw] (Nantes456) at (29.825,14.125){{Nantes456}};
+\end{scope}
+
+\node (abaisser) at (50.375,17.7){};
+\node (calculer) at (27.925,45.7){};
+\node (cercle) at (59.175,40.275){};
+
+\begin{scope}[every node/.style={font={\footnotesize}}]
+\draw[black,<-,line width=0.2mm] (abaisser) -- +(4,1)node[right]{abaisser};
+\draw[black,<-,line width=0.2mm] (calculer) -- +(-4,-2)node[left]{calculer};
+\draw[black,<-,line width=0.2mm] (cercle) -- +(4,0)node[right]{cercle};
+\end{scope}
+
+
+\end{tikzpicture}
+
+\caption{Projection on first two factors of the FCA. The eight texts appear in frames, a few words are displayed while the remaining are simply figured by dots, for the sake of readability.}
+
+\label{fig:CA12}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+
+\begin{tikzpicture}[scale=0.14]
+
+\pgfmathsetmacro\fsize{87};
+\pgfmathsetmacro\xorg{20};
+\pgfmathsetmacro\yorg{20};
+\pgfmathsetmacro\xdlcorner{-21};
+\pgfmathsetmacro\ydlcorner{-26};
+\pgfmathsetmacro\stepunit{25};
+
+\coordinate (dlcorner) at (\xdlcorner,\ydlcorner);
+
+\draw[black,line width=0.4mm] (dlcorner) -- +(0,\fsize) -- +(\fsize,\fsize) -- +(\fsize,0) -- +(0,0);
+\draw[dotted,black,line width=0.4mm] (\xdlcorner+2.5,\yorg) -- (\xdlcorner+\fsize,\yorg);
+\draw[dotted,black,line width=0.4mm] (\xorg,\ydlcorner+1.8) -- (\xorg,\ydlcorner+\fsize);
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+\node at (32,\ydlcorner+1){\textbf{ Factor 3 (?\%)}};
+\node at (\xorg-\stepunit,\ydlcorner+1){\textbf{-1}};
+\node at (\xorg,\ydlcorner+1){\textbf{0}};
+\node at (\xorg+\stepunit,\ydlcorner+1){\textbf{1}};
+\node[rotate=90] at (\xdlcorner+1.7,7){\textbf{ Factor 4 (?\%)}};
+\node at (-19.6,\yorg){\textbf{0}};
+\node at (-19.4,\yorg-\stepunit){\textbf{-1}};
+\node at (-19.6,\yorg+\stepunit){\textbf{1}};
+\end{scope}
+
+\path plot[mark=*,mark size=4mm] coordinates { (5.575,33.55) (5.65,17.175) (29.675,19.65) (16.95,28.825) (15.6,15.2) (32.275,18.35) (-18.05,-24.525) (25.075,18.775) (-5.125,36.65) (4.45,24.2) (24.35,37.55) (16.225,17.525) (32.675,18.025) (30.025,16.375) (23.775,7.4) (29.375,29.85) (16.225,14.5) (44.975,8.65) (20.7,20) (52.6,8.8) (48.35,7.35) (33.125,17.625) (36.65,17.5) (32.125,16.375) (25.15,18.175) (39.075,14.9) (9.05,9.9) (15.825,13.125) (22.75,31.075) (-2.5,35.2) (36.65,14.25) (23.875,24.725) (-3.8,-8.275) (6.55,31.5) (55.575,7.375) (0.075,38) (24.25,28.225) (24.05,21.375) (32.75,19.025) (34.25,19.625) (15.425,6.675) (16,30.2) (8.325,33.525) (30.3,15.15) (32.275,17.6) (51.125,8.85) (25.95,10.15) (8.45,31.825) (34.9,19.575) (35.15,34.05) (27.25,25.875) (9.7,28.725) (11.075,27.125) (17.95,19.425) (29.175,15.575) (6.25,32.175) (21.825,23.35) (12.55,20.675) (33.525,22.275) (19.425,17.125) (13.525,19) (12.225,23.45) (33.575,23.425) (12.225,30.3) (34.1,17.575) (16.8,33.75) (18.15,20.725) (18.575,22.225) (15,38.7) (29.725,5.85) (3.2,30.175) (4.65,34.9) (3.25,35.5) (19.95,28.75) (26.525,23.975) (27.075,24.3) (14.725,25.975) (38.225,13.075) (38.875,11.25) (19.225,25.3) (20.8,27.9) (23.05,22.725) (28.825,23.875) (22.075,24.275) (26.15,9.375) (24.6,29.575) (36.825,11.05) (38.55,1.95) (16,18.85) (62.325,1.65) (30.725,22.075) (30.1,20.475) (29.825,12.35) (12.925,13.5) (20.1,30.375) (24.025,41.15) (20.15,27.35) (13.8,16.575) (16.675,5.325) (30.575,14.05) (32.275,19.775) (8.625,22.275) (8.375,7.075) (29.425,16.45) (6.75,25.125) (20.675,41.725) (4.4,6.375) (11.9,30.7) (31.475,18.475) (32,11.35) (50.7,7.45) (19.95,32.325) (13.325,31.8) (21.5,21.025) (2.65,19.35) (14.475,6.525) (14.225,16.45) (33.075,18.075) (20.275,26.55) (4.1,36.75) (31.425,11.975) (8.575,33.9) (30.7,21.95) (25.625,21.15) (21.425,35.775) (20.825,25.35) (45.9,12.525) (8.35,16.35) (10.725,30.2) (30.375,23.1) (29.975,21.775) (16.15,29.45) (21.075,23.25) (18.65,28.8) (41.775,15.65) (15.15,26.85) (-1.7,24.475) (10.075,33.025) (20.5,21.05) (29.425,16.425) (24.475,19.975) (23.475,23.75) (18.825,25.675) (13.875,22.35) (16.575,22.375) (10.95,33) (19.4,29.075) (10.85,4.6) (29.875,16.45) (8.025,18.375) (13.925,11.75) (17.7,29.15) (14.425,15.325) (22.35,27.25) (18.4,6.4) (20.225,28.5) (0.675,23.9) (7.225,17.05) (26.5,26.375) (25.15,29.325) (17.55,30.725) (1.4,7.3) (2.925,27.825) (22.625,14) (14.925,23.025) (0.025,21.325) (21.8,22.45) (31.7,16.375) (-5.15,18.775) (40.5,14.025) (18.85,6.1) (24.15,46.425) (36.775,2.625) (12.375,36.6) (25.375,26.85) (30.025,2.125) (25.85,23.7) (11.625,10.425) (24.375,33.625) (32.125,27.375) (13.75,11.125) (12.875,25.8) (14.825,15) (27.275,18.75) (18.2,10.5) (34.5,10.6) (37,12.125) (16.525,29.45) (26.125,29.225) (35.425,12.425) (24.025,21.625) (21.225,21.675) (16.1,15.6) (18.5,25.85) (11.65,25.65) (13.95,25.725) (18.775,23.55) (-4.05,38.175) (29.375,17.275) (16.15,30.4) (13.5,18.5) (-10.725,-10.475) (23.675,27.95) (0.125,34.025) (23.225,38.275) (18.225,25) (24.5,16.6) (37.8,9.1) (1.025,2.15) (35.825,13.7) (-10.9,43.125) (12.75,17.825) (14.725,21.425) (16.95,19.95) (24.05,22.525) (28.3,19.725) (20.275,22.05) };
+
+\begin{scope}[every node/.style={font={\tiny},inner sep=1pt,fill=white}]
+\node[draw] (Kadran)at (26,19.725){{Kadran}};
+\node[draw] (BSG3143)at (21.175,22.15){{BSG3143}};
+\node[draw] (BNF1339)at (26.225,17.5){{BNF1339}};
+\node[draw] (Nicolas-Chuquet)at (7.8,7.925){{Nicolas-Chuquet}};
+\node[draw] (BNF25)at (25.675,14.825){{BNF25}};
+\node[draw] (BNF1259)at (34.825,14.725){{BNF1259}};
+\node[draw] (Traicte-praticq)at (21.35,27.525){{Traicte-praticq}};
+\node[draw] (Nantes456)at (9.825,26.25){{Nantes456}};
+\end{scope}
+
+\node (abaisser) at (5.575,33.55){};
+\node (calculer) at (52.6,8.8){};
+\node (cercle) at (36.65,17.5){};
+
+\begin{scope}[every node/.style={font={\footnotesize}}]
+\draw[black,<-,line width=0.2mm] (abaisser) -- +(0,4)node[above]{abaisser};
+\draw[black,<-,line width=0.2mm] (calculer) -- +(4,0)node[right]{calculer};
+\draw[black,<-,line width=0.2mm] (cercle) -- +(4,0)node[right]{cercle};
+\end{scope}
+
+
+\end{tikzpicture}
+
+\caption{Projection on third and fourth factors of the FCA.}
+\label{fig:CA34}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+
+\begin{tikzpicture}[scale=0.14]
+
+\pgfmathsetmacro\fsize{87};
+\pgfmathsetmacro\xorg{20};
+\pgfmathsetmacro\yorg{20};
+\pgfmathsetmacro\xdlcorner{-11};
+\pgfmathsetmacro\ydlcorner{9};
+\pgfmathsetmacro\stepunit{25};
+
+\coordinate (dlcorner) at (\xdlcorner,\ydlcorner);
+
+\draw[black,line width=0.4mm] (dlcorner) -- +(0,\fsize) -- +(\fsize,\fsize) -- +(\fsize,0) -- +(0,0);
+\draw[dotted,black,line width=0.4mm] (\xdlcorner+2.5,\yorg) -- (\xdlcorner+\fsize,\yorg);
+\draw[dotted,black,line width=0.4mm] (\xorg,\ydlcorner+1.8) -- (\xorg,\ydlcorner+\fsize);
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+\node at (32,\ydlcorner+1){\textbf{ Factor 5 (?\%)}};
+\node at (\xorg-\stepunit,\ydlcorner+1){\textbf{-1}};
+\node at (\xorg,\ydlcorner+1){\textbf{0}};
+\node at (\xorg+\stepunit,\ydlcorner+1){\textbf{1}};
+\node at (\xorg+2*\stepunit,\ydlcorner+1){\textbf{2}};
+\node[rotate=90] at (\xdlcorner+1.7,57){\textbf{ Factor 6 (?\%)}};
+\node at (-9.6,\yorg){\textbf{0}};
+\node at (-9.6,\yorg+\stepunit){\textbf{1}};
+\node at (-9.6,\yorg+2*\stepunit){\textbf{2}};
+\end{scope}
+
+
+\path plot[mark=*,mark size=4mm] coordinates {(26.74,32.155) (27.355,25.36) (11.005,27.04) (32.995,18.22) (24.235,23.335) (7.915,24.94) (23.32,23.875) (25.435,21.76) (30.265,18.94) (25.315,21.4) (19.585,27.88) (26.695,25.33) (20.38,21.61) (10.78,30.985) (29.335,28.18) (22.375,24.49) (23.38,25.12) (28.915,20.62) (22.84,43.39) (52.735,21.01) (17.05,14.92) (8.725,45.28) (-2.405,17.89) (16.15,28.285) (23.35,28.84) (7.21,19.03) (26.89,29.815) (20.515,23.005) (19.24,22.06) (31.48,23.335) (38.665,20.395) (28.06,22.09) (17.635,21.61) (20.605,18.025) (57.4,30.28) (34.945,41.755) (22.765,22.165) (24.58,20.89) (21.025,20.005) (38.95,21.385) (16.39,41.965) (30.07,26.05) (32.14,47.89) (29.485,17.725) (16.69,20.875) (43.81,18.01) (15.265,29.71) (22.585,19.36) (23.53,25.33) (29.875,19.855) (21.415,20.395) (23.185,21.175) (32.05,19.945) (27.055,24.4) (34.9,20.83) (23.815,23.215) (30.745,19.555) (22.27,20.905) (26.47,21.94) (25.915,22.81) (18.925,20.095) (17.965,23.14) (23.935,21.475) (24.52,33.385) (24.925,30.565) (24.295,25.66) (13.735,20.95) (9.985,17.71) (21.76,22.255) (24.49,25.36) (30.4,30.745) (36.955,23.665) (37.465,22.045) (25.945,23.98) (30.745,21.835) (30.085,27.19) (33.55,25.975) (24.625,22.48) (-4.715,16.765) (15.775,20.65) (25.06,23.29) (27.175,25.6) (29.575,21.925) (23.68,25.54) (31.6,19.78) (24.4,22.705) (20.29,26.425) (23.965,28.75) (24.625,23.44) (60.37,13.765) (20.995,32.62) (25.105,25.42) (25.63,40.48) (22.585,20.185) (32.665,64.795) (23.77,44.35) (29.86,44.35) (26.38,26.44) (28.24,26.665) (21.22,22.69) (23.485,37.57) (23.815,24.25) (25.555,29.905) (6.055,22.75) (22.63,19.225) (19.645,22.66) (22.435,22) (22.93,35.08) (33.88,21.415) (24.715,18.58) (49.945,16.975) (22.495,30.475) (31.66,62.305) (24.76,22.18) (30.325,27.94) (25.255,21.28) (25.585,23.275) (22.84,25.255) (23.35,30.385) (26.86,22.195) (23.515,27.37) (34.825,44.185) (23.545,37.825) (26.245,25.915) (23.215,23.035) (25.42,26.74) (33.4,19.27) (28,25.855) (19.84,18.94) (21.775,37.345) (34.525,51.4) (36.685,29.5) (19.165,20.395) (26.5,55.405) (45.985,54.115) (25.615,32.515) (28.3,27.19) (25.96,38.05) (33.715,52.09) (26.905,18.94) (14.785,35.59) (19.885,27.04) (27.49,27.265) (24.19,21.82) (26.23,26.17) (36.205,51.46) (25.615,24.16) (24.88,24.34) (24.175,31.9) (22.12,23.02) (27.43,25.375) (23.425,21.865) (24.835,21.25) (28.015,37.255) (24.1,27.145) (24.43,32.005) (26.92,22.525) (22.36,24.835) (16.255,21.145) (19.585,23.065) (24.34,34.12) (22.495,28.3) (28.885,24.085) (29.35,21.985) (21.64,25.36) (25.705,24.04) (16.84,18.205) (17.41,25.24) (27.595,21.595) (36.31,15.82) (28.54,22.84) (20.2,26.92) (22.915,29.425) (29.8,40) (29.065,25.105) (23.635,24.265) (26.56,28.09) (22.21,27.445) (18.265,20.62) (23.905,19.915) (22.765,22.795) (21.22,22.645) (23.41,27.01) (22.945,27.625) (22.375,27.01) (22.99,29.41) (25.825,21.655) (25.06,23.545) (22.9,29.44) (6.355,16.57) (31.27,26.485) (19.72,24.505) (21.625,26.305) (26.26,28.795) (26.695,25.09) (31.225,35.11) (26.965,31.675) (29.575,18.4) (20.845,21.625) (23.95,28.285) (24.955,22.825) (23.335,26.035) (32.695,87.925) (31.66,24.625) (22.705,21.865) (24.505,23.335) (19,20.44) (17.32,20.485) (21.265,27.52) (20.845,25.225) (35.695,18.76) (25.12,25.21) (20.875,37.795) (26.56,23.515) (25.06,23.485) (26.92,33.7) (25.405,26.14)};
+
+\begin{scope}[every node/.style={font={\tiny},inner sep=1pt,fill=white}]
+\node[draw] (Kadran)at (24.13,24.055){Kadran};
+\node[draw] (BSG3143)at (26.995,40.585){BSG3143};
+\node[draw] (BNF1339)at (16.645,22.99){BNF1339};
+\node[draw] (Nicolas-Chuquet)at (24.565,24.715){Nicolas-Chuquet};
+\node[draw] (BNF25)at (24.445,26.17){BNF25};
+\node[draw] (BNF1259)at (35.53,21.55){BNF1259};
+\node[draw] (Traicte-praticq)at (23.53,24.4){Traicte-praticq};
+\node[draw] (Nantes456)at (27.865,23.425){Nantes456};
+\end{scope}
+
+\node (abaisser) at (26.74,32.155){};
+\node (calculer) at (52.735,21.01){};
+\node (cercle) at (-2.405,17.89){};
+
+\begin{scope}[every node/.style={font={\footnotesize}}]
+\draw[black,<-,line width=0.2mm] (abaisser) -- +(4,0)node[right]{abaisser};
+\draw[black,<-,line width=0.2mm] (calculer) -- +(4,0)node[right]{calculer};
+\draw[black,<-,line width=0.2mm] (cercle) -- +(0,4)node[above]{cercle};
+\end{scope}
+
+\end{tikzpicture}
+
+\caption{Projection on the fifth and sixth factors of the FCA.}
+
+\label{fig:CA56}
+\end{figure}
+
+\subsection{An example of use of Kohonen maps}
+
+\hyphenpenalty=10000
+\setlength{\tabcolsep}{1mm}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{table}[h!]
+\centering
+\scalebox{0.6}{
+\begin{tabular}{|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|}
+\hline
+minutes super* & & notes & calculer cubic & fois mettre \cellcolor{grisclair} \textbf{BNF1259} & & {contraire} {depenser} {falloir} {meme} {racine} & aller donc ensuivre {savoir} & {multiplier} & {regle} venir\\
+\hline
+gecter & & & & & dessous & barrater {demi} & somme & voir & assembler\\
+\hline
+ & \cellcolor{grisclair} \textbf{BSG3143} & parteur & defaillir duplation mediation nommer numeration senestre & semblables & & circulaires demeurer derenier disaine ecrire entendre formes nombrateur oter prouver & entrer laisser rien & emprunter figure regarder & figure de~non~rien fraction muer rayes retenir\\
+\hline
+notables & & denomi- nations multipli- cateur nominateur ordonne & abaisser comptes endroit proposer & anteriorer diminution enseignement enseigner moyen signifiant surplus trancher & possible {reduire} & difficile progression repondre & avaluer & faillir & monter partiteur\\
+\hline
+bref gectons {multipli-}{cation} {pratique} {seulement} & generale latin {nombrer} proportion reduction unite & soustraction & denomi- nateur & entier & ajoutement & & remotion \cellcolor{grisclair} \textbf{Kadran} & & \cellcolor{grisclair} \textbf{BNF25}\\
+\hline
+chose& nulle & {ensemble} {partie} & \cellcolor{grisclair} \textbf{Nantes456} & & & & {partement} {valoir} & & etre\\
+\hline
+arithmetique {compter} preuve tenir & cubbement destre digit diviser diviseur division lignes nombre compo{se}querir & {dire} {figurer} poser {science} & & & abreger lever precedent quotiens & numerateur & moindre nombre \cellcolor{grisclair} \textbf{Nicolas Chuquet} & partir plus {raison} & \\
+\hline
+egalir egaliser especes question total traiter & mesurer & grand & apparaitre {position} {soustraire} & {ajouter} & leurs prendre quant quantefois reponse trouver & & {part} & commun Item & devoir {droit} {exemple} reste rester\\
+\hline
+algorisme article carrees cercle envient ligne pair sain \cellcolor{grisclair} \textbf{BNF1339} & addition chiffre former & {double} {doubler} moitie & appeler {donner} {maniere} {pouvoir} {se}& bailler demander mises nomper pareillement vouloir & & egale faire montrer necessaire romp selon & & & \\
+\hline
+cautelle & demontrer dessus & {garder} {regle} {de} {trois} & aliquot composer corps moins sub* toutefois & partant plaisir proportionel- lement requerir residu & appartenir convenir demande difference egaulx maieur millions rate survendre tant & & naturel roupt \cellcolor{grisclair} \textbf{Traicte praticque} & & fausse\\
+\hline
+\end{tabular}
+}
+\caption{Example of Kohonen Map. Texts are in Bold and their cells are colored.}
+\end{table}
+
+
+
+\section{The Method}
+
+\subsection{Neighborhood and robustness of information on Kohonen maps}
+\label{m1}
+
+\begin{table}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ & abaisser & abreger & addition & ajoutement & ajouter & algorisme & aliquot & aller & anteriorer \\ \hline
+abaisser  & \cellcolor{gris} 1 & 0 & \cellcolor{grisclair} 0,025 & \cellcolor{gris} 0,275 & 0 & \cellcolor{grisclair} 0,05 & 0 & 0 & \cellcolor{gris} 0,525\\ \hline
+abreger & 0 & \cellcolor{gris} 1 & 0 & 0 & \cellcolor{gris} 0,25 & 0 & \cellcolor{gris} 0,325 & 0 & \cellcolor{grisclair} 0,025\\ \hline
+addition & \cellcolor{grisclair} 0,025 & 0 & \cellcolor{gris} 1 & 0 & 0 & \cellcolor{gris} 0,875 & 0 & \cellcolor{grisclair} 0,05 & 0\\ \hline
+ajoutement  & \cellcolor{gris} 0,275 & 0 & 0 & \cellcolor{gris} 1 & \cellcolor{grisclair} 0,025 & 0 & 0 & \cellcolor{grisclair} 0,025 & \cellcolor{gris} 0,7\\ \hline
+ajouter & 0 & \cellcolor{gris} 0,25 & 0 & \cellcolor{grisclair} 0,025 & \cellcolor{gris} 1 & \cellcolor{grisclair} 0,025 & \cellcolor{grisclair} 0,15 & \cellcolor{grisclair} 0,125 & 0\\ \hline
+algorisme & \cellcolor{grisclair} 0,05 & 0 & \cellcolor{gris} 0,875 & 0 & \cellcolor{grisclair} 0,025 & \cellcolor{gris} 1 & 0 & 0 & 0\\ \hline
+aliquot & 0 & \cellcolor{gris} 0,325 & 0 & 0 & \cellcolor{grisclair} 0,15 & 0 & \cellcolor{gris} 1 & \cellcolor{grisclair} 0,025 & 0\\ \hline
+aller & 0 & 0 & \cellcolor{grisclair} 0,05 & \cellcolor{grisclair} 0,025 & \cellcolor{grisclair} 0,125 & 0 & \cellcolor{grisclair} 0,025 & \cellcolor{gris} 1 & 0\\ \hline
+anteriorer & \cellcolor{gris} 0,525 & \cellcolor{grisclair} 0,025 & 0 & \cellcolor{gris} 0,7 & 0 & 0 & 0 & 0 & \cellcolor{gris} 1 \\ \hline
+\end{tabular}
+\label{bertin1}
+\caption{Frequency of neighborhood matrix (excerpt)}
+\end{table}
+
+
+\subsection{From fickle pairs to fickle words}
+
+\subsection{Fickle words and Factorial Analysis}
+
+\subsection{Graph of robust neighborhood}
+
+Let us have a different look at the neighborhood matrix $(f_{ij})$ where $f_{ij}$ is the frequency of two forms belonging to the same neighborhood. Instead of trying to jump right ahead and identify fickle words in an absolute way, we can study the robust connections between forms \textit{per se}, in order to produce some interesting clustering of the words.
+
+For example, if we have a look at the excerpt from table \ref{bertin1}, we notice immediately that some groups of words are very often in the same neighborhood, while their connections to the rest of the graph are much more hazardous. This initial intuition becomes quite obvious if we reorganize the rows and columns (following Bertin's permutation matrices idea), as we can see on table \ref{bertin2}
+
+\begin{table}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ & abaisser & ajoutement & anteriorer& abreger & ajouter & aliquot & addition & algorisme & aller \\ \hline
+abaisser  & \cellcolor{gris} 1 & \cellcolor{gris} 0,275 & \cellcolor{gris} 0,525 & 0 & 0 & 0 & \cellcolor{grisclair} 0,025 & \cellcolor{grisclair} 0,05 & 0 \\ \hline
+ajoutement  & \cellcolor{gris} 0,275 & \cellcolor{gris} 1 & \cellcolor{gris} 0,7 & 0 & \cellcolor{grisclair} 0,025 & 0 & 0 & 0 & \cellcolor{grisclair} 0,025 \\ \hline
+anteriorer & \cellcolor{gris} 0,525 & \cellcolor{gris} 0,7 & \cellcolor{gris} 1 & \cellcolor{grisclair} 0,025 & 0 & 0 & 0 & 0 & 0 \\ \hline
+abreger & 0 & 0 &\cellcolor{grisclair} 0,025& \cellcolor{gris} 1 & \cellcolor{gris} 0,25 & \cellcolor{gris} 0,325 & 0 & 0 & 0 \\ \hline
+ajouter & 0 & \cellcolor{grisclair} 0,025 & 0& \cellcolor{gris} 0,25 & \cellcolor{gris} 1 & \cellcolor{grisclair} 0,15 & 0 & \cellcolor{grisclair} 0,025 & \cellcolor{grisclair} 0,125 \\ \hline
+aliquot & 0 & 0 & 0& \cellcolor{gris} 0,325 & \cellcolor{grisclair} 0,15 & \cellcolor{gris} 1 & 0 & 0 & \cellcolor{grisclair} 0,025 \\ \hline
+addition & \cellcolor{grisclair} 0,025 & 0 & 0& 0 & 0 & 0 & \cellcolor{gris} 1 & \cellcolor{gris} 0,875 & \cellcolor{grisclair} 0,05 \\ \hline
+algorisme & \cellcolor{grisclair} 0,05 & 0 & 0& 0 & \cellcolor{grisclair} 0,025 & 0 & \cellcolor{gris} 0,875 & \cellcolor{gris} 1 & 0 \\ \hline
+aller & 0 & \cellcolor{grisclair} 0,025 & 0& 0 & \cellcolor{grisclair} 0,125 & \cellcolor{grisclair} 0,025 & \cellcolor{grisclair} 0,05 & 0 & \cellcolor{gris} 1 \\ \hline
+\end{tabular}
+
+\label{bertin2}
+\caption{Frequency of neighborhood matrix (same excerpt as \ref{bertin1}, with row and columns reorganized)}
+\end{table}
+
+We cannot display here the whole matrix for the 219 forms - in addition, the algorithm for reorganization wouldn't be efficient enough - so we have decided to focus on a specific group of words : the fickle words. Indeed, the fickle words are the most difficult to study, since by definition they don't have a very fixed position on the Kohonen maps, and additionally it appears that they are not well distinguished by Factorial Analysis either.
+
+\begin{changemargin}{-2cm}{0cm}
+\begin{table}[h!]
+\centering
+\setlength{\tabcolsep}{1pt}
+\setlength{\arrayrulewidth}{0.5pt}
+\scalebox{0.8}{ 
+\begin{tabular}{|p{2pt}l|*{30}{c|}}
+\hline
+ && \begin{sideways}contraire\end{sideways} & \begin{sideways}doubler\end{sideways} & \begin{sideways}falloir\end{sideways} & \begin{sideways}meme\end{sideways} & \begin{sideways}pratique\end{sideways} & \begin{sideways}seulement\end{sideways} & \begin{sideways}double\end{sideways} & \begin{sideways}multiplication\end{sideways} & \begin{sideways}reduire\end{sideways} & \begin{sideways}regle\end{sideways} & \begin{sideways}regle de trois\end{sideways} & \begin{sideways}partie\end{sideways} & \begin{sideways}savoir\end{sideways} & \begin{sideways}exemple\end{sideways} & \begin{sideways}position\end{sideways} & \begin{sideways}demi\end{sideways} & \begin{sideways}garder\end{sideways} & \begin{sideways}science\end{sideways} & \begin{sideways}pouvoir\end{sideways} & \begin{sideways}se\end{sideways} & \begin{sideways}depenser\end{sideways} & \begin{sideways}chose\end{sideways} & \begin{sideways}compter\end{sideways} & \begin{sideways}dire\end{sideways} & \begin{sideways}racine\end{sideways} & \begin{sideways}nombrer\end{sideways} & \begin{sideways}raison\end{sideways} & \begin{sideways}donner\end{sideways} & \begin{sideways}ensemble\end{sideways} & \begin{sideways}valoir\end{sideways}
+\\ \hline
+&contraire & \cellcolor{gris}1 & 0 & \cellcolor{gris}.6{\tiny 25} & \cellcolor{gris}.7{\tiny 5} & 0 & .0{\tiny 25} & 0 & .0{\tiny 75} & \cellcolor{gris}.2 & .1{\tiny 25} & .0{\tiny 5} & .0{\tiny 5} & \cellcolor{gris}.4{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.6{\tiny 5} & 0 & 0 & .0{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.5{\tiny 5} & .1 & 0 & 0 & \cellcolor{gris}.6{\tiny 75} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 75} & .0{\tiny 75} & .0{\tiny 75}
+\\ \hline
+&doubler & 0 & \cellcolor{gris}1 & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.9{\tiny 25} & .0{\tiny 75} & .0{\tiny 5} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.5{\tiny 75} & .0{\tiny 5} & .0{\tiny 25} & .1{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.6{\tiny 5} & .1 & .0{\tiny 25} & .1 & .0{\tiny 25} & \cellcolor{gris}.4{\tiny 5} & \cellcolor{gris}.3{\tiny 75} & \cellcolor{gris}.2
+\\ \hline
+&falloir & \cellcolor{gris}.6{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}1 & \cellcolor{gris}.7{\tiny 75} & .0{\tiny 25} & 0 & .0{\tiny 5} & 0 & \cellcolor{gris}.2 & .1 & .0{\tiny 5} & .1{\tiny 25} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 5} & .1 & \cellcolor{gris}.5{\tiny 5} & .1 & .0{\tiny 5} & .1 & .0{\tiny 25} & \cellcolor{gris}.8{\tiny 5} & .1 & .0{\tiny 75} & .1{\tiny 25} & \cellcolor{gris}.6{\tiny 75} & .0{\tiny 25} & .1{\tiny 5} & .1{\tiny 75} & .1{\tiny 5} & .0{\tiny 5}
+\\ \hline
+&meme & \cellcolor{gris}.7{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.7{\tiny 75} & \cellcolor{gris}1 & 0 & .0{\tiny 25} & .0{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & .1 & .0{\tiny 5} & .1{\tiny 25} & \cellcolor{gris}.2{\tiny 75} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.7{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.7{\tiny 5} & .1{\tiny 75} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.6{\tiny 75} & .0{\tiny 25} & .1{\tiny 25} & .1{\tiny 5} & .1{\tiny 5} & .0{\tiny 5}
+\\ \hline
+&pratique & 0 & .0{\tiny 5} & .0{\tiny 25} & 0 & \cellcolor{gris}1 & \cellcolor{gris}.7{\tiny 75} & .0{\tiny 5} & \cellcolor{gris}.6{\tiny 25} & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.3{\tiny 25} & .1 & .1{\tiny 5} & .1 & \cellcolor{gris}.3{\tiny 75} & .0{\tiny 5} & 0 & .0{\tiny 75} & .0{\tiny 5} & .0{\tiny 5} & .1{\tiny 5} & .0{\tiny 5} & \cellcolor{gris}.4{\tiny 25} & .1 & 0 & 0 & .0{\tiny 5} & .0{\tiny 25} & .1{\tiny 25} & .1 & .1
+\\ \hline
+&seulement & .0{\tiny 25} & .0{\tiny 75} & 0 & .0{\tiny 25} & \cellcolor{gris}.7{\tiny 75} & \cellcolor{gris}1 & .0{\tiny 75} & \cellcolor{gris}.6{\tiny 75} & \cellcolor{gris}.2{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & .1{\tiny 25} & .1{\tiny 5} & .1{\tiny 25} & \cellcolor{gris}.3{\tiny 5} & .0{\tiny 5} & 0 & .0{\tiny 5} & .0{\tiny 75} & .0{\tiny 5} & .1{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.4{\tiny 75} & .1 & 0 & 0 & .0{\tiny 5} & .0{\tiny 25} & .1{\tiny 75} & .0{\tiny 75} & .0{\tiny 25}
+\\ \hline
+&double & 0 & \cellcolor{gris}.9{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}1 & .0{\tiny 25} & .0{\tiny 75} & .0{\tiny 5} & .1{\tiny 75} & \cellcolor{gris}.5 & .0{\tiny 5} & .0{\tiny 5} & .1{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.3{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & .1 & \cellcolor{gris}.2{\tiny 75} & .1 & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.6{\tiny 25} & .1 & .0{\tiny 25} & .0{\tiny 75} & .0{\tiny 5} & \cellcolor{gris}.4{\tiny 75} & \cellcolor{gris}.3{\tiny 25} & \cellcolor{gris}.2
+\\ \hline
+&multiplication & .0{\tiny 75} & .0{\tiny 75} & 0 & .0{\tiny 5} & \cellcolor{gris}.6{\tiny 25} & \cellcolor{gris}.6{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}1 & .1 & \cellcolor{gris}.3{\tiny 25} & .1 & .1{\tiny 25} & .0{\tiny 5} & .0{\tiny 5} & 0 & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 75} & .0{\tiny 25} & .0{\tiny 75} & 0 & \cellcolor{gris}.5 & .0{\tiny 25} & .0{\tiny 25} & 0 & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 25} & .0{\tiny 25} & .0{\tiny 5} & 0
+\\ \hline
+&reduire & \cellcolor{gris}.2 & .0{\tiny 5} & \cellcolor{gris}.2 & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 75} & .1 & \cellcolor{gris}1 & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.2{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.2{\tiny 75} & .1 & \cellcolor{gris}.3{\tiny 25} & \cellcolor{gris}.3{\tiny 25} & .1 & 0 & .1{\tiny 25} & .1{\tiny 5} & \cellcolor{gris}.3{\tiny 75} & .1 & .0{\tiny 5} & .1{\tiny 5} & .0{\tiny 75} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.2{\tiny 75} & .0{\tiny 5}
+\\ \hline
+&regle & .1{\tiny 25} & .0{\tiny 5} & .1 & .1 & \cellcolor{gris}.3{\tiny 25} & \cellcolor{gris}.2{\tiny 75} & .0{\tiny 5} & \cellcolor{gris}.3{\tiny 25} & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}1 & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & .1{\tiny 75} & .1 & 0 & .0{\tiny 5} & .0{\tiny 5} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 5} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.2{\tiny 25} & .1 & \cellcolor{gris}.3 & .0{\tiny 5} & .1{\tiny 5} & 0 & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 5} & .1
+\\ \hline
+&regle de trois & .0{\tiny 5} & .0{\tiny 75} & .0{\tiny 5} & .0{\tiny 5} & .1 & .1{\tiny 25} & .1{\tiny 75} & .1 & \cellcolor{gris}.2{\tiny 25} & .0{\tiny 25} & \cellcolor{gris}1 & .0{\tiny 25} & 0 & .1{\tiny 5} & \cellcolor{gris}.7 & .0{\tiny 5} & \cellcolor{gris}.6{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.5{\tiny 5} & \cellcolor{gris}.6{\tiny 25} & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.6{\tiny 75} & \cellcolor{gris}.4{\tiny 75} & 0 & \cellcolor{gris}.3
+\\ \hline
+&partie & .0{\tiny 5} & \cellcolor{gris}.5{\tiny 75} & .1{\tiny 25} & .1{\tiny 25} & .1{\tiny 5} & .1{\tiny 5} & \cellcolor{gris}.5 & .1{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & .0{\tiny 25} & \cellcolor{gris}1 & .0{\tiny 75} & .0{\tiny 5} & .1 & .0{\tiny 5} & \cellcolor{gris}.2 & \cellcolor{gris}.5{\tiny 5} & .0{\tiny 5} & .1{\tiny 75} & .1{\tiny 5} & \cellcolor{gris}.3{\tiny 75} & \cellcolor{gris}.6{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & .0{\tiny 25} & .1 & 0 & \cellcolor{gris}.3 & \cellcolor{gris}.7{\tiny 75} & .1{\tiny 25}
+\\ \hline
+&savoir & \cellcolor{gris}.4{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.2{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & .1 & .1{\tiny 25} & .0{\tiny 5} & .0{\tiny 5} & .0{\tiny 75} & .1{\tiny 75} & 0 & .0{\tiny 75} & \cellcolor{gris}1 & .1{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.3 & 0 & .0{\tiny 25} & .1 & .0{\tiny 5} & .1{\tiny 75} & .0{\tiny 75} & .1 & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 5} & 0 & .1 & \cellcolor{gris}.2 & 0 & \cellcolor{gris}.2
+\\ \hline
+&exemple & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 5} & \cellcolor{gris}.3{\tiny 75} & \cellcolor{gris}.3{\tiny 5} & .0{\tiny 5} & .0{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & .1 & .1{\tiny 5} & .0{\tiny 5} & .1{\tiny 25} & \cellcolor{gris}1 & .0{\tiny 75} & .0{\tiny 75} & .1 & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.3 & .0{\tiny 5} & .1{\tiny 5} & .1 & .0{\tiny 25} & .0{\tiny 25} & 0 & .1{\tiny 5} & \cellcolor{gris}.3 & .0{\tiny 25} & \cellcolor{gris}.3{\tiny 25}
+\\ \hline
+&position & .0{\tiny 25} & .1{\tiny 75} & .1 & .0{\tiny 75} & .0{\tiny 5} & .0{\tiny 5} & .1{\tiny 75} & 0 & .1 & 0 & \cellcolor{gris}.7 & .1 & .0{\tiny 75} & .0{\tiny 75} & \cellcolor{gris}1 & .0{\tiny 75} & \cellcolor{gris}.6 & .1{\tiny 25} & \cellcolor{gris}.7{\tiny 75} & \cellcolor{gris}.7{\tiny 25} & .0{\tiny 5} & .1 & .0{\tiny 5} & \cellcolor{gris}.2 & 0 & 0 & \cellcolor{gris}.7{\tiny 25} & \cellcolor{gris}.5{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.5{\tiny 25}
+\\ \hline
+&demi & \cellcolor{gris}.6{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.5{\tiny 5} & \cellcolor{gris}.7{\tiny 25} & 0 & 0 & .0{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 5} & .0{\tiny 5} & .0{\tiny 5} & \cellcolor{gris}.3 & .0{\tiny 75} & .0{\tiny 75} & \cellcolor{gris}1 & .0{\tiny 75} & 0 & .0{\tiny 75} & .0{\tiny 5} & \cellcolor{gris}.5{\tiny 75} & .0{\tiny 75} & 0 & .0{\tiny 25} & \cellcolor{gris}.6{\tiny 25} & .0{\tiny 25} & .1{\tiny 75} & .1{\tiny 5} & .0{\tiny 75} & .0{\tiny 5}
+\\ \hline
+&garder & 0 & \cellcolor{gris}.2{\tiny 25} & .1 & .0{\tiny 5} & .0{\tiny 75} & .0{\tiny 5} & \cellcolor{gris}.3{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.6{\tiny 5} & \cellcolor{gris}.2 & 0 & .1 & \cellcolor{gris}.6 & .0{\tiny 75} & \cellcolor{gris}1 & \cellcolor{gris}.2 & \cellcolor{gris}.4{\tiny 25} & \cellcolor{gris}.5 & .0{\tiny 75} & \cellcolor{gris}.2 & .1{\tiny 75} & .1 & .0{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.4{\tiny 75} & \cellcolor{gris}.3{\tiny 25} & .1{\tiny 75} & .1{\tiny 25}
+\\ \hline
+&science & 0 & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.2{\tiny 75} & .0{\tiny 75} & .1 & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.5{\tiny 5} & .0{\tiny 25} & .0{\tiny 5} & .1{\tiny 25} & 0 & \cellcolor{gris}.2 & \cellcolor{gris}1 & .1{\tiny 25} & .1 & .0{\tiny 25} & .1{\tiny 5} & \cellcolor{gris}.4{\tiny 75} & \cellcolor{gris}.3{\tiny 5} & 0 & .1 & .0{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.6{\tiny 25} & .0{\tiny 75}
+\\ \hline
+&pouvoir & .0{\tiny 5} & .0{\tiny 75} & .1 & .0{\tiny 75} & .0{\tiny 5} & .0{\tiny 5} & .1 & .0{\tiny 25} & 0 & .0{\tiny 5} & \cellcolor{gris}.5{\tiny 5} & .0{\tiny 5} & .1 & .0{\tiny 75} & \cellcolor{gris}.7{\tiny 75} & .0{\tiny 75} & \cellcolor{gris}.4{\tiny 25} & .1{\tiny 25} & \cellcolor{gris}1 & \cellcolor{gris}.6{\tiny 5} & .0{\tiny 75} & .0{\tiny 25} & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & .0{\tiny 25} & .0{\tiny 25} & \cellcolor{gris}.8 & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.4{\tiny 5}
+\\ \hline
+&se & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 25} & .0{\tiny 25} & .1{\tiny 5} & .1{\tiny 75} & \cellcolor{gris}.2{\tiny 75} & .0{\tiny 75} & .1{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.6{\tiny 25} & .1{\tiny 75} & .0{\tiny 5} & \cellcolor{gris}.3 & \cellcolor{gris}.7{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.5 & .1 & \cellcolor{gris}.6{\tiny 5} & \cellcolor{gris}1 & 0 & \cellcolor{gris}.2 & .1{\tiny 5} & .0{\tiny 75} & 0 & .0{\tiny 5} & \cellcolor{gris}.6{\tiny 5} & \cellcolor{gris}.6{\tiny 75} & .1{\tiny 25} & \cellcolor{gris}.5{\tiny 5}
+\\ \hline
+&depenser & \cellcolor{gris}.5{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.8{\tiny 5} & \cellcolor{gris}.7{\tiny 5} & .0{\tiny 5} & .0{\tiny 25} & .1 & 0 & .1{\tiny 5} & .0{\tiny 75} & .0{\tiny 25} & .1{\tiny 5} & .1{\tiny 75} & .0{\tiny 5} & .0{\tiny 5} & \cellcolor{gris}.5{\tiny 75} & .0{\tiny 75} & .0{\tiny 25} & .0{\tiny 75} & 0 & \cellcolor{gris}1 & .1{\tiny 75} & .1{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.8 & .0{\tiny 25} & .0{\tiny 75} & .1{\tiny 75} & .1 & 0
+\\ \hline
+&chose & .1 & \cellcolor{gris}.2{\tiny 75} & .1 & .1{\tiny 75} & \cellcolor{gris}.4{\tiny 25} & \cellcolor{gris}.4{\tiny 75} & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.5 & \cellcolor{gris}.3{\tiny 75} & \cellcolor{gris}.2{\tiny 25} & \cellcolor{gris}.2{\tiny 25} & \cellcolor{gris}.3{\tiny 75} & .0{\tiny 75} & .1{\tiny 5} & .1 & .0{\tiny 75} & \cellcolor{gris}.2 & .1{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.2 & .1{\tiny 75} & \cellcolor{gris}1 & \cellcolor{gris}.4{\tiny 25} & .0{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 25} & .1{\tiny 5} & .1{\tiny 5} & .0{\tiny 5}
+\\ \hline
+&compter & 0 & \cellcolor{gris}.6{\tiny 5} & .0{\tiny 75} & .0{\tiny 5} & .1 & .1 & \cellcolor{gris}.6{\tiny 25} & .0{\tiny 25} & .1 & .1 & .0{\tiny 25} & \cellcolor{gris}.6{\tiny 5} & .1 & .1 & .0{\tiny 5} & 0 & .1{\tiny 75} & \cellcolor{gris}.4{\tiny 75} & .0{\tiny 25} & .1{\tiny 5} & .1{\tiny 75} & \cellcolor{gris}.4{\tiny 25} & \cellcolor{gris}1 & .0{\tiny 75} & 0 & .0{\tiny 5} & 0 & \cellcolor{gris}.3{\tiny 75} & \cellcolor{gris}.4{\tiny 25} & .1{\tiny 25}
+\\ \hline
+&dire & 0 & .1 & .1{\tiny 25} & .0{\tiny 75} & 0 & 0 & .1 & .0{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.3 & .0{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & .0{\tiny 25} & .0{\tiny 25} & \cellcolor{gris}.2 & .0{\tiny 25} & .1 & \cellcolor{gris}.3{\tiny 5} & \cellcolor{gris}.2{\tiny 25} & .0{\tiny 75} & .0{\tiny 25} & .0{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}1 & 0 & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.4{\tiny 25} & .1{\tiny 25}
+\\ \hline
+&racine & \cellcolor{gris}.6{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.6{\tiny 75} & \cellcolor{gris}.6{\tiny 75} & 0 & 0 & .0{\tiny 25} & 0 & .1{\tiny 5} & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 25} & 0 & \cellcolor{gris}.6{\tiny 25} & .0{\tiny 25} & 0 & .0{\tiny 25} & 0 & \cellcolor{gris}.8 & .0{\tiny 75} & 0 & 0 & \cellcolor{gris}1 & .0{\tiny 75} & 0 & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 25}
+\\ \hline
+&nombrer & .0{\tiny 25} & .1 & .0{\tiny 25} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 5} & .0{\tiny 75} & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 75} & .1{\tiny 5} & .0{\tiny 75} & .1 & 0 & 0 & 0 & .0{\tiny 25} & .0{\tiny 75} & .1 & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & \cellcolor{gris}.2{\tiny 5} & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}1 & 0 & 0 & .1 & 0
+\\ \hline
+&raison & .0{\tiny 5} & .0{\tiny 25} & .1{\tiny 5} & .1{\tiny 25} & .0{\tiny 25} & .0{\tiny 25} & .0{\tiny 5} & .0{\tiny 25} & .0{\tiny 5} & 0 & \cellcolor{gris}.6{\tiny 75} & 0 & .1 & .1{\tiny 5} & \cellcolor{gris}.7{\tiny 25} & .1{\tiny 75} & \cellcolor{gris}.4{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.8 & \cellcolor{gris}.6{\tiny 5} & .0{\tiny 75} & .0{\tiny 25} & 0 & .0{\tiny 5} & 0 & 0 & \cellcolor{gris}1 & \cellcolor{gris}.3{\tiny 75} & 0 & \cellcolor{gris}.4{\tiny 25}
+\\ \hline
+&donner & .0{\tiny 75} & \cellcolor{gris}.4{\tiny 5} & .1{\tiny 75} & .1{\tiny 5} & .1{\tiny 25} & .1{\tiny 75} & \cellcolor{gris}.4{\tiny 75} & .0{\tiny 25} & .0{\tiny 75} & .0{\tiny 25} & \cellcolor{gris}.4{\tiny 75} & \cellcolor{gris}.3 & \cellcolor{gris}.2 & \cellcolor{gris}.3 & \cellcolor{gris}.5{\tiny 25} & .1{\tiny 5} & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.3{\tiny 25} & \cellcolor{gris}.6{\tiny 75} & .1{\tiny 75} & .1{\tiny 5} & \cellcolor{gris}.3{\tiny 75} & .0{\tiny 25} & .0{\tiny 25} & 0 & \cellcolor{gris}.3{\tiny 75} & \cellcolor{gris}1 & .1{\tiny 75} & \cellcolor{gris}.5{\tiny 5}
+\\ \hline
+&ensemble & .0{\tiny 75} & \cellcolor{gris}.3{\tiny 75} & .1{\tiny 5} & .1{\tiny 5} & .1 & .0{\tiny 75} & \cellcolor{gris}.3{\tiny 25} & .0{\tiny 5} & \cellcolor{gris}.2{\tiny 75} & \cellcolor{gris}.2{\tiny 5} & 0 & \cellcolor{gris}.7{\tiny 75} & 0 & .0{\tiny 25} & .0{\tiny 75} & .0{\tiny 75} & .1{\tiny 75} & \cellcolor{gris}.6{\tiny 25} & .0{\tiny 5} & .1{\tiny 25} & .1 & .1{\tiny 5} & \cellcolor{gris}.4{\tiny 25} & \cellcolor{gris}.4{\tiny 25} & .0{\tiny 5} & .1 & 0 & .1{\tiny 75} & \cellcolor{gris}1 & .1{\tiny 25}
+\\ \hline
+&valoir & .0{\tiny 75} & \cellcolor{gris}.2 & .0{\tiny 5} & .0{\tiny 5} & .1 & .0{\tiny 25} & \cellcolor{gris}.2 & 0 & .0{\tiny 5} & .1 & \cellcolor{gris}.3 & .1{\tiny 25} & \cellcolor{gris}.2 & \cellcolor{gris}.3{\tiny 25} & \cellcolor{gris}.5{\tiny 25} & .0{\tiny 5} & .1{\tiny 25} & .0{\tiny 75} & \cellcolor{gris}.4{\tiny 5} & \cellcolor{gris}.5{\tiny 5} & 0 & .0{\tiny 5} & .1{\tiny 25} & .1{\tiny 25} & .0{\tiny 25} & 0 & \cellcolor{gris}.4{\tiny 25} & \cellcolor{gris}.5{\tiny 5} & .1{\tiny 25} & \cellcolor{gris}1
+\\ \hline
+\end{tabular}
+}
+\label{bertinfickle1}
+\caption{Frequency of neighborhood matrix for the ficklest only = adjacency matrix of the neighborhood graph of the ficklest}
+\end{table}
+\end{changemargin}
+
+Table \ref{bertinfickle1} shows the frequency matrix for the 30 ficklest words. The clustering is not obvious \textit{a priori}, so we can use a different representation for better visualization of the underlying structures. We can fix a treshold $\tau$ and consider this matrix as the adjacency matrix of a graph $G(V,E)$ such that:
+\begin{itemize}
+ \item the set of vertices $V$ is identified to the fickle words
+ \item the set of edges $E$ is defined by $(i,j) \in E \Leftrightarrow f_{ij} > \tau$
+\end{itemize}
+If we choose $\tau$ as the upper bound of the uncertainty interval, as defined in section \ref{m1}, we can reformulate the definition of $G$ as the graph of highly probable neighborhood relations in Kohonen Maps.
+
+In the case of fickle words, the graph~$G$ is given by figure~\ref{fig:graph1}.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{scope}[every node/.style={font={\scriptsize},ellipse,draw,fill=grisclair}]
+\node(chose) at (3.2,4.8){chose};
+\node(compter) at (2,3){compter};
+\node(contraire) at (11,8){contraire};
+\node(demi) at (8.8,7.8){demi};
+\node(depenser) at (10.5,9.6){depenser};
+\node(dire) at (4,1){dire};
+\node(donner) at (7.4,4.2){donner};
+\node(double) at (5,2){double};
+\node(doubler) at (4.3,3){doubler};
+\node(ensemble) at (2,4){ensemble};
+\node(exemple) at (4.2,5.5){exemple};
+\node(falloir) at (8.7,9.3){falloir};
+%\node(figurer) at (1,0){figurer};
+\node(garder) at (7.4,3.4){garder};
+\node(meme) at (8.5,8.5){meme};
+\node(multiplication) at (1,10){multiplication};
+\node(nombrer) at (-0.1,9){nombrer};
+\node(partie) at (4.4,4){partie};
+\node(position) at (10,2.6){position};
+\node(pouvoir) at (11,4.2){pouvoir};
+\node(pratique) at (2.8,9){pratique};
+\node(racine) at (11.2,8.8){racine};
+\node(raison) at (11,3.4){raison};
+\node(reduire) at (6,6){reduire};
+\node(regle) at (0.5,6){regle};
+\node(regledetrois) at (8.4,5){regledetrois};
+\node(savoir) at (10,7.2){savoir};
+\node(science) at (2.5,2){science};
+\node(se) at (8.4,2.6){se};
+\node(seulement) at (5,9){seulement};
+\node(valoir) at (10.5,5){valoir};
+\end{scope}
+
+\draw(compter) -- (chose);
+\draw(demi) -- (contraire);
+\draw(depenser) -- (contraire);
+\draw(depenser) -- (demi);
+\draw(donner) -- (compter);
+\draw(double) -- (chose);
+\draw(double) -- (compter);
+\draw(double) -- (donner);
+\draw(doubler) -- (chose);
+\draw(doubler) -- (compter);
+\draw(doubler) -- (donner);
+\draw(doubler) -- (double);
+\draw(ensemble) -- (compter);
+\draw(ensemble) -- (dire);
+\draw(ensemble) -- (double);
+\draw(ensemble) -- (doubler);
+\draw(exemple) -- (donner);
+\draw(falloir) -- (contraire);
+\draw(falloir) -- (demi);
+\draw(falloir) -- (depenser);
+\draw(garder) -- (chose);
+\draw(garder) -- (donner);
+\draw(garder) -- (double);
+\draw(garder) -- (doubler);
+\draw(meme) -- (contraire);
+\draw(meme) -- (demi);
+\draw(meme) -- (depenser);
+\draw(meme) -- (falloir);
+\draw(multiplication) -- (chose);
+\draw(nombrer) -- (chose);
+\draw(nombrer) -- (multiplication);
+\draw(partie) -- (chose);
+\draw(partie) -- (compter);
+\draw(partie) -- (dire);
+\draw(partie) -- (donner);
+\draw(partie) -- (double);
+\draw(partie) -- (doubler);
+\draw(partie) -- (ensemble);
+%\draw(partie) -- (figurer);
+\draw(partie) -- (garder);
+\draw(position) -- (dire);
+\draw(position) -- (donner);
+%\draw(position) -- (figurer);
+\draw(position) -- (garder);
+\draw(pouvoir) -- (dire);
+\draw(pouvoir) -- (donner);
+%\draw(pouvoir) -- (figurer);
+\draw(pouvoir) -- (garder);
+\draw(pouvoir) -- (position);
+\draw(pratique) -- (chose);
+\draw(pratique) -- (exemple);
+\draw(pratique) -- (multiplication);
+\draw(racine) -- (contraire);
+\draw(racine) -- (demi);
+\draw(racine) -- (depenser);
+\draw(racine) -- (falloir);
+\draw(racine) -- (meme);
+\draw(raison) -- (donner);
+\draw(raison) -- (garder);
+\draw(raison) -- (position);
+\draw(raison) -- (pouvoir);
+\draw(reduire) -- (chose);
+\draw(reduire) -- (contraire);
+\draw(reduire) -- (demi);
+\draw(reduire) -- (ensemble);
+\draw(reduire) -- (exemple);
+\draw(reduire) -- (falloir);
+\draw(reduire) -- (garder);
+\draw(reduire) -- (meme);
+\draw(reduire) -- (partie);
+\draw(reduire) -- (pratique);
+\draw(regle) -- (chose);
+\draw(regle) -- (dire);
+\draw(regle) -- (ensemble);
+%\draw(regle) -- (figurer);
+\draw(regle) -- (multiplication);
+\draw(regle) -- (partie);
+\draw(regle) -- (pratique);
+\draw(regle) -- (reduire);
+\draw(regledetrois) -- (chose);
+\draw(regledetrois) -- (donner);
+\draw(regledetrois) -- (garder);
+\draw(regledetrois) -- (position);
+\draw(regledetrois) -- (pouvoir);
+\draw(regledetrois) -- (raison);
+\draw(regledetrois) -- (reduire);
+\draw(savoir) -- (contraire);
+\draw(savoir) -- (demi);
+\draw(savoir) -- (donner);
+\draw(savoir) -- (falloir);
+\draw(savoir) -- (meme);
+\draw(savoir) -- (racine);
+\draw(science) -- (compter);
+\draw(science) -- (dire);
+\draw(science) -- (double);
+\draw(science) -- (doubler);
+\draw(science) -- (ensemble);
+%\draw(science) -- (figurer);
+\draw(science) -- (garder);
+\draw(science) -- (partie);
+\draw(science) -- (regle);
+\draw(se) -- (chose);
+\draw(se) -- (donner);
+\draw(se) -- (double);
+\draw(se) -- (doubler);
+\draw(se) -- (exemple);
+\draw(se) -- (garder);
+\draw(se) -- (position);
+\draw(se) -- (pouvoir);
+\draw(se) -- (raison);
+\draw(se) -- (regledetrois);
+\draw(seulement) -- (chose);
+\draw(seulement) -- (exemple);
+\draw(seulement) -- (multiplication);
+\draw(seulement) -- (pratique);
+\draw(seulement) -- (reduire);
+\draw(seulement) -- (regle);
+\draw(valoir) -- (donner);
+\draw(valoir) -- (double);
+\draw(valoir) -- (doubler);
+\draw(valoir) -- (exemple);
+\draw(valoir) -- (position);
+\draw(valoir) -- (pouvoir);
+\draw(valoir) -- (raison);
+\draw(valoir) -- (regledetrois);
+\draw(valoir) -- (savoir);
+\draw(valoir) -- (se);
+\end{tikzpicture}
+\label{fig:graph1}
+\caption{Graph of the relations between fickle words. Two nodes are connected if the forms are significantly neighbors.}
+\end{figure}
+
+\subsection{Quasi-cliques}
+
+Graphs are powerful tools for visualization, since the graphical representation can be build according to some parameters that ensure highly connected set of vertices to be gathered as much as possible. Still, it can be interesting to not rely only on graphical intuition, but also use some clustering algorithms with performance guarantee.
+
+Since our graph is pretty dense, it appears that the concept we need here is a quasi-clique coloring. A quasi-clique is a subgraph of highest density; typically, if $f$ is a growing function, $K \subset V$ is a quasi-clique according to $f$ if $E[K] \leq f(|K|,|V|)$. Here we choose $f=|K|(|K|-1)/2-1$. In other terms, we define a quasi-clique as a subgraph such that every pair of vertices except at most one is connected.
+
+
+
+\section{Analysis of results}
+
+\subsection{Robust Kohonen maps}
+
+
+\hyphenpenalty=10000
+\setlength{\tabcolsep}{1mm}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{table}[h!]
+\centering
+\scalebox{0.6}{ 
+\begin{tabular}{|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|p{1.9cm}|}
+\hline
+minutes super* & & notes & calculer cubic & fois mettre \cellcolor{grisclair} \textbf{BNF1259} & &  \textcolor{gris}{contraire}  \textcolor{gris}{depenser}  \textcolor{gris}{falloir}  \textcolor{gris}{meme}  \textcolor{gris}{racine} & aller donc ensuivre  \textcolor{gris}{savoir} &  \textcolor{gris}{multiplier} &  \textcolor{gris}{regle} venir\\
+\hline
+gecter & & & & & dessous & barrater  \textcolor{gris}{demi} & somme & voir & assembler\\
+\hline
+ & \cellcolor{grisclair} \textbf{BSG3143} & parteur & defaillir duplation mediation nommer numeration senestre & semblables & & circulaires demeurer derenier disaine ecrire entendre formes nombrateur oter prouver & entrer laisser rien & emprunter figure regarder & figure de~non~rien fraction muer rayes retenir\\
+\hline
+notables & & denomi- nations multipli- cateur nominateur ordonne & abaisser comptes endroit proposer & anteriorer diminution enseignement enseigner moyen signifiant surplus trancher & possible  \textcolor{gris}{reduire} & difficile progression repondre & avaluer & faillir & monter partiteur\\
+\hline
+bref gectons  \textcolor{gris}{multipli-} \textcolor{gris}{cation}  \textcolor{gris}{pratique}  \textcolor{gris}{seulement} & generale latin  \textcolor{gris}{nombrer} proportion reduction unite & soustraction & denomi- nateur & entier & ajoutement & & remotion \cellcolor{grisclair} \textbf{Kadran} & & \cellcolor{grisclair} \textbf{BNF25}\\
+\hline
+chose& nulle &  \textcolor{gris}{ensemble}  \textcolor{gris}{partie} & \cellcolor{grisclair} \textbf{Nantes456} & & & &  \textcolor{gris}{partement}  \textcolor{gris}{valoir} & & etre\\
+\hline
+arithmetique  \textcolor{gris}{compter} preuve tenir & cubbement destre digit diviser diviseur division lignes nombre compo \textcolor{gris}{se}querir &  \textcolor{gris}{dire}  \textcolor{gris}{figurer} poser  \textcolor{gris}{science} & & & abreger lever precedent quotiens & numerateur & moindre nombre \cellcolor{grisclair} \textbf{Nicolas Chuquet} & partir plus  \textcolor{gris}{raison} & \\
+\hline
+egalir egaliser especes question total traiter & mesurer & grand & apparaitre  \textcolor{gris}{position}  \textcolor{gris}{soustraire} &  \textcolor{gris}{ajouter} & leurs prendre quant quantefois reponse trouver & &  \textcolor{gris}{part} & commun Item & devoir  \textcolor{gris}{droit}  \textcolor{gris}{exemple} reste rester\\
+\hline
+algorisme article carrees cercle envient ligne pair sain \cellcolor{grisclair} \textbf{BNF1339} & addition chiffre former &  \textcolor{gris}{double}  \textcolor{gris}{doubler} moitie & appeler  \textcolor{gris}{donner}  \textcolor{gris}{maniere}  \textcolor{gris}{pouvoir}  \textcolor{gris}{se}& bailler demander mises nomper pareillement vouloir & & egale faire montrer necessaire romp selon & & & \\
+\hline
+cautelle & demontrer dessus &  \textcolor{gris}{garder}  \textcolor{gris}{regle}  \textcolor{gris}{de}  \textcolor{gris}{trois} & aliquot composer corps moins sub* toutefois & partant plaisir proportionel- lement requerir residu & appartenir convenir demande difference egaulx maieur millions rate survendre tant & & naturel roupt \cellcolor{grisclair} \textbf{Traicte praticque} & & fausse\\
+\hline
+\end{tabular}
+}
+\caption{Robust Kohonen Map: fickle words are removed (in gray)}
+\end{table}
+
+
+
+\subsection{Improved visualization for FCA}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.14]
+
+\pgfmathsetmacro\fsize{87};
+\pgfmathsetmacro\xorg{20};
+\pgfmathsetmacro\yorg{20};
+\pgfmathsetmacro\xdlcorner{-11};
+\pgfmathsetmacro\ydlcorner{-23};
+\pgfmathsetmacro\stepunit{25};
+
+\coordinate (dlcorner) at (\xdlcorner,\ydlcorner);
+
+\draw[black,line width=0.4mm] (dlcorner) -- +(0,\fsize) -- +(\fsize,\fsize) -- +(\fsize,0) -- +(0,0);
+\draw[dotted,black,line width=0.4mm] (\xdlcorner+2.5,\yorg) -- (\xdlcorner+\fsize,\yorg);
+\draw[dotted,black,line width=0.4mm] (\xorg,\ydlcorner+1.8) -- (\xorg,\ydlcorner+\fsize);
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+\node at (32,\ydlcorner+1){\textbf{ Factor 1 (25.03\%)}};
+\node at (\xorg-\stepunit,\ydlcorner+1){\textbf{-1}};
+\node at (\xorg,\ydlcorner+1){\textbf{0}};
+\node at (\xorg+\stepunit,\ydlcorner+1){\textbf{1}};
+\node at (\xorg+2*\stepunit,\ydlcorner+1){\textbf{2}};
+\node[rotate=90] at (\xdlcorner+1.7,7){\textbf{ Factor 2 (17.91\%)}};
+\node at (-9.6,\yorg){\textbf{0}};
+\node at (-9.4,\yorg-\stepunit){\textbf{-1}};
+\node at (-9.6,\yorg+\stepunit){\textbf{1}};
+\end{scope}
+
+\path plot[mark=*,mark size=4mm] coordinates {(18.375,19.375) (28.875,31.425) (27.225,26.475) (15.925,32.55) (31.775,26.05) (34.425,32.2) (27.875,7.675) (22.375,26.6) (30.1,29.4) (29.25,30.075) (15.525,21.15) (33.1,23.375) (16.375,21.4) (32.625,25.625) (25.125,6.175) (31.65,20.6) (27.15,21.375) (30.475,28.6) (13.9,26.05) (24.35,24.975) (24.45,21.725) (36.975,30.725) (18.825,30.35) (15.2,16.9) (30.175,25.275) (24.8,17.875) (24.55,16.8) (20.125,24.175) (41.9,35.1) (16.25,15.775) (27.975,24.075) (25.75,14.475) (24.15,24.975) (18.375,21.5) (31.525,12.725) (19.4,21.925) (21.55,27.775) (25.675,17.65) (20.95,20.25) (17.425,10.775) };
+
+\path plot[mark=o,mark size=4mm] coordinates {(50.625,17.75) (17.775,16.475) (37.675,29.475) (37.125,14.4) (47.575,27.325) (4.225,40.025) (22.55,30.925) (44.05,9.825) (26.575,25.225) (11.15,34.125) (21.5,28.65) (42.025,23.15) (51.925,24.15) (20.875,17.45) (11.525,21.525) (13.1,30) (26.25,16.1) (27.3,26.3) (27.2,46.1) (60.275,45.45) (60.575,40.95) (58.6,40.35) (49.9,26.525) (45.225,23.175) (14.9,21.25) (23.85,33.1) (40.175,11.375) (5.725,39.8) (25.425,35.875) (55.85,16.225) (35.875,50.6) (44.525,15.1) (6.975,33.675) (11.45,33.2) (36.8,30.375) (37.5,40.425) (26.65,12.075) (41.125,18.675) (22.25,18) (32.6,35.975) (41.975,36.925) (48.575,14.075) (13.8,15.725) (4.2,36.925) (26,11.35) (49.475,12.4) (40,6.1) (26.05,20.15) (52.675,16.725) (50.4,26.8) (44.75,18.675) (22.3,37.175) (47.825,19.175) (31.375,24.375) (8.325,27.55) (51.8,26.35) (61.35,26.375) (-0.125,32.925) (15.35,7.8) (31.875,17.7) (40.05,10.775) (40.625,10.125) (12.4,32.95) (30,19.725) (33.675,9.225) (18.15,5.9) (71.925,40.625) (56.075,26.325) (16.1,10.1) (16.125,11.275) (11.35,25.375) (11,12.5) (17,-0.775) (9.25,-20.275) (30.825,45.9) (47.25,36.85) (43.325,25.05) (22.325,-2.175) (38.35,33.9) (8.525,37.9) (32.925,19.35) (35.625,18.575) (17.05,12.975) (25.925,14.325) (41.6,33.8) (7.775,28.025) (20.575,11.1) (55.675,37.225) (49.15,20.425) (-6.9,36.825) (50.75,23.25) (42.6,30.475) (33.55,44.075) (2.35,35.625) (44.55,28.55) (18.525,31.125) (27.15,22.65) (19.1,28.525) (36.95,24.15) (8.725,7.95) (38.225,15.4) (9.725,-12.075) (39.65,18.95) (7.075,16.45) (9.05,26.85) (20.75,15.5) (18.925,21.05) (49.15,16.025) (45.05,38.075) (34.2,16.975) (18.5,37.25) (18.25,39) (37.175,43.875) (39.825,28.275) (21.4,24.175) (46.5,22.525) (28.925,33.325) (34.5,23.55) (56.35,33.9) (19.525,38.025) (6.875,28.775) (42.3,24.6) (15.125,12.45) (15.875,1.95) (1.825,31.425) (15.575,19.625) (26.775,9.85) (30.4,13.325) (28.675,16.5) (17.225,27.025) (29.875,25.425) (27.075,19.3) (36.925,29.25) (2.425,38.725) (33.05,21.4) (26.05,16.525) (12.325,25.95) (12.6,28.475) (49.45,22.7) (41.25,31.475) (23.65,23.175) (-4.625,36.825) (8.1,-22.25) (29.85,20.975) (16.975,6.95) (20.875,23.775) (19.8,22.775) (9.05,27.65) (-0.425,33.4) (10.525,39.875) (8.225,11.95) (7.875,17.125) (23.175,1.65) (24.3,10.675) (10.675,23.5) (5.775,16.6) (64.45,38.275) (12.45,26.65) (30.15,21.975) (31.475,15.975) (50.2,8.175) (28.65,19.175) (31.35,17.375) (12.7,36.35) (41.375,40.6) (34.775,10.6) (-2.55,35.95) (3.7,31.525) (37.4,18.975) (43.375,17.55) (11.425,36.7) (36.75,28.65) (44.875,3.125) (8.225,27.6) (48.975,29.65) (15.275,18.2) (13.95,28.85)};
+
+\begin{scope}[every node/.style={font={\tiny},inner sep=1pt,fill=white}]
+\node[draw] (Kadran) at (18.95,15.075){{Kadran}};
+\node[draw] (BSG3143) at (28.55,26.925){{BSG3143}};
+\node[draw] (BNF1339) at (41.025,26.95){{BNF1339}};
+\node[draw] (Nicolas-Chuquet) at (13.675,26.7){{Nicolas Chuquet}};
+\node[draw] (BNF25) at (15.525,5.5){{BNF25}};
+\node[draw] (BNF1259) at (25.825,30.975){{BNF1259}};
+\node[draw] (Traicte-praticque) at (9.175,25.45){{Traicte praticque}};
+\node[draw] (Nantes456) at (29.825,14.125){{Nantes456}};
+\end{scope}
+
+\end{tikzpicture}
+
+\caption{Projection on first two factors of the FCA. Only the fickle words are in black.}
+\label{fig:CA12fi}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+
+\begin{tikzpicture}[scale=0.14]
+
+\pgfmathsetmacro\fsize{87};
+\pgfmathsetmacro\xorg{20};
+\pgfmathsetmacro\yorg{20};
+\pgfmathsetmacro\xdlcorner{-21};
+\pgfmathsetmacro\ydlcorner{-26};
+\pgfmathsetmacro\stepunit{25};
+
+\coordinate (dlcorner) at (\xdlcorner,\ydlcorner);
+
+\draw[black,line width=0.4mm] (dlcorner) -- +(0,\fsize) -- +(\fsize,\fsize) -- +(\fsize,0) -- +(0,0);
+\draw[dotted,black,line width=0.4mm] (\xdlcorner+2.5,\yorg) -- (\xdlcorner+\fsize,\yorg);
+\draw[dotted,black,line width=0.4mm] (\xorg,\ydlcorner+1.8) -- (\xorg,\ydlcorner+\fsize);
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+\node at (32,\ydlcorner+1){\textbf{ Factor 3 (?\%)}};
+\node at (\xorg-\stepunit,\ydlcorner+1){\textbf{-1}};
+\node at (\xorg,\ydlcorner+1){\textbf{0}};
+\node at (\xorg+\stepunit,\ydlcorner+1){\textbf{1}};
+\node[rotate=90] at (\xdlcorner+1.7,7){\textbf{ Factor 4 (?\%)}};
+\node at (-19.6,\yorg){\textbf{0}};
+\node at (-19.4,\yorg-\stepunit){\textbf{-1}};
+\node at (-19.6,\yorg+\stepunit){\textbf{1}};
+\end{scope}
+
+\path plot[mark=o,mark size=4mm] coordinates {(5.575,33.55) (5.65,17.175) (29.675,19.65) (16.95,28.825) (32.275,18.35) (-18.05,-24.525) (25.075,18.775) (-5.125,36.65) (4.45,24.2) (24.35,37.55) (16.225,17.525) (32.675,18.025) (30.025,16.375) (23.775,7.4) (29.375,29.85) (16.225,14.5) (44.975,8.65) (20.7,20) (52.6,8.8) (48.35,7.35) (33.125,17.625) (36.65,17.5) (32.125,16.375) (39.075,14.9) (9.05,9.9) (15.825,13.125) (-2.5,35.2) (23.875,24.725) (-3.8,-8.275) (6.55,31.5) (55.575,7.375) (0.075,38) (24.25,28.225) (24.05,21.375) (32.75,19.025) (15.425,6.675) (16,30.2) (8.325,33.525) (32.275,17.6) (51.125,8.85) (25.95,10.15) (8.45,31.825) (34.9,19.575) (35.15,34.05) (27.25,25.875) (9.7,28.725) (11.075,27.125) (29.175,15.575) (6.25,32.175) (21.825,23.35) (12.55,20.675) (33.525,22.275) (12.225,30.3) (34.1,17.575) (16.8,33.75) (18.15,20.725) (18.575,22.225) (15,38.7) (29.725,5.85) (3.2,30.175) (4.65,34.9) (3.25,35.5) (26.525,23.975) (27.075,24.3) (14.725,25.975) (38.225,13.075) (38.875,11.25) (19.225,25.3) (20.8,27.9) (28.825,23.875) (22.075,24.275) (24.6,29.575) (36.825,11.05) (38.55,1.95) (62.325,1.65) (30.725,22.075) (30.1,20.475) (29.825,12.35) (20.1,30.375) (24.025,41.15) (20.15,27.35) (13.8,16.575) (16.675,5.325) (30.575,14.05) (32.275,19.775) (8.625,22.275) (8.375,7.075) (29.425,16.45) (6.75,25.125) (20.675,41.725) (11.9,30.7) (32,11.35) (50.7,7.45) (19.95,32.325) (13.325,31.8) (21.5,21.025) (2.65,19.35) (14.475,6.525) (14.225,16.45) (33.075,18.075) (4.1,36.75) (31.425,11.975) (8.575,33.9) (21.425,35.775) (20.825,25.35) (45.9,12.525) (8.35,16.35) (10.725,30.2) (29.975,21.775) (16.15,29.45) (21.075,23.25) (18.65,28.8) (41.775,15.65) (15.15,26.85) (-1.7,24.475) (10.075,33.025) (20.5,21.05) (29.425,16.425) (24.475,19.975) (23.475,23.75) (13.875,22.35) (10.95,33) (10.85,4.6) (29.875,16.45) (8.025,18.375) (13.925,11.75) (17.7,29.15) (22.35,27.25) (0.675,23.9) (7.225,17.05) (26.5,26.375) (25.15,29.325) (17.55,30.725) (1.4,7.3) (2.925,27.825) (22.625,14) (14.925,23.025) (0.025,21.325) (21.8,22.45) (31.7,16.375) (-5.15,18.775) (24.15,46.425) (36.775,2.625) (12.375,36.6) (30.025,2.125) (24.375,33.625) (32.125,27.375) (13.75,11.125) (12.875,25.8) (14.825,15) (27.275,18.75) (18.2,10.5) (34.5,10.6) (37,12.125) (16.525,29.45) (26.125,29.225) (35.425,12.425) (18.5,25.85) (11.65,25.65) (13.95,25.725) (-4.05,38.175) (29.375,17.275) (16.15,30.4) (-10.725,-10.475) (23.675,27.95) (0.125,34.025) (23.225,38.275) (18.225,25) (24.5,16.6) (37.8,9.1) (1.025,2.15) (35.825,13.7) (-10.9,43.125) (12.75,17.825) (14.725,21.425) (24.05,22.525) (20.275,22.05)};
+\path plot[mark=*,mark size=4mm] coordinates { (15.6,15.2) (25.15,18.175) (22.75,31.075) (36.65,14.25) (34.25,19.625) (30.3,15.15) (17.95,19.425) (19.425,17.125) (13.525,19) (12.225,23.45) (33.575,23.425) (19.95,28.75) (23.05,22.725) (26.15,9.375) (16,18.85) (12.925,13.5) (4.4,6.375) (31.475,18.475) (20.275,26.55) (30.7,21.95) (25.625,21.15) (30.375,23.1) (18.825,25.675) (16.575,22.375) (19.4,29.075) (14.425,15.325) (18.4,6.4) (20.225,28.5) (40.5,14.025) (18.85,6.1) (25.375,26.85) (25.85,23.7) (11.625,10.425) (24.025,21.625) (21.225,21.675) (16.1,15.6) (18.775,23.55) (13.5,18.5) (16.95,19.95) (28.3,19.725)};
+
+\begin{scope}[every node/.style={font={\tiny},inner sep=1pt,fill=white}]
+\node[draw] (Kadran)at (26,19.725){{Kadran}};
+\node[draw] (BSG3143)at (21.175,22.15){{BSG3143}};
+\node[draw] (BNF1339)at (26.225,17.5){{BNF1339}};
+\node[draw] (Nicolas-Chuquet)at (7.8,7.925){{Nicolas-Chuquet}};
+\node[draw] (BNF25)at (25.675,14.825){{BNF25}};
+\node[draw] (BNF1259)at (34.825,14.725){{BNF1259}};
+\node[draw] (Traicte-praticq)at (21.35,27.525){{Traicte-praticq}};
+\node[draw] (Nantes456)at (9.825,26.25){{Nantes456}};
+\end{scope}
+
+
+\end{tikzpicture}
+
+\caption{Projection on third and fourth factors of the FCA. Only the fickle words are in black}
+\label{fig:CA34fi}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+
+\begin{tikzpicture}[scale=0.14]
+
+\pgfmathsetmacro\fsize{87};
+\pgfmathsetmacro\xorg{20};
+\pgfmathsetmacro\yorg{20};
+\pgfmathsetmacro\xdlcorner{-11};
+\pgfmathsetmacro\ydlcorner{9};
+\pgfmathsetmacro\stepunit{25};
+
+\coordinate (dlcorner) at (\xdlcorner,\ydlcorner);
+
+\draw[black,line width=0.4mm] (dlcorner) -- +(0,\fsize) -- +(\fsize,\fsize) -- +(\fsize,0) -- +(0,0);
+\draw[dotted,black,line width=0.4mm] (\xdlcorner+2.5,\yorg) -- (\xdlcorner+\fsize,\yorg);
+\draw[dotted,black,line width=0.4mm] (\xorg,\ydlcorner+1.8) -- (\xorg,\ydlcorner+\fsize);
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+\node at (32,\ydlcorner+1){\textbf{ Factor 5 (?\%)}};
+\node at (\xorg-\stepunit,\ydlcorner+1){\textbf{-1}};
+\node at (\xorg,\ydlcorner+1){\textbf{0}};
+\node at (\xorg+\stepunit,\ydlcorner+1){\textbf{1}};
+\node at (\xorg+2*\stepunit,\ydlcorner+1){\textbf{2}};
+\node[rotate=90] at (\xdlcorner+1.7,57){\textbf{ Factor 6 (?\%)}};
+\node at (-9.6,\yorg){\textbf{0}};
+\node at (-9.6,\yorg+\stepunit){\textbf{1}};
+\node at (-9.6,\yorg+2*\stepunit){\textbf{2}};
+\end{scope}
+
+\path plot[mark=*,mark size=4mm] coordinates {(24.235,23.335)(23.35,28.84)(19.24,22.06)(38.665,20.395)(38.95,21.385)(29.485,17.725)(27.055,24.4)(25.915,22.81)(18.925,20.095)(17.965,23.14)(23.935,21.475)(25.945,23.98)(27.175,25.6)(31.6,19.78)(24.625,23.44)(22.585,20.185)(22.435,22)(33.88,21.415)(23.35,30.385)(23.545,37.825)(26.245,25.915)(21.775,37.345)(27.49,27.265)(26.23,26.17)(25.615,24.16)(24.835,21.25)(24.1,27.145)(24.43,32.005)(36.31,15.82)(28.54,22.84)(29.065,25.105)(26.56,28.09)(22.21,27.445)(31.27,26.485)(19.72,24.505)(21.625,26.305)(26.965,31.675)(24.955,22.825)(26.56,23.515)(26.92,33.7)};
+\path plot[mark=o,mark size=4mm] coordinates {(24.13,24.055)(26.995,40.585)(16.645,22.99)(24.565,24.715)(24.445,26.17)(35.53,21.55)(23.53,24.4)(27.865,23.425)(26.74,32.155)(27.355,25.36)(11.005,27.04)(32.995,18.22)(7.915,24.94)(23.32,23.875)(25.435,21.76)(30.265,18.94)(25.315,21.4)(19.585,27.88)(26.695,25.33)(20.38,21.61)(10.78,30.985)(29.335,28.18)(22.375,24.49)(23.38,25.12)(28.915,20.62)(22.84,43.39)(52.735,21.01)(17.05,14.92)(8.725,45.28)(-2.405,17.89)(16.15,28.285)(7.21,19.03)(26.89,29.815)(20.515,23.005)(31.48,23.335)(28.06,22.09)(17.635,21.61)(20.605,18.025)(57.4,30.28)(34.945,41.755)(22.765,22.165)(24.58,20.89)(21.025,20.005)(16.39,41.965)(30.07,26.05)(32.14,47.89)(16.69,20.875)(43.81,18.01)(15.265,29.71)(22.585,19.36)(23.53,25.33)(29.875,19.855)(21.415,20.395)(23.185,21.175)(32.05,19.945)(34.9,20.83)(23.815,23.215)(30.745,19.555)(22.27,20.905)(26.47,21.94)(24.52,33.385)(24.925,30.565)(24.295,25.66)(13.735,20.95)(9.985,17.71)(21.76,22.255)(24.49,25.36)(30.4,30.745)(36.955,23.665)(37.465,22.045)(30.745,21.835)(30.085,27.19)(33.55,25.975)(24.625,22.48)(-4.715,16.765)(15.775,20.65)(25.06,23.29)(29.575,21.925)(23.68,25.54)(24.4,22.705)(20.29,26.425)(23.965,28.75)(60.37,13.765)(20.995,32.62)(25.105,25.42)(25.63,40.48)(32.665,64.795)(23.77,44.35)(29.86,44.35)(26.38,26.44)(28.24,26.665)(21.22,22.69)(23.485,37.57)(23.815,24.25)(25.555,29.905)(6.055,22.75)(22.63,19.225)(19.645,22.66)(22.93,35.08)(24.715,18.58)(49.945,16.975)(22.495,30.475)(31.66,62.305)(24.76,22.18)(30.325,27.94)(25.255,21.28)(25.585,23.275)(22.84,25.255)(26.86,22.195)(23.515,27.37)(34.825,44.185)(23.215,23.035)(25.42,26.74)(33.4,19.27)(28,25.855)(19.84,18.94)(34.525,51.4)(36.685,29.5)(19.165,20.395)(26.5,55.405)(45.985,54.115)(25.615,32.515)(28.3,27.19)(25.96,38.05)(33.715,52.09)(26.905,18.94)(14.785,35.59)(19.885,27.04)(24.19,21.82)(36.205,51.46)(24.88,24.34)(24.175,31.9)(22.12,23.02)(27.43,25.375)(23.425,21.865)(28.015,37.255)(26.92,22.525)(22.36,24.835)(16.255,21.145)(19.585,23.065)(24.34,34.12)(22.495,28.3)(28.885,24.085)(29.35,21.985)(21.64,25.36)(25.705,24.04)(16.84,18.205)(17.41,25.24)(27.595,21.595)(20.2,26.92)(22.915,29.425)(29.8,40)(23.635,24.265)(18.265,20.62)(23.905,19.915)(22.765,22.795)(21.22,22.645)(23.41,27.01)(22.945,27.625)(22.375,27.01)(22.99,29.41)(25.825,21.655)(25.06,23.545)(22.9,29.44)(6.355,16.57)(26.26,28.795)(26.695,25.09)(31.225,35.11)(29.575,18.4)(20.845,21.625)(23.95,28.285)(23.335,26.035)(32.695,87.925)(31.66,24.625)(22.705,21.865)(24.505,23.335)(19,20.44)(17.32,20.485)(21.265,27.52)(20.845,25.225)(35.695,18.76)(25.12,25.21)(20.875,37.795)(25.06,23.485)(25.405,26.14)};
+
+\begin{scope}[every node/.style={font={\tiny},inner sep=1pt,fill=white}]
+\node[draw] (Kadran)at (24.13,24.055){Kadran};
+\node[draw] (BSG3143)at (26.995,40.585){BSG3143};
+\node[draw] (BNF1339)at (16.645,22.99){BNF1339};
+\node[draw] (Nicolas-Chuquet)at (24.565,24.715){Nicolas-Chuquet};
+\node[draw] (BNF25)at (24.445,26.17){BNF25};
+\node[draw] (BNF1259)at (35.53,21.55){BNF1259};
+\node[draw] (Traicte-praticq)at (23.53,24.4){Traicte-praticq};
+\node[draw] (Nantes456)at (27.865,23.425){Nantes456};
+\end{scope}
+
+\end{tikzpicture}
+
+\caption{Projection on the fifth and sixth factors of the FCA. Only the fickle words are in black}
+
+\label{fig:CA56fi}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.1]
+\coordinate (origin) at (88,0);
+\draw[thick,black,-latex](origin)-- +(135,0);
+\draw[thick,black,-latex](origin)-- +(0,30);
+\path plot[mark=o,mark size=5mm] coordinates {(89,1.733313)
+(89,0.687671)
+(93,0.879188)
+(93,0.917328)
+(94,0.500639)
+(94,0.349571)
+(97,0.657271)
+(99,1.005228)
+(103,0.488729)
+(103,0.233705)
+(104,0.834061)
+(105,0.355916)
+(105,0.311233)
+(107,0.179992)
+(107,0.236564)
+(108,1.834052)
+(109,0.780884)
+(109,0.433761)
+(111,0.374555)
+(111,0.136533)
+(112,1.102961)
+(113,0.549119)
+(113,0.563886)
+(113,0.407632)
+(113,2.986735)
+(115,1.576985)
+(116,0.525266)
+(117,0.12585)
+(117,0.427956)
+(119,0.039282)
+(120,0.43786)
+(121,0.089967)
+(121,0.106757)
+(122,0.904057)
+(122,0.27663)
+(122,0.143855)
+(122,0.170589)
+(123,0.408344)
+(123,0.409868)
+(123,0.619592)
+(124,0.370105)
+(125,0.662793)
+(125,0.470098)
+(126,0.53128)
+(126,0.771339)
+(127,0.902703)
+(127,0.799271)
+(128,0.443143)
+(129,0.302426)
+(129,2.023817)
+(129,2.884816)
+(130,1.131654)
+(131,1.667429)
+(131,0.454524)
+(131,0.402024)
+(131,1.22218)
+(132,0.579035)
+(132,0.526653)
+(132,0.251264)
+(133,0.616724)
+(134,1.246114)
+(135,1.529439)
+(136,0.61385)
+(136,0.49528)
+(136,0.433612)
+(136,0.45828)
+(137,0.273524)
+(137,0.925961)
+(137,2.444701)
+(138,3.146146)
+(138,0.895174)
+(139,1.207906)
+(139,0.730987)
+(139,0.122534)
+(140,0.86976)
+(140,0.582069)
+(140,0.833297)
+(140,1.039637)
+(140,0.230508)
+(141,1.403154)
+(141,2.060198)
+(141,0.709805)
+(142,1.934577)
+(142,0.211917)
+(142,1.309469)
+(143,3.995438)
+(144,1.184564)
+(144,2.358767)
+(145,0.747727)
+(145,1.454136)
+(146,1.193686)
+(146,1.94952)
+(147,1.944066)
+(147,1.130539)
+(147,0.318043)
+(147,0.879615)
+(148,1.468539)
+(148,2.237699)
+(148,1.919718)
+(148,0.593212)
+(149,1.119967)
+(149,4.19534)
+(149,0.943449)
+(149,0.253371)
+(149,0.939117)
+(150,1.532861)
+(150,1.440959)
+(150,0.496267)
+(150,0.853435)
+(151,0.668082)
+(151,1.773085)
+(151,0.934419)
+(151,1.001479)
+(151,1.609046)
+(153,0.502958)
+(153,1.281498)
+(154,0.294367)
+(154,5.175975)
+(154,2.346217)
+(155,0.746928)
+(156,0.412462)
+(156,1.195406)
+(156,2.969508)
+(156,1.857245)
+(156,2.124791)
+(156,0.44429)
+(157,2.346391)
+(157,0.801633)
+(157,4.806805)
+(158,1.442624)
+(158,4.504724)
+(158,7.870092)
+(158,1.14631)
+(158,5.032216)
+(160,0.350625)
+(160,1.006146)
+(161,0.770879)
+(161,3.903592)
+(161,1.154718)
+(161,1.745997)
+(162,1.985234)
+(162,0.689118)
+(162,1.289477)
+(163,2.403167)
+(163,0.320264)
+(163,4.312527)
+(163,2.970866)
+(163,3.079829)
+(163,1.966399)
+(163,2.773674)
+(163,0.741294)
+(164,2.02266)
+(164,2.180347)
+(164,0.384743)
+(164,0.824953)
+(164,0.268831)
+(165,2.634443)
+(165,0.428705)
+(165,1.877663)
+(165,0.910697)
+(165,0.873904)
+(165,3.485168)
+(166,2.878361)
+(166,1.943489)
+(167,2.930207)
+(167,1.489835)
+(167,0.713504)
+(167,4.566103)
+(168,1.635471)
+(168,2.339072)
+(168,1.176074)
+(168,0.33371)
+(169,2.449229)
+(169,0.623658)
+(169,0.86062)
+(170,1.760697)
+(170,4.197148)
+(170,2.58299)
+(171,1.168305)
+(171,2.191193)
+(171,1.754257)
+(172,1.807177)
+(172,2.422776)
+(173,1.15045)
+(173,3.85446)
+(173,0.76326)
+(173,1.661414)
+(173,3.472332)
+(173,3.53184)
+(174,0.345418)
+(175,4.891938)
+(177,3.78168)
+(177,2.77811)
+(178,6.57394)
+(178,2.177587)
+(179,2.90853)
+(179,0.315672)
+(179,2.319238)
+(179,3.205815)
+(179,1.872733)
+(181,0.579635)
+(181,2.608949)
+(181,0.407873)
+(182,0.537897)
+(184,1.024579)
+(185,0.493946)
+(186,6.677435)
+(186,8.299131)
+(187,0.606432)
+(188,3.003859)
+(190,4.45374)
+(191,6.180186)
+(192,6.054028)
+(194,7.350671)
+(194,10.232712)
+(195,6.269358)
+(196,9.013623)
+(199,0.50955)
+(199,6.61164)
+(203,1.191249)
+(203,10.989775)
+(207,16.435334)
+(207,19.376364)
+(216,1.193709)
+(218,1.307591)};
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+\node at (150,-3){\textbf{ number of fickle pairs}};
+\node at (100,-2){\textbf{100}};
+\node at (200,-2){\textbf{200}};
+\node[rotate=90] at (85.5,30){\textbf{distance\up{2}}};
+\node at (85.5,0){\textbf{0}};
+\node at (85.5,10){\textbf{10}};
+\node at (85.5,20){\textbf{20}};
+\end{scope}
+
+\end{tikzpicture}
+\caption{Correlation between fickleness and distance to the center. x-axis represents the number of fickle pairs a word belongs to, while y-axis stands for the square distance to the center of the analysis $d^2=\sum_{i\leq 7} f_i^2$}
+\end{figure}
+
+
+
+\subsection{Neighborhood graphs}
+
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1]
+
+\fill[grisclair] (demi)+(1,0.85) circle(2);
+\fill[grisclair] (se)+(0.85,1.2) circle(2.3);
+\fill[grisclair] (regle)+(2.5,1.3) circle(3);
+\fill[grisclair] (science)+(1,0.3) circle(2);
+
+\begin{scope}[every node/.style={font={\scriptsize}}]
+
+\node(multiplication) at (1,8){multiplication};
+\node(seulement) at (5,8.8){seulement};
+\node(pratique) at (2.8,9){pratique};
+\node(regle) at (1,6){regle};
+\node(reduire) at (5.2,6){reduire};
+\node(chose) at (3.2,4.8){chose};
+
+\node(depenser) at (10.5,9.6){depenser};
+\node(falloir) at (8.7,9.3){falloir};
+\node(meme) at (8.5,8.5){meme};
+\node(racine) at (11.2,8.8){racine};
+\node(contraire) at (11,8){contraire};
+\node(demi) at (8.8,7.8){demi};
+\node(savoir) at (10,7.2){savoir};
+
+\node(compter) at (2,2){compter};
+\node(ensemble) at (2.2,3){ensemble};
+\node(partie) at (4.4,3){partie};
+\node(double) at (4.7,1){double};
+\node(doubler) at (4.3,2){doubler};
+\node(science) at (2.5,1){science};
+
+\node(garder) at (7.4,3.4){garder};
+\node(donner) at (7.4,4.2){donner};
+\node(pouvoir) at (11,4.2){pouvoir};
+\node(raison) at (11,3.4){raison};
+\node(regledetrois) at (8.4,5){regledetrois};
+\node(se) at (8.4,2.6){se};
+\node(valoir) at (10.5,5){valoir};
+\node(position) at (10,2.6){position};
+
+\node(dire) at (4,0){dire};
+
+\node(exemple) at (6.5,5.5){exemple};
+
+%\node(figurer) at (1,0){figurer};
+
+\node(nombrer) at (0.5,10){nombrer};
+\end{scope}
+
+\draw(compter) -- (chose);
+\draw(donner) -- (compter);
+\draw(double) -- (chose);
+\draw(double) -- (donner);
+\draw(doubler) -- (chose);
+\draw(doubler) -- (donner);
+\draw(ensemble) -- (dire);
+\draw(exemple) -- (donner);
+\draw(garder) -- (chose);
+\draw(garder) -- (double);
+\draw(garder) -- (doubler);
+\draw(nombrer) -- (chose);
+\draw(nombrer) -- (multiplication);
+\draw(partie) -- (chose);
+\draw(partie) -- (dire);
+\draw(partie) -- (donner);
+%\draw(partie) -- (figurer);
+\draw(partie) -- (garder);
+\draw(position) -- (dire);
+%\draw(position) -- (figurer);
+\draw(pouvoir) -- (dire);
+%\draw(pouvoir) -- (figurer);
+\draw(pratique) -- (exemple);
+\draw(reduire) -- (contraire);
+\draw(reduire) -- (demi);
+\draw(reduire) -- (ensemble);
+\draw(reduire) -- (exemple);
+\draw(reduire) -- (falloir);
+\draw(reduire) -- (garder);
+\draw(reduire) -- (meme);
+\draw(reduire) -- (partie);
+\draw(regle) -- (dire);
+\draw(regle) -- (ensemble);
+%\draw(regle) -- (figurer);
+\draw(regle) -- (partie);
+\draw(regledetrois) -- (chose);
+\draw(regledetrois) -- (reduire);
+\draw(savoir) -- (donner);
+\draw(science) -- (dire);
+%\draw(science) -- (figurer);
+\draw(science) -- (garder);
+\draw(science) -- (regle);
+\draw(se) -- (chose);
+\draw(se) -- (double);
+\draw(se) -- (doubler);
+\draw(se) -- (exemple);
+\draw(seulement) -- (exemple);
+\draw(valoir) -- (double);
+\draw(valoir) -- (doubler);
+\draw(valoir) -- (exemple);
+\draw(valoir) -- (savoir);
+\end{tikzpicture}
+\caption{Glutton decomposition in quasi-cliques of maximum size.}
+\end{figure}
+
+
+\begin{changemargin}{-2cm}{0cm}
+\begin{table}[h!]
+\centering
+\setlength{\tabcolsep}{1pt}
+\setlength{\arrayrulewidth}{0.5pt}
+\scalebox{0.8}{ 
+\begin{tabular}{|p{2pt}l|*{30}{c|}}
+\hline
+&&\begin{sideways}contraire\end{sideways}&\begin{sideways}depenser\end{sideways}&\begin{sideways}falloir\end{sideways}&\begin{sideways}racine\end{sideways}&\begin{sideways}meme\end{sideways}&\begin{sideways}demi\end{sideways}&\begin{sideways}savoir\end{sideways}&\begin{sideways}valoir\end{sideways}&\begin{sideways}regledetrois\end{sideways}&\begin{sideways}raison\end{sideways}&\begin{sideways}position\end{sideways}&\begin{sideways}pouvoir\end{sideways}&\begin{sideways}garder\end{sideways}&\begin{sideways}donner\end{sideways}&\begin{sideways}se\end{sideways}&\begin{sideways}doubler\end{sideways}&\begin{sideways}double\end{sideways}&\begin{sideways}partie\end{sideways}&\begin{sideways}science\end{sideways}&\begin{sideways}compter\end{sideways}&\begin{sideways}ensemble\end{sideways}&\begin{sideways}dire\end{sideways}&\begin{sideways}regle\end{sideways}&\begin{sideways}chose\end{sideways}&\begin{sideways}reduire\end{sideways}&\begin{sideways}seulement\end{sideways}&\begin{sideways}pratique\end{sideways}&\begin{sideways}multiplication\end{sideways}&\begin{sideways}exemple\end{sideways}&\begin{sideways}nombrer\end{sideways} \\ \hline
+&contraire&\cellcolor{gray}1&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.7{\tiny 5}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.4{\tiny 25}&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&0&.0{\tiny 75}&.0{\tiny 25}&0&0&.0{\tiny 5}&0&0&.0{\tiny 75}&0&.1{\tiny 25}&.1&\cellcolor{gray}.2&.0{\tiny 25}&0&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 25} \\ \hline
+&depenser&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray}.8{\tiny 5}&\cellcolor{gray}.8&\cellcolor{gray}.7{\tiny 5}&\cellcolor{gray}.5{\tiny 75}&.1{\tiny 75}&0&.0{\tiny 25}&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 75}&.0{\tiny 75}&.1{\tiny 75}&0&.0{\tiny 75}&.1&.1{\tiny 5}&.0{\tiny 25}&.1{\tiny 75}&.1&.0{\tiny 25}&.0{\tiny 75}&.1{\tiny 75}&.1{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&0&.0{\tiny 5}&.0{\tiny 25} \\ \hline
+&falloir&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.8{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.2{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&.1{\tiny 5}&.1&.1&.1&.1{\tiny 75}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&.1{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&.1{\tiny 5}&.1{\tiny 25}&.1&.1&\cellcolor{gray}.2&0&.0{\tiny 25}&0&.0{\tiny 5}&.0{\tiny 25} \\ \hline
+&racine&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.8&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.2{\tiny 5}&.0{\tiny 25}&.0{\tiny 25}&0&0&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&0&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&0&0&.0{\tiny 5}&0&.0{\tiny 5}&.0{\tiny 75}&.1{\tiny 5}&0&0&0&.0{\tiny 25}&.0{\tiny 75} \\ \hline
+&meme&\cellcolor{gray}.7{\tiny 5}&\cellcolor{gray}.7{\tiny 5}&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.7{\tiny 25}&\cellcolor{gray}.2{\tiny 75}&.0{\tiny 5}&.0{\tiny 5}&.1{\tiny 25}&.0{\tiny 75}&.0{\tiny 75}&.0{\tiny 5}&.1{\tiny 5}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&.1{\tiny 25}&.0{\tiny 25}&.0{\tiny 5}&.1{\tiny 5}&.0{\tiny 75}&.1&.1{\tiny 75}&\cellcolor{gray}.2{\tiny 75}&.0{\tiny 25}&0&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 25} \\ \hline
+&demi&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.5{\tiny 75}&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.7{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.3&.0{\tiny 5}&.0{\tiny 5}&.1{\tiny 75}&.0{\tiny 75}&.0{\tiny 75}&.0{\tiny 75}&.1{\tiny 5}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 5}&0&0&.0{\tiny 75}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&\cellcolor{gray}.3{\tiny 25}&0&0&.0{\tiny 5}&.0{\tiny 75}&.0{\tiny 25} \\ \hline
+&savoir&\cellcolor{gray}.4{\tiny 25}&.1{\tiny 75}&\cellcolor{gray}.2{\tiny 5}&\cellcolor{gray}.2{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.3&\cellcolor{gray}1&\cellcolor{gray}.2&0&.1&.0{\tiny 75}&.1&0&\cellcolor{gray}.2&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 75}&.0{\tiny 25}&.1&0&.0{\tiny 25}&.1{\tiny 75}&.0{\tiny 75}&.0{\tiny 75}&.1{\tiny 25}&.1&.0{\tiny 5}&.1{\tiny 25}&0 \\ \hline
+&valoir&.0{\tiny 75}&0&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}1&\cellcolor{gray}.3&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}.5{\tiny 25}&\cellcolor{gray}.4{\tiny 5}&.1{\tiny 25}&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}.2&.1{\tiny 25}&.0{\tiny 75}&.1{\tiny 25}&.1{\tiny 25}&.1{\tiny 25}&.1&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 25}&.1&0&\cellcolor{gray}.3{\tiny 25}&0 \\ \hline
+&regledetrois&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&0&\cellcolor{gray}.3&\cellcolor{gray}1&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.7&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.6{\tiny 25}&.0{\tiny 75}&.1{\tiny 75}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&0&.0{\tiny 5}&.0{\tiny 25}&\cellcolor{gray}.2{\tiny 25}&\cellcolor{gray}.2{\tiny 25}&.1{\tiny 25}&.1&.1&.1{\tiny 5}&.0{\tiny 75} \\ \hline
+&raison&.0{\tiny 5}&.0{\tiny 75}&.1{\tiny 5}&0&.1{\tiny 25}&.1{\tiny 75}&.1&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.7{\tiny 25}&\cellcolor{gray}.8&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.3{\tiny 75}&\cellcolor{gray}.6{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&0&.0{\tiny 25}&0&0&.0{\tiny 5}&0&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&.1{\tiny 5}&0 \\ \hline
+&position&.0{\tiny 25}&.0{\tiny 5}&.1&0&.0{\tiny 75}&.0{\tiny 75}&.0{\tiny 75}&\cellcolor{gray}.5{\tiny 25}&\cellcolor{gray}.7&\cellcolor{gray}.7{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}.6&\cellcolor{gray}.5{\tiny 25}&\cellcolor{gray}.7{\tiny 25}&.1{\tiny 75}&.1{\tiny 75}&.1&.1{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&\cellcolor{gray}.2&0&.1&.1&.0{\tiny 5}&.0{\tiny 5}&0&.0{\tiny 75}&0 \\ \hline
+&pouvoir&.0{\tiny 5}&.0{\tiny 75}&.1&.0{\tiny 25}&.0{\tiny 75}&.0{\tiny 75}&.1&\cellcolor{gray}.4{\tiny 5}&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.8&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.6{\tiny 5}&.0{\tiny 75}&.1&.0{\tiny 5}&.1{\tiny 25}&.0{\tiny 25}&.0{\tiny 5}&\cellcolor{gray}.2{\tiny 25}&.0{\tiny 5}&.0{\tiny 25}&0&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 75}&.0{\tiny 25} \\ \hline
+&garder&0&.0{\tiny 75}&.1&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&0&.1{\tiny 25}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.6&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.5&\cellcolor{gray}.2{\tiny 25}&\cellcolor{gray}.3{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}.2&.1{\tiny 75}&.1{\tiny 75}&.1&.0{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}.3{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&.0{\tiny 25}&.1&.0{\tiny 75} \\ \hline
+&donner&.0{\tiny 75}&.1{\tiny 75}&.1{\tiny 75}&.0{\tiny 25}&.1{\tiny 5}&.1{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.3{\tiny 75}&\cellcolor{gray}.5{\tiny 25}&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.4{\tiny 5}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.3&.0{\tiny 75}&\cellcolor{gray}.3{\tiny 75}&.1{\tiny 75}&.0{\tiny 25}&.0{\tiny 25}&.1{\tiny 5}&.0{\tiny 75}&.1{\tiny 75}&.1{\tiny 25}&.0{\tiny 25}&\cellcolor{gray}.3&0 \\ \hline
+&se&.0{\tiny 25}&0&.0{\tiny 25}&0&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.7{\tiny 25}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.5&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.2{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&.1{\tiny 75}&.1&.1{\tiny 5}&.1{\tiny 25}&.0{\tiny 75}&.0{\tiny 5}&\cellcolor{gray}.2&.1{\tiny 25}&.1{\tiny 75}&.1{\tiny 5}&.0{\tiny 75}&\cellcolor{gray}.3&.0{\tiny 5} \\ \hline
+&doubler&0&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 5}&\cellcolor{gray}.2&.0{\tiny 75}&.0{\tiny 25}&.1{\tiny 75}&.0{\tiny 75}&\cellcolor{gray}.2{\tiny 25}&\cellcolor{gray}.4{\tiny 5}&\cellcolor{gray}.2{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray}.9{\tiny 25}&\cellcolor{gray}.5{\tiny 75}&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.3{\tiny 75}&.1&.0{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&.0{\tiny 5}&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 75}&.0{\tiny 25}&.1 \\ \hline
+&double&0&.1&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 5}&\cellcolor{gray}.2&.1{\tiny 75}&.0{\tiny 5}&.1{\tiny 75}&.1&\cellcolor{gray}.3{\tiny 5}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.9{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.5&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.3{\tiny 25}&.1&.0{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&.0{\tiny 75}&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 75} \\ \hline
+&partie&.0{\tiny 5}&.1{\tiny 5}&.1{\tiny 25}&.0{\tiny 25}&.1{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&.1{\tiny 25}&.0{\tiny 25}&0&.1&.0{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}.3&.1{\tiny 75}&\cellcolor{gray}.5{\tiny 75}&\cellcolor{gray}.5&\cellcolor{gray}1&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.2{\tiny 25}&\cellcolor{gray}.3{\tiny 75}&\cellcolor{gray}.2{\tiny 25}&.1{\tiny 5}&.1{\tiny 5}&.1{\tiny 25}&.0{\tiny 5}&.1 \\ \hline
+&science&0&.0{\tiny 25}&.0{\tiny 5}&0&.0{\tiny 25}&0&.0{\tiny 25}&.0{\tiny 75}&.0{\tiny 25}&.0{\tiny 25}&.1{\tiny 25}&.1{\tiny 25}&\cellcolor{gray}.2&.0{\tiny 75}&.1&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.5{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.3{\tiny 5}&\cellcolor{gray}.2{\tiny 5}&.1{\tiny 5}&.1&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 75}&.0{\tiny 5}&.1 \\ \hline
+&compter&0&.1{\tiny 75}&.0{\tiny 75}&0&.0{\tiny 5}&0&.1&.1{\tiny 25}&.0{\tiny 25}&0&.0{\tiny 5}&.0{\tiny 25}&.1{\tiny 75}&\cellcolor{gray}.3{\tiny 75}&.1{\tiny 5}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.6{\tiny 5}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.4{\tiny 25}&.0{\tiny 75}&.1&\cellcolor{gray}.4{\tiny 25}&.1&.1&.1&.0{\tiny 25}&.1&.0{\tiny 5} \\ \hline
+&ensemble&.0{\tiny 75}&.1&.1{\tiny 5}&.0{\tiny 5}&.1{\tiny 5}&.0{\tiny 75}&0&.1{\tiny 25}&0&0&.0{\tiny 75}&.0{\tiny 5}&.1{\tiny 75}&.1{\tiny 75}&.1{\tiny 25}&\cellcolor{gray}.3{\tiny 75}&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}.2{\tiny 5}&.1{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&.0{\tiny 75}&.1&.0{\tiny 5}&.0{\tiny 25}&.1 \\ \hline
+&dire&0&.0{\tiny 25}&.1{\tiny 25}&0&.0{\tiny 75}&.0{\tiny 25}&.0{\tiny 25}&.1{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}.2{\tiny 25}&.1&.0{\tiny 25}&.0{\tiny 75}&.1&.1&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.3{\tiny 5}&.0{\tiny 75}&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.3&.0{\tiny 25}&.0{\tiny 5}&0&0&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25} \\ \hline
+&regle&.1{\tiny 25}&.0{\tiny 75}&.1&.0{\tiny 5}&.1&.0{\tiny 5}&.1{\tiny 75}&.1&.0{\tiny 25}&0&0&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&\cellcolor{gray}.2{\tiny 25}&\cellcolor{gray}.2{\tiny 5}&.1&\cellcolor{gray}.2{\tiny 5}&\cellcolor{gray}.3&\cellcolor{gray}1&\cellcolor{gray}.2{\tiny 25}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.3{\tiny 25}&.1&.1{\tiny 5} \\ \hline
+&chose&.1&.1{\tiny 75}&.1&.0{\tiny 75}&.1{\tiny 75}&.0{\tiny 75}&.0{\tiny 75}&.0{\tiny 5}&\cellcolor{gray}.2{\tiny 25}&.0{\tiny 25}&.1&.0{\tiny 25}&\cellcolor{gray}.2&.1{\tiny 5}&\cellcolor{gray}.2&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.3{\tiny 75}&.1{\tiny 5}&\cellcolor{gray}.4{\tiny 25}&.1{\tiny 5}&.0{\tiny 25}&\cellcolor{gray}.2{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray}.3{\tiny 75}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}.5&.1{\tiny 5}&\cellcolor{gray}.2{\tiny 5} \\ \hline
+&reduire&\cellcolor{gray}.2&.1{\tiny 5}&\cellcolor{gray}.2&.1{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.3{\tiny 25}&.0{\tiny 75}&.0{\tiny 5}&\cellcolor{gray}.2{\tiny 25}&.0{\tiny 5}&.1&0&\cellcolor{gray}.3{\tiny 25}&.0{\tiny 75}&.1{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&\cellcolor{gray}.2{\tiny 25}&.1&.1&\cellcolor{gray}.2{\tiny 75}&.0{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.3{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.2{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&.1&\cellcolor{gray}.2{\tiny 75}&.0{\tiny 75} \\ \hline
+&seulement&.0{\tiny 25}&.0{\tiny 25}&0&0&.0{\tiny 25}&0&.1{\tiny 25}&.0{\tiny 25}&.1{\tiny 25}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&.1{\tiny 75}&.1{\tiny 75}&.0{\tiny 75}&.0{\tiny 75}&.1{\tiny 5}&.0{\tiny 75}&.1&.0{\tiny 75}&0&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.4{\tiny 75}&\cellcolor{gray}.2{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.3{\tiny 5}&.0{\tiny 5} \\ \hline
+&pratique&0&.0{\tiny 5}&.0{\tiny 25}&0&0&0&.1&.1&.1&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 75}&.1{\tiny 25}&.1{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&.1{\tiny 5}&.0{\tiny 5}&.1&.1&0&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.4{\tiny 25}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.7{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}.3{\tiny 75}&.0{\tiny 5} \\ \hline
+&multiplication&.0{\tiny 75}&0&0&0&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&0&.1&.0{\tiny 25}&0&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 75}&.0{\tiny 75}&.0{\tiny 25}&.1{\tiny 25}&.0{\tiny 75}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 25}&\cellcolor{gray}.3{\tiny 25}&\cellcolor{gray}.5&.1&\cellcolor{gray}.6{\tiny 75}&\cellcolor{gray}.6{\tiny 25}&\cellcolor{gray}1&.0{\tiny 5}&\cellcolor{gray}.3{\tiny 25} \\ \hline
+&exemple&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 75}&.1{\tiny 25}&\cellcolor{gray}.3{\tiny 25}&.1{\tiny 5}&.1{\tiny 5}&.0{\tiny 75}&.0{\tiny 75}&.1&\cellcolor{gray}.3&\cellcolor{gray}.3&.0{\tiny 25}&.0{\tiny 5}&.0{\tiny 5}&.0{\tiny 5}&.1&.0{\tiny 25}&.0{\tiny 25}&.1&.1{\tiny 5}&\cellcolor{gray}.2{\tiny 75}&\cellcolor{gray}.3{\tiny 5}&\cellcolor{gray}.3{\tiny 75}&.0{\tiny 5}&\cellcolor{gray}1&0 \\ \hline
+&nombrer&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 25}&.0{\tiny 75}&.0{\tiny 25}&.0{\tiny 25}&0&0&.0{\tiny 75}&0&0&.0{\tiny 25}&.0{\tiny 75}&0&.0{\tiny 5}&.1&.0{\tiny 75}&.1&.1&.0{\tiny 5}&.1&.0{\tiny 25}&.1{\tiny 5}&\cellcolor{gray}.2{\tiny 5}&.0{\tiny 75}&.0{\tiny 5}&.0{\tiny 5}&\cellcolor{gray}.3{\tiny 25}&0&\cellcolor{gray}1 \\ \hline
+\end{tabular}
+}
+\caption{Same, reorganized}
+\end{table}
+\end{changemargin}
+
+\begin{changemargin}{-2cm}{0cm}
+\begin{table}[h!]
+\centering
+\setlength{\tabcolsep}{1pt}
+\setlength{\arrayrulewidth}{0.5pt}
+\scalebox{0.8}{ 
+\begin{tabular}{|p{2pt}l|*{30}{c|}}
+\hline
+&&\begin{sideways}contraire\end{sideways}&\begin{sideways}depenser\end{sideways}&\begin{sideways}falloir\end{sideways}&\begin{sideways}racine\end{sideways}&\begin{sideways}meme\end{sideways}&\begin{sideways}demi\end{sideways}&\begin{sideways}savoir\end{sideways}&\begin{sideways}valoir\end{sideways}&\begin{sideways}regledetrois\end{sideways}&\begin{sideways}raison\end{sideways}&\begin{sideways}position\end{sideways}&\begin{sideways}pouvoir\end{sideways}&\begin{sideways}garder\end{sideways}&\begin{sideways}donner\end{sideways}&\begin{sideways}se\end{sideways}&\begin{sideways}doubler\end{sideways}&\begin{sideways}double\end{sideways}&\begin{sideways}partie\end{sideways}&\begin{sideways}science\end{sideways}&\begin{sideways}compter\end{sideways}&\begin{sideways}ensemble\end{sideways}&\begin{sideways}dire\end{sideways}&\begin{sideways}regle\end{sideways}&\begin{sideways}chose\end{sideways}&\begin{sideways}reduire\end{sideways}&\begin{sideways}seulement\end{sideways}&\begin{sideways}pratique\end{sideways}&\begin{sideways}multiplication\end{sideways}&\begin{sideways}exemple\end{sideways}&\begin{sideways}nombrer\end{sideways} \\ \hline
+&contraire&\cellcolor{gray}1&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.45}.7{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 5}&0&0&\cellcolor{white}.0{\tiny 75}&0&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{gray0.8}.2&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25} \\ \hline
+&depenser&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray0.4}.8{\tiny 5}&\cellcolor{gray0.4}.8&\cellcolor{gray0.45}.7{\tiny 5}&\cellcolor{gray0.55}.5{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25} \\ \hline
+&falloir&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.4}.8{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.8}.2&0&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25} \\ \hline
+&racine&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.4}.8&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&0&0&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75} \\ \hline
+&meme&\cellcolor{gray0.45}.7{\tiny 5}&\cellcolor{gray0.45}.7{\tiny 5}&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.45}.7{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25} \\ \hline
+&demi&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.55}.5{\tiny 75}&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.45}.7{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.7}.3&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&0&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25} \\ \hline
+&savoir&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.7}.3&\cellcolor{gray}1&\cellcolor{gray0.8}.2&0&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&0&\cellcolor{gray0.8}.2&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&0 \\ \hline
+&valoir&\cellcolor{white}.0{\tiny 75}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray}1&\cellcolor{gray0.7}.3&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.55}.5{\tiny 25}&\cellcolor{gray0.6}.4{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.8}.2&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1&0&\cellcolor{gray0.7}.3{\tiny 25}&0 \\ \hline
+&regledetrois&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{gray0.7}.3&\cellcolor{gray}1&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.45}.7&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 75} \\ \hline
+&raison&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&0&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.45}.7{\tiny 25}&\cellcolor{gray0.4}.8&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{white}.0{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&0 \\ \hline
+&position&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.55}.5{\tiny 25}&\cellcolor{gray0.45}.7&\cellcolor{gray0.45}.7{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray0.5}.6&\cellcolor{gray0.55}.5{\tiny 25}&\cellcolor{gray0.45}.7{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.8}.2&0&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{white}.0{\tiny 75}&0 \\ \hline
+&pouvoir&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.6}.4{\tiny 5}&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.4}.8&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25} \\ \hline
+&garder&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&0&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.5}.6&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.55}.5&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.8}.2&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 75} \\ \hline
+&donner&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.55}.5{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.6}.4{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.7}.3&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.7}.3&0 \\ \hline
+&se&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.45}.7{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.55}.5&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.7}.3&\cellcolor{white}.0{\tiny 5} \\ \hline
+&doubler&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.6}.4{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray0.35}.9{\tiny 25}&\cellcolor{gray0.55}.5{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1 \\ \hline
+&double&0&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.7}.3{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.35}.9{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.55}.5&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75} \\ \hline
+&partie&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.7}.3&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.55}.5{\tiny 75}&\cellcolor{gray0.55}.5&\cellcolor{gray}1&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1 \\ \hline
+&science&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.8}.2&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.55}.5{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1 \\ \hline
+&compter&0&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 75}&0&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.5}.6{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5} \\ \hline
+&ensemble&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 75}&0&\cellcolor{gray0.9}.1{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1 \\ \hline
+&dire&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&0&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.7}.3&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&0&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25} \\ \hline
+&regle&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.7}.3&\cellcolor{gray}1&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 5} \\ \hline
+&chose&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.8}.2&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray}1&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.55}.5&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 5} \\ \hline
+&reduire&\cellcolor{gray0.8}.2&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1&0&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{white}.0{\tiny 75} \\ \hline
+&seulement&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 75}&0&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.6}.4{\tiny 75}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{gray}1&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 5}&\cellcolor{white}.0{\tiny 5} \\ \hline
+&pratique&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&0&0&0&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&0&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.6}.4{\tiny 25}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.45}.7{\tiny 75}&\cellcolor{gray}1&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{white}.0{\tiny 5} \\ \hline
+&multiplication&\cellcolor{white}.0{\tiny 75}&0&0&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&0&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.55}.5&\cellcolor{gray0.9}.1&\cellcolor{gray0.5}.6{\tiny 75}&\cellcolor{gray0.5}.6{\tiny 25}&\cellcolor{gray}1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.7}.3{\tiny 25} \\ \hline
+&exemple&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1{\tiny 25}&\cellcolor{gray0.7}.3{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.7}.3&\cellcolor{gray0.7}.3&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 75}&\cellcolor{gray0.7}.3{\tiny 5}&\cellcolor{gray0.7}.3{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray}1&0 \\ \hline
+&nombrer&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 25}&0&0&\cellcolor{white}.0{\tiny 75}&0&0&\cellcolor{white}.0{\tiny 25}&\cellcolor{white}.0{\tiny 75}&0&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 75}&\cellcolor{gray0.9}.1&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.9}.1&\cellcolor{white}.0{\tiny 25}&\cellcolor{gray0.9}.1{\tiny 5}&\cellcolor{gray0.8}.2{\tiny 5}&\cellcolor{white}.0{\tiny 75}&\cellcolor{white}.0{\tiny 5}&\cellcolor{white}.0{\tiny 5}&\cellcolor{gray0.7}.3{\tiny 25}&0&\cellcolor{gray}1 \\ \hline
+\end{tabular}
+}
+\caption{Same, with shades proportional to value}
+\end{table}
+\end{changemargin}
+
+\section{Conclusion}
+
+
+
+\end{document}

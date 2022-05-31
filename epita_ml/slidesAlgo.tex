@@ -1,0 +1,588 @@
+\documentclass[11pt]{beamer}
+\usepackage{helvet} %font
+\beamertemplatenavigationsymbolsempty
+\usetheme{JuanLesPins}
+\usefonttheme{structurebold}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath}
+\usepackage{tikz}
+\usepackage{xcolor,colortbl}
+\usetikzlibrary{arrows,positioning}
+\usepackage{listings}
+\usepackage{wasysym}
+
+\newenvironment{slide}[1]{%
+\begin{frame}[environment=slide]
+\frametitle{#1~\hfill~\includegraphics[height=1.2cm]{./epitech.png}}
+}{%
+\end{frame}
+}
+\setbeamercolor{structure}{fg=red}
+\setbeamercolor{frametitle}{bg=black,fg=white}
+\definecolor{gris}{gray}{0.6}
+\definecolor{grisclair}{gray}{0.9}
+
+\newtheorem{exercice}{Exercice}
+
+\title{Introduction à l'algorithmique et à la complexité}
+\author{}
+\date{}
+
+\newcommand{\Python}[1]{
+	{\small	\lstinputlisting[language=Python]{./#1.py}}
+}
+\newenvironment{pyenvsmall}
+	{ \ttfamily \tiny }
+	{\par  }
+
+\newcommand{\Pythonsmall}[1]{
+	\begin{pyenvsmall}
+		\vspace{-0.25cm}
+		\lstinputlisting[language=Python]{./#1.py}
+		\vspace{-0.3cm}
+	\end{pyenvsmall}
+}
+\newcommand{\elimine}[1]{{\textcolor{lightgray}{#1}}}
+
+
+\begin{document}
+
+
+\begin{slide}{Ressources nécessaires}
+
+Vous pouvez choisir le langage de votre choix. Les exemples du cours sont rédigés en \textbf{Python 3}. Si vous souhaitez les utiliser tels quels :
+
+\vspace{0.2cm}
+
+\begin{itemize}
+	\item Python 3.x (la distribution standard depuis le site officiel, ou miniconda)
+	\item un IDE (thonny, pycharm, pyzo)
+\end{itemize}
+
+\end{slide}
+
+\begin{slide}{Biblio}
+CORMEN Thomas, LEISERSON Charles, RIVEST Ronald et STEIN Clifford, \textit{Algorithmique}, 3\up{e} éd., Dunod, 2010
+\end{slide}
+
+\section{Première motivation : la crypto}
+
+\begin{slide}{Un premier chiffrement}
+
+On effectue une permutation sur les lettres :\\
+\begin{center}
+$A \mapsto F$\\
+$B \mapsto P$\\
+$C \mapsto A$\\
+$D \mapsto \ldots$
+\end{center}
+
+\end{slide}
+
+\begin{slide}{Un premier chiffrement}
+
+\begin{exercice}
+Rédigez les fonctions suivantes :
+\begin{itemize}
+	\item \texttt{cipher(s)} qui génère une clef aléatoire et code le texte \texttt{s} à partir de celle-ci.
+	\pause
+	\item \texttt{kill(t,u)} qui à partir d'un texte chiffré \texttt{t} retrouve le texte original \texttt{s} dont on connaît le court extrait \texttt{u} $\subset$ \texttt{s}.
+\end{itemize}
+\end{exercice}
+
+\end{slide}
+
+\begin{slide}{Solution (1)}
+\Python{cipher}
+\end{slide}
+
+\begin{slide}{Solution (2)}
+\Python{break}
+\end{slide}
+
+\begin{slide}{Analyse}
+
+Combien parviennent à faire tourner leur programme en moins d'une minute ?\\
+\vspace{0.2cm}
+\pause
+Il faut au pire des cas\\ 26! = 403 291 461 126 605 635 584 000 000 essais.\\
+\vspace{0.2cm}
+\pause
+Ce code est cependant très vulnérable à une attaque statistique (cf Edgar Poe)
+
+\end{slide}
+
+\begin{slide}{Un meilleur chiffrement}
+
+CHAQUE FOIS QU UN HOMME\\
+\color{red}{B}{V}{A}\color{blue}{B}{V}{A} \color{red}{B}{V}{A}\color{blue}{B}  \color{blue}{V}{A}  \color{red}{B}{V} \color{red}{A}\color{blue}{B}{V}{A}\color{red}{B}\\
+\color{black}EDBSGF\qquad\qquad \ldots \qquad\quad NG
+
+\end{slide}
+
+\begin{slide}{Un meilleur chiffrement}
+
+\begin{exercice}
+Rédigez les fonctions suivantes :
+\begin{itemize}
+	\item \texttt{cipher2(s,k)} qui génère une clef aléatoire de taille \texttt{k} et code le texte \texttt{s} à partir de celle-ci.
+	\pause
+	\item \texttt{kill2(t,k,u)} qui à partir d'un texte chiffré \texttt{t} avec une clef inconnue de taille \texttt{k} retrouve le texte original \texttt{s} dont on connaît le court extrait \texttt{u} $\subset$ \texttt{s}.
+\end{itemize}
+\end{exercice}
+
+\end{slide}
+
+\begin{slide}{Solution (1)}
+\Python{cipher2}
+\end{slide}
+
+\begin{slide}{Solution (2)}
+\Python{break2}
+\end{slide}
+
+\begin{slide}{Analyse}
+Prenez une phrase \texttt{s} assez longue (cent caractères). A partir de quelle valeur de \texttt{k} le programme met-il trop de temps à répondre ?\\
+\vspace{0.2cm}
+\pause
+
+La complexité du programme est $26^k$ donc il est peu probable que vous puissiez dépasser une dizaine de caractères pour la clef.
+
+\end{slide}
+
+\begin{slide}{Bilan}
+
+La complexité d'un problème peut être une garantie de sécurité en cryptanalyse. Cependant, dans presque tous les autres domaines, c'est surtout une donnée à maîtriser pour rendre un algorithme efficace.\\
+\vspace{0.2cm}
+Tout au long de ce module nous allons voir qu'une bonne connaissance de l'algorithmique est infiniment plus efficace que le choix d'un langage ou une maîtrise parfaite de sa syntaxe.\\
+\vspace{0.2cm}
+Mais d'abord revenons sur un dernier exemple de cryptographie, réellement utilisé aujourd'hui celui-là.
+
+\end{slide}
+
+\begin{slide}{RSA}
+a) On pose \texttt{p = 8191} et \texttt{q = 127}. Calculez \texttt{phi = (p-1)(q-1)}\\
+
+b) Trouvez deux nombres entiers \texttt{a,b} tels que :
+\begin{itemize}
+\item \texttt{a} est premier avec \texttt{phi},
+\item \texttt{a*b \% phi = 1}.
+\end{itemize}
+
+c) Traduisez une lettre sous forme de nombre, puis chiffrez le nombre obtenu en le passant à l'exposant \texttt{a} modulo \texttt{n}. \\
+
+d) Vérifiez qu'on peut bien déchiffrer le nombre obtenu en le passant à l'exposant \texttt{b} modulo \texttt{n}, puis retrouvez la lettre originale.\\
+\end{slide}
+
+\begin{slide}{Solution (1)}
+\Python{pb2bisa}
+\end{slide}
+
+\begin{slide}{Solution (2)}
+\Python{pb2bisb}
+\end{slide}
+
+\section{Récursivité}
+
+\begin{slide}{Exemple introductif}
+\Python{recfac}
+\end{slide}
+
+\begin{slide}{Warning I : non-terminaison}
+\Python{badrec}
+\end{slide}
+
+\begin{slide}{Exponentielle rapide}
+\Python{fastexp}
+\end{slide}
+
+
+\begin{slide}{Exponentielle rapide}
+\begin{exercice}
+Implémentez l'exponentielle rapide et comparez son temps d'exécution à celui d'une exponentielle définie par une simple séquence de multiplications $2^a = 2 \times 2 \times \ldots \times 2$ ($a$ fois).
+\end{exercice}
+
+Quelle est la valeur maximale de $a$ que vous pouvez calculer dans chacun des cas ?
+\end{slide}
+
+\begin{slide}{Warning II : explosion}
+\begin{exercice}
+Proposez une fonction récursive qui calcule le 100e terme de la suite de Fibonacci.
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Warning II : explosion}
+\Python{ex16}
+\textbf{\color{red}ET SURTOUT PAS :}
+\Python{ex16w}
+\end{slide}
+
+\begin{slide}{Sac à dos}
+Le problème du sac à dos est de trouver comment remplir de façon optimale un sac avec des items de volumes et de valeurs différents.\\
+\pause
+\vspace{0.2cm}
+On s'intéresse à une variante simplifiée : vérifier s'il existe une façon de prendre un sous-ensembles d'items de volume total exactement W.
+\end{slide}
+
+\begin{slide}{Sac à dos}
+\begin{exercice}
+Proposez un programme récursif \texttt{sacados(liste,i)} qui vérifie s'il existe une sous-liste de la liste \texttt{liste} dont la somme vaut \texttt{i}.
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Sac à dos}
+\Python{recdouble}
+\end{slide}
+
+\begin{slide}{Sac à dos}
+Il est aussi possible de faire en non-récursif, par exemple en utilisant la bijection entre $2^X$ et $[0,2^{|X|}]$ - c'est-à dire l'écriture binaire.
+\end{slide}
+
+\section{Programmation Dynamique}
+
+\begin{slide}{Parfois la récursivité...}
+\begin{exercice}
+Pour les deux programmes suivants :
+\begin{itemize}
+	\item expliquez ce qu'ils font (fonctionnellement)
+	\item comparez leur temps de calcul
+	\item détaillez pas à pas leur exécution
+\end{itemize}
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Parfois la récursivité...}
+\Python{longrec}
+\end{slide}
+
+\begin{slide}{Parfois la récursivité...}
+\Python{longdyn}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\coordinate(0) at (0,0);
+	\coordinate(1) at (2,2);
+	\coordinate(2) at (2,-2);
+	\coordinate(3) at (4,2);
+	\coordinate(4) at (4,-2);
+	\coordinate(5) at (6,0);
+
+	\draw[latex-latex] (0) node[left]{0} -- (1) node[above]{1};
+	\draw[latex-latex] (0) -- (3) node[above]{3};
+	\draw[latex-latex] (0) -- (4) node[below]{4};
+	\draw[latex-latex] (1) -- (2) node[below]{2};
+	\draw[latex-latex] (1) -- (3);
+	\draw[latex-latex] (2) -- (5) node[right]{5};
+	\draw[latex-latex] (3) -- (5);
+\end{tikzpicture}
+\end{center}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\Python{pcc}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\Python{pcc2}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\begin{exercice}
+Modifiez le programme précédent de façon à ce qu'il n'énumère que les chemins qui ne font pas d'aller-retours ou de boucles.
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\Python{ex19}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\Python{pcf}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\Python{pccd}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\begin{exercice}
+Modifiez le programme précédent de façon à ce qu'il renvoie l'ensemble des plus courts chemins et non un seul.
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Plus court chemin}
+\Python{ex19a}
+\end{slide}
+
+\section{Analyse d'Algorithmes}
+
+
+\begin{slide}{Linéarité}
+\begin{exercice}
+Vérifiez sur quelques exemples que le temps nécessaire pour effectuer une séquence de multiplications d'entiers croît proportionnellement avec la taille de la séquence.\\
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Linéarité}
+\Python{ex19b}
+\end{slide}
+
+\begin{slide}{Polynomialité}
+\begin{exercice}
+Vérifiez que pour la multiplication de deux matrices, le temps augmente plus vite. Selon quelle loi ?\\
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Instrument de mesure}
+La fonction time() reste limitée :
+\begin{itemize}
+	\item Dépendance à l'environnement
+	\item Pas idéal pour scaler
+\end{itemize}
+\pause
+On veut plutôt compter le nombre d'opérations élémentaires.
+\end{slide}
+
+\begin{slide}{Sous-linéarité}
+\begin{exercice}
+Avec une variable compteur, comparez le nombre d'opérations effectuées dans une exponentielle rapide vs une exponentielle naïve.
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Sous-linéarité}
+\Python{countexp}
+\end{slide}
+
+
+\begin{slide}{Exemples d'algorithmes}
+
+Exponentielle rapide : $O(\log n)$\\
+Tri rapide, exponentielle naïve : $O(n)$\\
+Tri par insertion : $O(n^2)$\\
+Multiplication matricielle naïve : $O(n^3)$\\
+{\'E}numération des sous-ensembles : $O(2^n)$\\
+Voyageur de commerce, Coloration : $O(2^n)$\\
+{\'E}numération des permutations : $O(n!)$
+
+\end{slide}
+
+\begin{slide}{Ordres de grandeur}
+\begin{center}
+\begin{tabular}{c|c|c|c}
+Taille  & $n\log n$ & $n^3$ & $2^n$ \\
+\hline
+$n=20$ & $60$ & $8 000$ & $1 048 576$ \\
+$n=50$ & $196$ & $125 000$ & $1 125 899 907 000 000$ \\
+$n=100$ & $461$ & $1 000 000$ & $1 267 650 600 000 000 000 000 000 000 000$\\
+\end{tabular}
+\end{center}
+
+$\Longrightarrow$ Intuition d'une frontières entre algorithmes polynomiaux et algorithmes exponentiels.
+
+\end{slide}
+
+\begin{slide}{Méthodes de calcul}
+\begin{itemize}
+\item des blocs successifs ont leur complexité qui s'additionne.
+\item une boucle a une complexité égale à la somme de ses itérations.
+\item en particulier, une boucle de taille constante a une complexité égale à sa taille multipliée par la complexité d'une itération.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Méthodes de calcul}
+\begin{exercice}
+Calculez la complexité de l'algorithme suivant :
+\end{exercice}
+\Python{ex21a}
+\end{slide}
+
+\begin{slide}{Méthodes de calcul}
+\begin{exercice}
+Calculez la complexité de l'algorithme suivant :
+\end{exercice}
+\Pythonsmall{ex21b}
+\end{slide}
+
+\begin{slide}{Méthodes de calcul}
+\begin{exercice}
+Calculez la complexité de l'algorithme suivant :
+\end{exercice}
+\Python{glou}
+
+\end{slide}
+
+\section{Problèmes}
+
+\begin{slide}{Dominating set}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\coordinate(0) at (0,0);
+	\coordinate(1) at (2,2);
+	\coordinate(2) at (2,-2);
+	\coordinate(3) at (4,2);
+	\coordinate(4) at (4,-2);
+	\coordinate(5) at (6,0);
+
+	\draw[latex-latex] (0) node[left]{0} -- (1) node[above]{1};
+	\draw[latex-latex] (0) -- (3) node[above]{3};
+	\draw[latex-latex] (0) -- (4) node[below]{4};
+	\draw[latex-latex] (1) -- (2) node[below]{2};
+	\draw[latex-latex] (1) -- (3);
+	\draw[latex-latex] (2) -- (5) node[right]{5};
+	\draw[latex-latex] (3) -- (5);
+\end{tikzpicture}
+\end{center}
+\end{slide}
+
+\begin{slide}{Dominating set}
+\'Etant donné un graphe $G(V,E)$, on cherche un sous-ensemble $D$ de taille minimale tel que $N[D]=V$.
+\end{slide}
+
+\begin{slide}{Dominating set}
+\begin{exercice}
+Proposez un algorithme qui trouve un Dominating Set
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Dominating set}
+\begin{exercice}
+Trouvez un exemple dans lequel votre algorithme n'est pas optimal
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Coloring}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\coordinate(0) at (0,0);
+	\coordinate(1) at (2,2);
+	\coordinate(2) at (2,-2);
+	\coordinate(3) at (4,2);
+	\coordinate(4) at (4,-2);
+	\coordinate(5) at (6,0);
+
+	\draw[latex-latex] (0) node[left]{0} -- (1) node[above]{1};
+	\draw[latex-latex] (0) -- (3) node[above]{3};
+	\draw[latex-latex] (0) -- (4) node[below]{4};
+	\draw[latex-latex] (1) -- (2) node[below]{2};
+	\draw[latex-latex] (1) -- (3);
+	\draw[latex-latex] (2) -- (5) node[right]{5};
+	\draw[latex-latex] (3) -- (5);
+\end{tikzpicture}
+\end{center}
+\end{slide}
+
+\begin{slide}{Coloring}
+\'Etant donné un graphe $G(V,E)$, on cherche une partition de $V$ en un nombre minimum de stables. Ce nombre $\chi(G)$ est appelé nombre chromatique du graphe et la partition une coloration minimale.
+\end{slide}
+
+\begin{slide}{Coloring}
+\begin{exercice}
+Proposez un algorithme qui trouve une Coloration
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Coloring}
+\begin{exercice}
+Trouvez un exemple dans lequel votre algorithme n'est pas optimal
+\end{exercice}
+\end{slide}
+
+\begin{slide}{TSP}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\coordinate(0) at (0,0);
+	\coordinate(1) at (2,2);
+	\coordinate(2) at (2,-2);
+	\coordinate(3) at (4,2);
+	\coordinate(4) at (4,-2);
+	\coordinate(5) at (6,0);
+
+	\draw[latex-latex] (0) node[left]{0} -- (1) node[above]{1};
+	\draw[latex-latex] (0) -- (3) node[above]{3};
+	\draw[latex-latex] (0) -- (4) node[below]{4};
+	\draw[latex-latex] (1) -- (2) node[below]{2};
+	\draw[latex-latex] (1) -- (3);
+	\draw[latex-latex] (2) -- (5) node[right]{5};
+	\draw[latex-latex] (3) -- (5);
+\end{tikzpicture}
+\end{center}
+\end{slide}
+
+\begin{slide}{TSP}
+\'Etant donné un graphe $G(V,E)$, on cherche une permutation $\sigma$ sur $V$ telle que pour tout $i\in V$, $(\sigma(i),\sigma(i+1))\in E$.
+\end{slide}
+
+\begin{slide}{TSP}
+\begin{exercice}
+Proposez un algorithme qui trouve un chemin hamiltonien
+\end{exercice}
+\end{slide}
+
+\begin{slide}{TSP}
+\begin{exercice}
+Pourquoi votre algorithme ne compile-t-il pas ?
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Independent Set}
+\begin{center}
+\begin{tikzpicture}[xscale=1,yscale=1]
+	\coordinate(0) at (0,0);
+	\coordinate(1) at (2,2);
+	\coordinate(2) at (2,-2);
+	\coordinate(3) at (4,2);
+	\coordinate(4) at (4,-2);
+	\coordinate(5) at (6,0);
+
+	\draw[latex-latex] (0) node[left]{0} -- (1) node[above]{1};
+	\draw[latex-latex] (0) -- (3) node[above]{3};
+	\draw[latex-latex] (0) -- (4) node[below]{4};
+	\draw[latex-latex] (1) -- (2) node[below]{2};
+	\draw[latex-latex] (1) -- (3);
+	\draw[latex-latex] (2) -- (5) node[right]{5};
+	\draw[latex-latex] (3) -- (5);
+\end{tikzpicture}
+\end{center}
+\end{slide}
+
+\begin{slide}{Independent Set}
+\'Etant donné un graphe $G(V,E)$, on cherche un sous-graphe totalement déconnecté (également appelé ensemble stable) de taille maximale.
+\end{slide}
+
+\begin{slide}{Independent Set}
+\begin{exercice}
+Proposez un algorithme qui trouve un Independent Set
+\end{exercice}
+\end{slide}
+
+\begin{slide}{Independent Set}
+\begin{exercice}
+Trouvez un exemple dans lequel votre algorithme n'est pas optimal
+\end{exercice}
+\end{slide}
+
+\section{Méthodes}
+
+
+\begin{slide}{Independent Set et Branching}
+\begin{equation*}
+\alpha(V) = \max \{\alpha(V\setminus\{v\}),\alpha(V\setminus N[v])+1\}
+\end{equation*}
+\end{slide}
+
+\begin{slide}{TSP et Programmation Dynamique}
+On reformule ainsi le TSP :
+$$P(U,i)=argmin_{\sigma \in S_U} \left(\sum_{j \in U\setminus\{i\}}w(\sigma(j),\sigma(j+1))\right)$$
+D'où la récurrence suivante :
+\begin{equation*}
+P(U,i) = \min_{j \in U} \left( P(U\setminus\{i\},j)+w(e_{ij}) \right)
+\end{equation*}
+\end{slide}
+
+
+\end{document}

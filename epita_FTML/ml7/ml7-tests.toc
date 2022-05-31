@@ -1,0 +1,5 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{Rappels}{2}{0}{1}
+\beamer@sectionintoc {2}{Tests Statistiques}{10}{0}{2}
+\beamer@sectionintoc {3}{Compromis Biais-Variance}{34}{0}{3}
+\beamer@sectionintoc {4}{Score}{41}{0}{4}

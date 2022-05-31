@@ -1,0 +1,195 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{framed}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{makeidx}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepgflibrary{fpu}
+
+\author{Nicolas Bourgeois}
+\date{}
+\title{Livret du module MATCHING}
+
+\newtheorem{exercice}{Exercice}
+\newtheorem{probleme}{Problème}
+\newtheorem{corr}{Exercice}
+\newtheorem{corp}{Problème}
+
+\newenvironment{advanced}
+	{\begin{mdframed}[linecolor=gray!60,linewidth=1]\setlength\tabcolsep{2pt} \begin{tabular}{cp{9.8cm}} \raisebox{-\totalheight}{\includegraphics[scale = 0.75]{./images/engrenages.png}} &}
+	{\end{tabular}\setlength\tabcolsep{6pt} \end{mdframed}  }
+	
+\newenvironment{pyenv}
+	{\begin{mdframed}[linecolor=black,linewidth=1] \ttfamily \small }
+	{\par \end{mdframed}  }
+
+\newenvironment{textenv}
+	{\begin{mdframed}[linecolor=gray] \ttfamily \small  }
+	{\par \end{mdframed}  }
+
+\newenvironment{sql}
+	{\begin{mdframed}[linecolor=gray] \ttfamily \small }
+	{\par \end{mdframed}  }
+	
+\newcommand{\Python}[1]{
+	\begin{pyenv}
+		\vspace{-0.25cm}
+		\lstinputlisting[language=Python]{./code/#1.py}
+		\vspace{-0.3cm}
+	\end{pyenv}
+}
+
+\newcommand{\Texte}[1]{
+	\begin{textenv}
+		\noindent #1 :\lstinputlisting{./code/#1}
+	\end{textenv}
+}
+
+
+\newcommand{\pysol}[1]{
+	\begin{textenv}
+	\vspace{0.05cm}
+	\noindent >{}>{}>\\#1
+	\vspace{0.05cm}
+	\end{textenv}
+}
+
+\newcommand{\pysolvb}[1]{
+	\begin{pyenv}
+		\noindent >{}>{}>\lstinputlisting{./code/#1}
+	\end{pyenv}
+}
+\newcommand{\urltext}[1]{\texttt{#1}}
+
+\newcommand{\corrige}[1]{
+	\begin{corr}\end{corr}\Python{#1}
+}
+\newcommand{\pbcorrige}[1]{
+	\begin{corp}\end{corp}\Python{#1}
+}
+
+\newcommand{\td}{
+\cellcolor{black!10}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Prérequis}
+
+Il est nécessaire d'avoir quelques bases élémentaires de Python pour pouvoir suivre ce module. Si vous regardez les exercices disponibles sur \texttt{ouralou.fr} cela correspond aux trois premiers chapitres (introduction au langage, listes, fonctions).
+
+Le jour du cours, il est nécessaire d'avoir installé Python 3 sur votre ordinateur, ainsi qu'un IDE de votre choix. Les jeux de données et autres ressources utilisées par le cours seront disponibles quelques jours à l'avance à l'adresse \texttt{ouralou.fr/Resources/epitech.zip}. Il est conseillé de les télécharger la veille.
+
+\section{Plan de cours}
+
+\subsection*{Jour 1 : Maximiser le nombre d'allocations}
+
+\begin{table}[h]
+
+\begin{tabular}{l|l}
+9h-9h15 & Présentation du problème de matching \\
+9h15-9h45 &\td Recherche de solutions empiriques sur des exemples simples\\
+9h45-10h & Graphe et structures de données possibles (3) \\
+10h-10h30 &\td Petits exercices avec la structure choisie \\
+\hline
+\multicolumn{2}{c}{\textit{Pause}}\\
+\hline
+10h45-11h & Définition de la méthode exhaustive \\
+11h-11h30 &\td Implémentation et crash tests scalés\\
+11h30-11h45 & Calculs et notion de complexité \\
+11h45-12h15 &\td Améliorations empiriques \\
+12h15-12h30 & Bilan et explications\\
+\hline
+\multicolumn{2}{c}{\textit{Pause Déjeuner}}\\
+\hline
+14h-14h15 & Le problème du flot max \\
+14h15-14h40 &\td Construction du réseau associé au matching initial\\
+14h40-15h & Algorithme de Ford-Fulkerson \\
+15h-15h45 &\td Implémentation et crash tests scalés \\
+\hline
+\multicolumn{2}{c}{\textit{Pause}}\\
+\hline
+16h-16h15 & Retour complexité + I/O en Python \\
+16h15-17h &\td Réalisation d'un programme autonome\\
+\end{tabular}
+\end{table}
+
+\subsection*{Jour 2 : Déterminer des préférences}
+
+\begin{table}[h]
+
+\begin{tabular}{l|l}
+9h-9h15 & Présentation de l'analyse multivariée \\
+9h15-9h45 &\td Importation des données et recherche de représentations\\
+9h45-10h & Construction de distances, principe et exemples\\
+10h-10h30 &\td Mise en pratique sur le jeu de données\\
+\hline
+\multicolumn{2}{c}{\textit{Pause}}\\
+\hline
+10h45-11h & Construction de graphes avec seuil simple  \\
+11h-11h30 &\td Implémentation sur l'exemple donné \\
+11h30-11h45 &  Matching vs Clusterisation (cliques) \\
+11h45-12h30 &\td  Mise en pratique\\
+\hline
+\multicolumn{2}{c}{\textit{Pause Déjeuner}}\\
+\hline
+14h-14h15 & La classification hiérarchique ascendante\\
+14h15-14h45 &\td Programmation d'une CHA \\
+14h45-15h & Optimisation : temps vs qualité du résultat\\
+15h-15h45 &\td Test scalés et évalués \\
+\hline
+\multicolumn{2}{c}{\textit{Pause}}\\
+\hline
+16h-16h15 & Bilan général des notions abordées \\
+16h15-17h &\td Réalisation d'un prototype global 
+\\
+\end{tabular}
+\end{table}
+
+\section{Evaluation}
+
+Chaque groupe devra, d'ici le 31 janvier minuit, mettre à ma disposition un répertoire compressé portant le nom de tous les membres du groupe et contenant :
+\begin{itemize}
+\item un jeu de données original sous la forme d'un fichier texte, encodé en utf-8, appelé \texttt{data.csv} comportant plusieurs dizaines de champs alphanumériques (le premier étant un id unique) et plusieurs centaines de lignes. Les champs seront séparés par des points-virgules et les lignes de données par de simples retours à la ligne, comme dans les exemples du cours. Idéalement ce jeu de données proviendra d'un exemple réel. A défaut, vous le générerez aléatoirement avec les contraintes suivantes :
+\begin{itemize}
+	\item Certains champs seront qualitatifs, d'autres quantitatifs
+	\item Il existera des corrélations entre certains champs (par exemple taille, âge et poids dans une population donnée) 
+\end{itemize}
+Ce jeu de données sera accompagné d'une question qui justifiera le recours au matching. Par exemple, si ce sont les inscrit-e-s d'un site de rencontres on veut proposer un maximum de couples potentiels ; si c'est des joueurs/joueuses d'un PvP on veut un maximum de parties par session, etc.
+
+\item deux algorithmes \texttt{build\_graph.py} et \texttt{match.py}. Le premier algorithme lit le fichier de données et produit en sortie un graphe (ou une structure de données que vous jugerez appropriée) de compatibilité entre les individus. Il doit donc 1) coder les variables qualitatives 2) normaliser et pondérer selon ce que vous jugerez pertinent toutes les variables 3) éliminer les variables inutiles 4) agréger les autres de façon à créer une distance d'individu à individu 5) fixer un seuil 6) construire un graphe avec des arêtes là où la distance est inférieure au seuil.\\
+
+Le second algorithme est plus classique : il résout effectivement le problème de matching sur le graphe généré et propose donc une allocation optimale. Si vous avez construit un problème dans lesquels les associations peuvent contenir plus de deux éléments, il s'agit du coup d'un problème de coloration dans le graphe complémentaire et non de matching, donc np-complet, donc vous vous contenterez d'une heuristique car il n'existe pas d'algo exact. Dans tous les cas il revoie en sortie un fichier \texttt{result.csv} constitué d'une liste de paires (ou de groupes) d'ids représentant les appariements déterminés, au format habituel, par exemple :
+\begin{framed}
+284;1945
+
+7327;12
+
+8799;9554
+\end{framed}
+\end{itemize}
+
+Le score final dépendra de la qualité des données, de la qualité du traitement des données et de la construction des préférences, puis de la distance, puis du graphe, de la rapidité de l'algorithme de matching (ou de la pertience de l'heuristique si vous ne faites pas un matching) et bien sûr comme d'habitude de la qualité générale du code : commentaire, respect des consignes et conventions de nommage. Pas besoin de tests unitaires vu la taille relativement modeste du code en revanche.
+
+\section{Besoin d'aide ?}
+
+Je serai disponible par internet ou téléphone régulièrement, n'hésitez pas à me demander un rdv par mail (ou me poser directement des questions). Je n'écrirai jamais de code pour vous, mais je répondrai à toute autre question concernant aussi bien l'algorithmique que la syntaxe, les consignes ou encore la faisabilité de telle ou telle approche.\\
+
+Bon courage.
+
+\section{Bibliographie}
+
+CORMEN Thomas, LEISERSON Charles, RIVEST Ronald et STEIN Clifford, \textit{Algorithmique}, Dunod, 2010\\
+
+\end{document}

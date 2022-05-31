@@ -1,0 +1,11 @@
+1) Au début du semestre :
+L'ensemble des matérieux pédagogiques est disponible en accès libre (pas de delivery progressif) 
+De surcroît chaque étudiant a un espace personnel créé (synchronisé avec son compte élève) avec un environnement d'exécution isolé
+
+2) Lors d'une séance de cours :
+* les étudiants peuvent upload leurs fichiers exercices (idéalement via git)
+* Chaque upload déclenche un script qui :
+	- exécute un test automatique sur le fichier dans son conteneur
+	- si le test est validé, il renvoie à la fois à l'étudiant et au board un message de validation
+	- le board met à jour les statistiques d'achèvement global de l'exercice
+	- le compte de l'étudiant met à jour ses statistiques individuelles d'achèvement

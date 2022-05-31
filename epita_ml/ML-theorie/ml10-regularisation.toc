@@ -1,0 +1,7 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Principe}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Pulv\IeC {\'e}risation}{1}{0}{1}
+\beamer@subsectionintoc {1}{2}{dimension de Vapnik\IeC {\textendash }Chervonenkis}{13}{0}{1}
+\beamer@sectionintoc {2}{SVM}{20}{0}{2}
+\beamer@subsectionintoc {2}{1}{SVM lin\IeC {\'e}aire}{20}{0}{2}
+\beamer@subsectionintoc {2}{2}{SVM \IeC {\`a} kernel}{31}{0}{2}

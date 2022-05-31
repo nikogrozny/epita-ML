@@ -1,0 +1,11 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Motivation}{2}{0}{1}
+\beamer@sectionintoc {2}{Visualisation}{40}{0}{2}
+\beamer@sectionintoc {3}{D\IeC {\'e}cision}{56}{0}{3}
+\beamer@subsectionintoc {3}{1}{Ford-Fulkerson / Edmonds}{65}{0}{3}
+\beamer@subsectionintoc {3}{2}{Construction de distances, principe et exemples}{77}{0}{3}
+\beamer@subsectionintoc {3}{3}{Construction de graphes avec seuil simple}{83}{0}{3}
+\beamer@subsectionintoc {3}{4}{MATCHING vs CLUSTERING (cliques)}{89}{0}{3}
+\beamer@subsectionintoc {3}{5}{La classification hi\IeC {\'e}rarchique ascendante}{102}{0}{3}
+\beamer@sectionintoc {4}{Qualit\IeC {\'e} d'un mod\IeC {\`e}le}{112}{0}{4}
+\beamer@sectionintoc {5}{Atelier sklearn}{125}{0}{5}

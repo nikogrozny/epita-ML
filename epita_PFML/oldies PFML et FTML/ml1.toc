@@ -1,0 +1,2 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Atelier python}{3}{0}{1}

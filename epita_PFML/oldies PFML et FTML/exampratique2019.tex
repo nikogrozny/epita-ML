@@ -1,0 +1,27 @@
+\documentclass[a4paper]{article}
+
+
+\title{Examen pratique}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Question 1}\\
+
+Importez les données \texttt{titanic} et ne conservez que les champs \texttt{age, fare, sex} (que vous coderez en 0/1), \texttt{pclass} et \texttt{survived}. Visualisez les 2 premiers axes sur un subplot, en coloriant selon \texttt{survived}.\\
+
+\textbf{Question 2}\\
+
+Représentez maintenant les deux autres champs sous la forme d'un tableau croisé d'effectifs (2 $\times$ 3), puis testez l'hypothèse d'indépendance de ces deux variables.\\
+
+\textbf{Question 3}\\
+
+Entraînez un svm linéaire \texttt{survived = f(age,fare)} avec une pénalisation 1, 10 et 100. Représentez les droites de séparation sur le scatter plot.\\
+
+\textbf{Question 4}\\
+
+Entraînez un arbre de décision pour prédire le fait d'avoir survécu, sur les 4 variables et avec les paramètres de votre choix. {\'E}valuez son score.
+
+\end{document}

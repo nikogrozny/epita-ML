@@ -1,0 +1,334 @@
+\documentclass[11pt]{beamer}
+\usepackage{helvet} %font
+\beamertemplatenavigationsymbolsempty
+\usetheme{JuanLesPins}
+\usefonttheme{structurebold}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{xcolor,colortbl}
+\usetikzlibrary{arrows,positioning}
+\usepackage{listings}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\AtBeginSubsection[]
+{
+   \begin{frame}
+	\small \tableofcontents[currentsection]
+   \end{frame}
+}
+
+\newenvironment{slide}[1]{%
+\begin{frame}[environment=slide]
+\frametitle{#1}
+}{%
+\end{frame}
+}
+\setbeamercolor{structure}{fg=red}
+\setbeamercolor{frametitle}{bg=black,fg=white}
+\definecolor{gris}{gray}{0.6}
+\definecolor{grisclair}{gray}{0.9}
+
+\newtheorem{exercice}{Exercice}
+
+\title{Machine Learning IX : Naive Bayes}
+\author{Nicolas Bourgeois}
+\date{}
+
+\newcommand{\Python}[1]{
+	{\small	\lstinputlisting[language=Python]{./#1.py}}
+}
+\newenvironment{pyenvsmall}
+	{ \ttfamily \tiny }
+	{\par  }
+
+\newcommand{\Pythonsmall}[1]{
+	{\scriptsize \lstinputlisting[language=Python]{./#1.py}}
+}
+\newcommand{\elimine}[1]{{\textcolor{lightgray}{#1}}}
+
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{Modèle Y=f(X)}
+
+\begin{frame}{Rappels de Notations}
+
+Variables aléatoires $(X,Y)$ à valeurs dans $E \times G$\\
+
+Dissimilarité $d:E^2 \rightarrow \mathbb{R}+ $
+
+Fonction de perte $LF : G^2 \rightarrow \mathbb{R}+$\\
+
+Expériences $\tau = (X_i,Y_i)_{i\leq n} \in (E \times G)^n$\\
+
+Risque du modèle $D(g) = \mathbb{E} \left(LF(g(X),Y)\right)$\\
+
+Risque optimal / de Bayes $ROPT = \min_g\mathbb{E} \left(LF(g(X),Y)\right)$\\
+
+Risque empirique $\tilde{D}(g,\tau) = \frac{1}{n}\sum_{j \leq n} LF(g(X_j),Y_j)$
+
+\end{frame}
+
+\begin{frame}{Objectif (théorique)}
+
+$ROPT = \min_g\mathbb{E} \left(LF(g(X),Y)\right)$\\
+
+\vspace{0.2cm}
+
+Trouver $g^*$ tel que $D(g^*)=ROPT$ \\
+
+\vspace{0.2cm}
+
+\pause
+
+Facile (dans le cas G discret) :\\
+
+\vspace{0.2cm}
+
+$g^*:x\mapsto \argmin_{y \in G} \sum_{y'\neq y}LF(y,y')\mathbb{P}(Y=y'\mid X=x)$\\
+
+\vspace{0.2cm}
+
+\pause
+
+Où est le piège ?
+
+\end{frame}
+
+\begin{frame}{Exercice}
+
+\begin{exercice}
+On pioche un dé dans un sac contenant certains à 6 faces et d'autres à 10 faces, puis on jette celui-ci et on lit le résultat obtenu. Quel sont les estimateurs optimaux et quel est le risque optimal pour une fonction de perte uniforme ? 
+\end{exercice}
+
+\begin{exercice}
+Qu'en est-il si pour chaque dé la probabilité est croissante avec la valeur ?
+\end{exercice}
+\end{frame}
+
+\begin{frame}{Exercice}
+
+\begin{exercice}
+A partir du tableau d'observations ci-dessous quel estimateur $\tilde{f}$ avez-vous a priori envie de construire ?
+\end{exercice}
+
+\vspace{0.2cm}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+\hline
+&1&2&3&4&5&6&7&8&9&10 \\
+\hline
+1&12&11&12&13&12&11&0&0&0&0\\
+\hline
+2&7&7&8&5&13&7&8&6&8&7\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.2cm}
+
+Question subsidiaire : pourquoi tout ceci est-il très décevant ?
+
+\end{frame}
+
+
+
+\section{Modèle génératif}
+
+\begin{frame}{Hypothèse alternative}
+
+$E$ et $G$ sont des espaces finis.\\
+
+\vspace{0.2cm}
+
+$(X,Y)$ sont des variables aléatoires non indépendantes, et on veut caractériser cette dépendance.\\
+
+\pause
+
+\vspace{0.2cm}
+
+Cette dépendance ne peut pas être caractérisée par une simple fonction $Y=f(X)$ on cherche plutôt $P(Y\mid X)$
+
+\vspace{0.3cm}
+
+L'espace des probabilités est trop vaste pour une simple optimisation.
+
+\end{frame}
+
+\begin{frame}{exercice}
+
+Considérez un espace où $X$ comporte $p$ champs, chacun possédant $m$ modalités. $Y$ possède $m'$ modalités. On suppose qu'on discrétise l'ensemble des scalaires pour se ramener à $k$ possibilités.
+
+\begin{exercice}
+Si on se restreignait aux lois $Y=f(X)$, quelle serait la taille de l'espace des fonctions ?
+\end{exercice}
+
+\begin{exercice}
+Si on cherche un modèle joint $(X,Y)$, quelle est la taille de l'espace des distributions possibles ? 
+\end{exercice}
+
+\end{frame}
+
+\begin{frame}{Réduction de complexité}
+$$\mathbb{P}(X,Y) = \mathbb{P}(X_1\mid X_{2\ldots n},Y)\mathbb{P}(X_2\mid X_{3\ldots n},Y)
+\ldots\mathbb{P}(X_n\mid Y)\mathbb{P}(Y)$$
+
+\pause 
+
+Hypothèse (forte) d'indépendance :
+$$\mathbb{P}(X,Y=k) = \prod_{j \leq p}\mathbb{P}(X_j\mid Y=k)\mathbb{P}(Y=k)$$
+
+D'où
+$$\mathbb{P}(Y=k\mid X) = \frac{1}{P_{\Omega}} \prod_{j \leq p}\mathbb{P}(X_j\mid Y=k)\mathbb{P}(Y=k)$$
+
+\end{frame}
+
+\begin{frame}{Notation complète}
+
+Distribution catégorique :
+
+$$\mathbb{P}_{X\sim C(\gamma)}: \mathbb{P}(X=x) = \gamma_x$$
+
+Distribution bayésienne naïve :
+
+$$\mathbb{P}_{(X,Y)\sim NB(\gamma)}(X=x,Y=k) =$$
+$$ \mathbb{P}_{Y\sim C(\gamma)}(Y=k) \prod_{j\leq p} \mathbb{P}_{X_j\mid (Y=k)\sim C(\gamma)}(X_j=x_j\mid Y=k)$$ 
+
+\end{frame}
+
+\begin{frame}{Minimiseur du reste empirique}
+
+Pour :
+
+$$\tilde{D}(\tilde{f},\tau) = \frac{1}{n}\sum_{j \leq n} LF(\tilde{f}(X_j),Y_j)$$
+
+On peut prendre :
+
+$$\tilde{F} = \argmin_{\tilde{f}} \tilde{D}(\tilde{f},\tau)$$
+
+\end{frame}
+
+\begin{frame}{Minimiseur du reste empirique}
+
+Cas bayésien naïf :
+
+$$\forall x, \tilde{F}(x) = \argmax_{k \in G} \mathbb{P}(Y=k)\prod_{j \leq p} \mathbb{P}(X_j\mid Y=k)$$
+
+\pause
+
+$$= \argmax_{k \in G} \log\mathbb{P}(Y=k) + \sum_{j \leq p} \log\mathbb{P}(X_j\mid Y=k)$$
+
+\end{frame}
+
+\begin{frame}{exercice}
+
+On considère les tableaux d'observations ci-dessous :\\
+
+\vspace{0.2cm}
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Y=True & X=True & X=False\\
+\hline
+X1 & 17& 43\\
+X2 & 31 & 29\\
+X3 & 11& 49\\
+X4 & 40 & 20\\  
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Y=False & X=True & X=False\\
+\hline
+X1 & 1& 24\\
+X2 & 20 & 5\\
+X3 & 11& 14\\
+X4 & 3 & 22\\  
+\hline
+\end{tabular}
+
+\end{center}
+
+Quelle serait la meilleure estimation bayésienne associée à l'observation \textit{True,True,False,False} ?
+
+\end{frame}
+
+\section{Application en Lexicométrie}
+
+\begin{frame}{Présentation}
+
+Soit un vocabulaire $\mathcal{W}$ et un ensemble de documents $\mathcal{X}$, une observation est une distribution avec $x_w = \mid\{w \in x\}\mid$. On suppose que les documents sont répartis en $K$ classes (inconnues).
+
+\pause
+
+\vspace{0.3cm}
+
+Modèle multinomial :\\
+
+$$\forall w \in \mathcal{W},\forall k \in 1\ldots K, \forall x \in C_k, \mathbb{P}(X_w=n) = p_{k,w}^n$$
+
+\pause
+\vspace{0.3cm}
+
+Pourquoi l'estimateur bayésien semble-t-il adapté ?
+
+\end{frame}
+
+\begin{frame}{Estimateur}
+
+$$\mathbb{P}(X=x \mid Y=k) = \frac{(\sum_w x_w)!}{\prod_w x_w !}\prod_w p_{k,w}^{x_w} $$
+
+\pause
+
+$$\mathbb{P}(Y=k \mid X=x) = \frac{\mathbb{P}(Y=k)}{P_{\Omega}} \frac{(\sum_w x_w)!}{\prod_w x_w !}\prod_w p_{k,w}^{x_w} $$
+
+\pause
+
+$$\log \mathbb{P}(Y=k \mid X=x) = c + \log \mathbb{P}(Y=k) + \sum_w \left(\log p_{k,w} \times x_w\right) $$
+
+\end{frame}
+
+
+\begin{frame}{exercice}
+
+Entrainez (à la main) un naive Bayes sur les données du titanic en vous restreignant aux champs \textit{pClass} et \textit{sex} pour expliquer \textit{survived}.
+
+\end{frame}
+
+\begin{frame}{solution}
+\Pythonsmall{ext10}
+\end{frame}
+
+\begin{frame}{Exercice}
+
+Proposez des exemples pour lesquels l'hypothèse d'indépendance est trop forte, entraînant une faiblesse de l'estimateur bayésien.
+
+\end{frame}
+
+\end{document}

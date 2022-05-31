@@ -1,0 +1,17 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Introduction}{1}{0}{1}
+\beamer@sectionintoc {2}{Maximiser le nombre d'allocations}{1}{1}{2}
+\beamer@subsectionintoc {2}{1}{Pr\IeC {\'e}sentation du probl\IeC {\`e}me de MATCHING}{1}{1}{2}
+\beamer@subsectionintoc {2}{2}{Rappel : Graphe et structures de donn\IeC {\'e}es possibles}{11}{1}{2}
+\beamer@subsectionintoc {2}{3}{Le probl\IeC {\`e}me du FLOT MAX}{18}{1}{2}
+\beamer@subsectionintoc {2}{4}{Ford-Fulkerson / Edmonds}{23}{1}{2}
+\beamer@subsectionintoc {2}{5}{Retour complexit\IeC {\'e} + I/O en Python}{28}{1}{2}
+\beamer@sectionintoc {3}{D\IeC {\'e}terminer des pr\IeC {\'e}f\IeC {\'e}rences}{32}{2}{3}
+\beamer@subsectionintoc {3}{1}{Pr\IeC {\'e}sentation de l'analyse multivari\IeC {\'e}e}{32}{2}{3}
+\beamer@subsectionintoc {3}{2}{Construction de distances, principe et exemples}{40}{2}{3}
+\beamer@subsectionintoc {3}{3}{Construction de graphes avec seuil simple}{46}{2}{3}
+\beamer@subsectionintoc {3}{4}{MATCHING vs CLUSTERING (cliques)}{52}{2}{3}
+\beamer@subsectionintoc {3}{5}{La classification hi\IeC {\'e}rarchique ascendante}{65}{2}{3}
+\beamer@subsectionintoc {3}{6}{Cartes auto-organisatrices}{75}{2}{3}
+\beamer@subsectionintoc {3}{7}{Optimisation : temps vs qualit\IeC {\'e} du r\IeC {\'e}sultat}{84}{2}{3}

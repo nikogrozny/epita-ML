@@ -1,0 +1,53 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{lamasse2012}
+S.~Lamass{\'e}, Les trait{\'e}s d'arithm{\'e}tique m{\'e}di{\'e}vale et la
+  constitution d'une langue de sp{\'e}cialit{\'e}, in: J.~Ducos (Ed.), Sciences
+  et langues au Moyen {\^A}ge, Actes de l'Atelier franco-allemand, Paris, 27-30
+  janvier 2009, Universit{\"a}tesverlag, Heidelberg, 2012, pp. 66--104.
+
+\bibitem{Mayaffre2005}
+D.~Mayaffre, De la lexicométrie à la logométrie, Astrolabe.
+
+\bibitem{Rastier2011}
+Rastier, La mesure et le Grain. Sémantique de corpus, champion Edition, Paris,
+  2011.
+
+\bibitem{martinezcontribution2003}
+W.~Martinez, A.~Salem, Contribution {\`a} une m{\'e}thodologie de l'analyse des
+  cooccurrences lexicales multiples dans les corpus textuels, Th{\`e}se
+  doctorat (2003).
+
+\bibitem{lebartstatistique1994}
+L.~Lebart, A.~Salem, Statistique textuelle, Dunod, Paris, 1994.
+
+\bibitem{oja99}
+E.~Oja, S.~Kaski, Kohonen Maps, Elsevier, 1999.
+
+\bibitem{cottrell98}
+M.~Cottrell, J.-C. Fort, G.~Pag{\`e}s, Theoretical aspects of the {SOM}
+  algorithm, Neurocomputing 21 (1998) 119--138.
+
+\bibitem{kohonen95}
+T.~Kohonen, Self-Organizing Maps, Vol.~30, Springer Series in Information
+  Science, Berlin, 1995.
+
+\bibitem{debodt02}
+E.~de~Bodt, M.~Cottrell, M.~Verleysen, Statistical tools to assess the
+  reliability of self-organizing maps, Neural Networks 15, 8-9 (2002) 967--978.
+
+\bibitem{qis}
+N.~Bourgeois, G.~Giannakos, I.~Milis, V.~T. Paschos, O.~Pottie, The max
+  quasi-independent set problem, Journal of Combinatorial Optimization 23
+  (2010) 94--117.
+
+\bibitem{exactis}
+N.~Bourgeois, B.~Escoffier, V.~T. Paschos, J.~M. M.~v. Rooij, Fast algorithms
+  for max independent set, Algorithmica 62 (2012) 382--415.
+
+\end{thebibliography}
