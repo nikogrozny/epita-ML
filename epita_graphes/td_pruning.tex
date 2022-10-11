@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{url}
+\usepackage{amsmath,amssymb,amsfonts}
+\pagestyle{empty}              
+\usepackage{vmargin}            
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{framed}
+\setmarginsrb{1.75cm}{2.25cm}{1.75cm}{2.25cm}{0cm}{0cm}{0cm}{0cm}
+
+\newtheorem{exercice}{Exercice}
+
+\title{TD : parcours arborescent}
+\author{}
+\date{}
+
+\newenvironment{python}{\ttfamily}{}
+\newenvironment{signature}[1]{\begin{framed} \ttfamily def #1}{ \ldots \end{framed}}
+\newenvironment{is_output}[1]{\begin{framed} \ttfamily python /\ldots /#1.py\\}{\end{framed}}
+
+\begin{document}
+
+\maketitle
+
+\section{Constitution du parcours}
+
+\begin{exercice}
+{\'E}crivez un programme récursif qui énumère tous les sous ensembles de l'ensemble des entiers naturels inférieurs à $n$.
+\end{exercice}
+
+\begin{signature}{exo1}
+(n: int=6, prefix: List[int]=[]) -> None:
+\end{signature}
+
+\begin{is_output}{exo1}
+\quad [0, 0, 0, 0, 0, 0]\\
+\quad [0, 0, 0, 0, 0, 1]\\
+\quad [0, 0, 0, 0, 1, 0] \ldots
+\end{is_output}
+
+\begin{exercice}
+{\'E}crivez un programme itératif qui énumère tous les sous ensembles de l'ensemble des entiers naturels inférieurs à $n$.
+\end{exercice}
+
+\begin{signature}{exo2}
+(n: int=6) -> None:
+\end{signature}
+
+\begin{is_output}{exo2}
+\quad [0, 0, 0, 0, 0, 0]\\
+\quad [0, 0, 0, 0, 0, 1]\\
+\quad [0, 0, 0, 0, 1, 0] \ldots
+\end{is_output}
+
+\begin{exercice}
+Modifiez le programme de l'exercice 1 de façon à ce qu'il affiche également les n{\oe}uds internes de l'arbre sous forme de questions. Vérifiez qu'il y a bien $2^n$ feuilles et $2^n-1$ n{\oe}uds internes.
+\end{exercice}
+
+\begin{signature}{exo3}
+(n: int=6, prefix: List[int]=[]) -> None:
+\end{signature}
+
+\begin{is_output}{exo3}
+\quad [0] ou [1] ?\\
+\quad [0, 0] ou [0, 1] ?\\
+\quad [0, 0, 0] ou [0, 0, 1] ?\\
+\quad [0, 0, 0, 0] ou [0, 0, 0, 1] ?\\
+\quad [0, 0, 0, 0, 0] ou [0, 0, 0, 0, 1] ?\\
+\quad [0, 0, 0, 0, 0, 0] ou [0, 0, 0, 0, 0, 1] ?\\
+\quad [0, 0, 0, 0, 0, 0]\\
+\quad [0, 0, 0, 0, 0, 1] \ldots
+\end{is_output}
+
+Dans toute la suite de l'énoncé on considérera la graphe suivant :
+
+\begin{python}
+graph\_1: Dict[int, List[int]] =\\ \{0: [1, 3], 1: [0, 4], 2: [3, 5], 3: [0, 2, 4, 5], 4: [1, 3, 5], 5: [2, 3, 4]\}
+\end{python}
+
+\begin{exercice}
+Modifiez le programme de l'exercice 1 de façon à ce qu'il n'affiche que les ensembles stables (qui ne contiennent aucune arête. Combien compte-t-il de n{\oe}uds internes ?
+\end{exercice}
+
+\begin{signature}{exo4}
+(n: int=6, prefix: List[int]=[], graph: Dict[int, List[int]]=graph\_1) -> None:
+\end{signature}
+
+\begin{is_output}{exo4}
+\quad [0, 0, 0, 0, 0, 0]\\
+\quad [0, 0, 0, 0, 0, 1]\\
+\quad [0, 0, 0, 0, 1, 0]\\
+\quad [0, 0, 0, 1, 0, 0] \ldots
+\end{is_output}
+
+\section{Pruning}
+
+\begin{exercice}
+Modifiez le programme de l'exercice 1 de façon à ce que non seulement il n'affiche que des ensembles stables, mais qu'il cesse d'explorer le sous-arbre dès lors qu'il y a une arête. Vérifiez qu'on passe de 63 à 32 n{\oe}uds internes (par exemple en affichant ceux-ci comme dans l'exercice 3).
+\end{exercice}
+
+\begin{signature}{exo5}
+(n: int=6, prefix: List[int]=[], graph: Dict[int, List[int]]=graph\_1) -> None:
+\end{signature}
+
+\begin{is_output}{exo5}
+\quad [0, 0, 0, 0, 0, 0]\\
+\quad [0, 0, 0, 0, 0, 1]\\
+\quad [0, 0, 0, 0, 1, 0]\\
+\quad [0, 0, 0, 1, 0, 0] \ldots
+\end{is_output}
+
+\begin{exercice}
+Desssinez (à la main ou via un logiciel) l'arbre parcouru par cet algorithme.
+\end{exercice}
+
+\begin{exercice}
+Modifiez le programme de l'exercice 5 de façon à ce qu'il n'affiche que les stables de taille maximale.
+\end{exercice}
+
+\begin{signature}{exo7}
+(graph: Dict[int, prefix: List[int], n: int, List[int]]=graph\_1, stable\_max: List[List[int]]): -> None:
+\end{signature}
+
+\begin{is_output}{exo7}
+\quad [[1, 0, 1, 0, 1, 0]]
+\end{is_output}
+
+\begin{exercice}(Plus difficile)
+Modifiez le programme de l'exercice 7 de façon à ce qu'il cesse de chercher dans un sous-arbre si il n'est pas possible de faire mieux que le maximum déjà enregistrer. Vérifiez que \textbf{si on explore les 1 \textbf{avant} les 0}, cela réduit le nombre de n{\oe}uds internes à 14!
+\end{exercice}
+
+
+\end{document}
