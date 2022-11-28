@@ -1,0 +1,7 @@
+1) On se place sur un échiquier (taille 8*8 donc) où certaines cases sont bloquées par des pions ([1,3], [2,7], [1,4] ...- le reste fourni le jour de l'examen). On lance un algorithme de plus court chemin pour essayer d'aller de 1,1 en 4,4. Illustrez ce que font un respectivement un algorithme qui énumère tous les chemins et un dijkstra simplifié pour les graphes non-pondérés (comme celui vu en cours) et calculez combien d'opérations seront effectuées pour obtenir le résultat. 
+
+2) On essaie de résoudre un problème de coloration minimale sur le graphe suivant (fourni le jour de l'examen). Décrivez (en vous appuyant sur une série de schémas) le fonctionnement respectif :  a) d'un algo qui colorie point par point avec la plus petite couleur admissible à chaque fois. b) d'un algo qui colorie d'abord entièrement une couleur, puis la seconde etc. Comparez les résultats finaux.
+
+3) On considère le jeu de données suivant ([1,3], [2,0], [1.5,4] ...- le reste fourni le jour de l'examen). Dessinez le dendogramme d'une classification hiérachique ascendante (en abscisse : les points, en ordonnée la somme des distances intra-clusters)
+
+4) On essaie de résoudre un problème de dominating set sur le graphe suivant (fourni le jour de l'examen). Décrivez (en vous appuyant sur une série de schémas) le fonctionnement d'un algo qui résout l'agorithme de façon non optimale mais rapide (en sélectionnant un point de degré max, puis en marquant ses voisins, puis pssant à un autre points etc).
